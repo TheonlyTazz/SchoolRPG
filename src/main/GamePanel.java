@@ -42,6 +42,7 @@ public class GamePanel extends JPanel implements Runnable{
         gameThread.start();
 
     }
+    /*
     @Override
     public void run() {
 
@@ -71,6 +72,30 @@ public class GamePanel extends JPanel implements Runnable{
                 throw new RuntimeException(e);
             }
 
+        }
+    }
+    */
+
+    public void run() {
+
+        double drawInterval = 1_000_000_000 /FPS;
+        double delta = 0;
+        long lastTime = System.nanoTime();
+        long currentTime;
+
+        while(gameThread != null) {
+
+            currentTime = System.nanoTime();
+
+            delta += (currentTime - lastTime) / drawInterval;
+
+            lastTime = currentTime;
+
+            if(delta >= 1) {
+                update();
+                repaint();
+                delta--;
+            }
         }
     }
     public void update(){
