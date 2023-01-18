@@ -4,37 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="Sounds, UI, Time check">
-      <change afterPath="$PROJECT_DIR$/res/sound/Dungeon.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/FinalBattle.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/Merchant.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/background.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/blocked.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/burning.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/chipwall.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/coin.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/cursor.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/cuttree.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/dooropen.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/fanfare.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/gameover.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/hitmonster.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/levelup.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/parry.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/powerup.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/receivedamage.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/sleep.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/speak.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/stairs.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/unlock.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Sound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/object/OBJ_Boots.java" afterDir="false" />
+    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="Debug Drawtime">
+      <change afterPath="$PROJECT_DIR$/res/player/Thumbs.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetSetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/CollisionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CollisionChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,21 +36,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="tile" />
@@ -97,7 +71,9 @@
       <option name="presentableId" value="Default" />
       <updated>1673959899868</updated>
       <workItem from="1673959901514" duration="10581000" />
-      <workItem from="1674020184453" duration="21440000" />
+      <workItem from="1674020184453" duration="21918000" />
+      <workItem from="1674048571164" duration="54000" />
+      <workItem from="1674048653884" duration="688000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Screen">
       <created>1673960431627</created>
@@ -183,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674041801028</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Sounds, UI, Time check">
+      <created>1674048063216</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1674048063216</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +195,7 @@
     <MESSAGE value="Object Collision" />
     <MESSAGE value="Object Collision#broken" />
     <MESSAGE value="Sounds, UI, Time check" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sounds, UI, Time check" />
+    <MESSAGE value="Debug Drawtime" />
+    <option name="LAST_COMMIT_MESSAGE" value="Debug Drawtime" />
   </component>
 </project>
