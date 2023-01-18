@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="Map work">
-      <change afterPath="$PROJECT_DIR$/res/maps/world01.txt" afterDir="false" />
+    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="First World Map">
+      <change afterPath="$PROJECT_DIR$/src/main/CollisionChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
@@ -71,7 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1673959899868</updated>
       <workItem from="1673959901514" duration="10581000" />
-      <workItem from="1674020184453" duration="3299000" />
+      <workItem from="1674020184453" duration="6003000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Screen">
       <created>1673960431627</created>
@@ -136,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674022545748</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="First World Map">
+      <created>1674023753907</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1674023753907</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +155,7 @@
     <MESSAGE value="Player Movement" />
     <MESSAGE value="Sprite and Player Animations" />
     <MESSAGE value="Map work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Map work" />
+    <MESSAGE value="First World Map" />
+    <option name="LAST_COMMIT_MESSAGE" value="First World Map" />
   </component>
 </project>
