@@ -4,41 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="Object Collision">
-      <change afterPath="$PROJECT_DIR$/res/objects/axe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/blueheart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/boots.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/chest (OLD).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/chest.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/chest_opened.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/coin_bronze.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/door.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/door_iron.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/heart_blank.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/heart_full.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/heart_half.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/key.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/lantern.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/manacrystal_blank.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/manacrystal_full.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/pickaxe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/potion_red.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/shield_blue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/shield_wood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/sword_normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/tent.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/AssetSetter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/object/OBJ_Chest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/object/OBJ_Door.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/object/OBJ_Key.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/object/SuperObject.java" afterDir="false" />
+    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="Sounds, UI, Time check">
+      <change afterPath="$PROJECT_DIR$/res/sound/Dungeon.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/FinalBattle.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/Merchant.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/background.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/blocked.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/burning.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/chipwall.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/coin.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/cursor.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/cuttree.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/dooropen.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/fanfare.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/gameover.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/hitmonster.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/levelup.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/parry.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/powerup.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/receivedamage.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/sleep.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/speak.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/stairs.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/unlock.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Sound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/object/OBJ_Boots.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/maps/world01.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/maps/world01.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetSetter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/CollisionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CollisionChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +82,7 @@
       <recent name="tile" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\sound" />
       <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\objects" />
       <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\maps" />
       <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\tiles" />
@@ -100,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1673959899868</updated>
       <workItem from="1673959901514" duration="10581000" />
-      <workItem from="1674020184453" duration="15235000" />
+      <workItem from="1674020184453" duration="21440000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Screen">
       <created>1673960431627</created>
@@ -179,11 +176,29 @@
       <option name="project" value="LOCAL" />
       <updated>1674026428293</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Object Collision#broken">
+      <created>1674041801028</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1674041801028</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -195,6 +210,8 @@
     <MESSAGE value="Player Colision" />
     <MESSAGE value="Player Collision" />
     <MESSAGE value="Object Collision" />
-    <option name="LAST_COMMIT_MESSAGE" value="Object Collision" />
+    <MESSAGE value="Object Collision#broken" />
+    <MESSAGE value="Sounds, UI, Time check" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sounds, UI, Time check" />
   </component>
 </project>

@@ -16,6 +16,7 @@ public class Player extends Entity{
 
     public final int screenX;
     public final int screenY;
+    public int hasKey = 0;
 
 
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -33,6 +34,7 @@ public class Player extends Entity{
         solidAreaDefaultY = solidArea.y;
         solidArea.width = 32;
         solidArea.height = 32;
+
 
 
 
@@ -80,7 +82,8 @@ public class Player extends Entity{
 
             // CHECK OBJECT COLLISION
             int objIndex = gp.cChecker.checkObject(this, true);
-            System.out.println(objIndex);
+            pickUpObject(objIndex);
+
             // IF COLLISION IS FALSE, PLAYER CAN MOVE
             if(!collisionOn) {
                 switch (direction) {
@@ -98,6 +101,45 @@ public class Player extends Entity{
                 spriteCounter = 0;
             }
         }
+
+    }
+    public void pickUpObject(int i) {
+        if(i != 999) {
+
+            String objectName = gp.obj[i].name;
+
+            switch (objectName){
+                case "Key" -> {
+                    gp.playSE(1);
+                    gp.ui.showMessage("Key Obtained!");
+                    hasKey++;
+                    gp.obj[i] = null;
+
+                }
+                case "Door" -> {
+                    if (hasKey > 0) {
+                        gp.playSE(3);
+                        gp.ui.showMessage("Door Unlocked!");
+                        hasKey--;
+                        gp.obj[i] = null;
+                    }
+                    else gp.ui.showMessage("You need a Key!");
+                }
+                case "Boots" -> {
+                    gp.playSE(2);
+                    gp.ui.showMessage("Speed Boost!");
+                    speed += 1;
+                    gp.obj[i] = null;
+                }
+                case "Chest" -> {
+                    gp.ui.gameFinished = true;
+                    gp.stopMusic();
+                    gp.playSE(4);
+
+                }
+            }
+        }
+
 
     }
     public void draw(Graphics2D g2) {
