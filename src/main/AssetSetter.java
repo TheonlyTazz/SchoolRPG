@@ -1,5 +1,6 @@
 package main;
 
+import entity.NPC_OldMan;
 import object.OBJ_Boots;
 import object.OBJ_Chest;
 import object.OBJ_Door;
@@ -13,7 +14,7 @@ public class AssetSetter {
         this.gp = gp;
     }
 
-    public void createObject(String OBJ,int id,int x,int y) {
+    public void createObject(int id,String OBJ,int x,int y) {
         switch(OBJ){
             case "Key" -> gp.obj[id] = new OBJ_Key(gp);
             case "Door" -> gp.obj[id] = new OBJ_Door(gp);
@@ -23,13 +24,21 @@ public class AssetSetter {
         gp.obj[id].worldX = gp.tileSize * x;
         gp.obj[id].worldY = gp.tileSize * y;
     }
+    public void createNPC(int id, String NPC,int x,int y) {
+        switch(NPC){
+            case "OldMan" -> gp.npc[id] = new NPC_OldMan(gp);
+            case "Monster" -> gp.npc[id] = new NPC_OldMan(gp);
+        }
+        gp.npc[id].worldX = gp.tileSize * x;
+        gp.npc[id].worldY = gp.tileSize * y;
+    }
+
+    public void setNPC() {
+        createNPC(0, "OldMan", 21, 21);
+
+
+    }
     public void setObject() {
-        createObject("Key", 0, 23, 7);
-        createObject("Key", 1, 23, 40);
-        createObject("Key", 2, 38, 8);
-        createObject("Key", 3, 10, 11);
-        createObject("Key", 4, 8, 28);
-        createObject("Key", 5, 12, 22);
-        createObject("Key", 6, 10, 7);
+
     }
 }

@@ -4,58 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="Debug Drawtime">
-      <change afterPath="$PROJECT_DIR$/res/maps/worldV2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/floor01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/grass00.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/grass01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/hut.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/road00.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/road01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/road02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/road03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/road04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/road05.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/road06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/road07.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/road08.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/road09.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/road10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/road11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/road12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/table01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/water00.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/water01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/water02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/water03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/water04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/water05.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/water06.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/water07.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/water08.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/water09.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/water11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/water12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/water13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/UtilityTool.java" afterDir="false" />
+    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="World v2&#10;new Textures">
+      <change afterPath="$PROJECT_DIR$/res/npc/bigrock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/merchant_down_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/merchant_down_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/oldman_down_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/oldman_down_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/oldman_left_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/oldman_left_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/oldman_right_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/oldman_right_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/oldman_up_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/oldman_up_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/NPC_OldMan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tiles/earth.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/earth.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tiles/grass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tiles/sand.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/water10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tiles/tree.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/tree.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tiles/wall.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/wall.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tiles/water.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetSetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/CollisionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CollisionChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Boots.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/OBJ_Boots.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/OBJ_Chest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/OBJ_Door.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/OBJ_Key.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/SuperObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/SuperObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +72,7 @@
       <recent name="tile" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\npc" />
       <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\maps" />
       <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\tiles" />
       <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\sound" />
@@ -121,7 +91,7 @@
       <workItem from="1674020184453" duration="21918000" />
       <workItem from="1674048571164" duration="54000" />
       <workItem from="1674048653884" duration="1252000" />
-      <workItem from="1674116459660" duration="5953000" />
+      <workItem from="1674116459660" duration="15105000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Screen">
       <created>1673960431627</created>
@@ -221,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674049616123</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="World v2&#10;new Textures">
+      <created>1674127764144</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1674127764144</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,7 +228,8 @@
     <MESSAGE value="Object Collision#broken" />
     <MESSAGE value="Sounds, UI, Time check" />
     <MESSAGE value="Debug Drawtime" />
-    <option name="LAST_COMMIT_MESSAGE" value="Debug Drawtime" />
+    <MESSAGE value="World v2&#10;new Textures" />
+    <option name="LAST_COMMIT_MESSAGE" value="World v2&#10;new Textures" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

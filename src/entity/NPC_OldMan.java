@@ -1,0 +1,71 @@
+package entity;
+
+import main.GamePanel;
+
+import java.awt.*;
+import java.util.Random;
+
+public class NPC_OldMan extends Entity{
+
+    public NPC_OldMan(GamePanel gp){
+        super(gp);
+
+        solidArea = new Rectangle();
+        solidArea.x = 1;
+        solidArea.y = 1;
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
+        solidArea.width = 46;
+        solidArea.height = 46;
+        direction = "down";
+        speed = 1;
+        name = "OldMan";
+        getImage();
+        setDialogue();
+    }
+
+    public void getImage() {
+
+        up1 = setup("/npc/oldman_up_1");
+        up2 = setup("/npc/oldman_up_2");
+        down1 = setup("/npc/oldman_down_1");
+        down2 = setup("/npc/oldman_down_2");
+        left1 = setup("/npc/oldman_left_1");
+        left2 = setup("/npc/oldman_left_2");
+        right1 = setup("/npc/oldman_right_1");
+        right2 = setup("/npc/oldman_right_2");
+    }
+    public void setDialogue() {
+        dialogues[0] = "Guten Tag!";
+        dialogues[1] = "Ich bin der Zauberer von OZ";
+        dialogues[2] = "Kann ich Sie behilflich sein?";
+        dialogues[3] = "Hello there!";
+
+    }
+    public void setAction() {
+
+        actionLockCounter++;
+        if(actionLockCounter <= 120) return;
+        Random random = new Random();
+        int i = random.nextInt(100)+1; // random number 1-100
+        if (i <= 25) direction = "up";
+        if (i > 25 && i <= 50) direction = "down";
+        if (i > 50 && i <= 75) direction = "left";
+        if (i > 75) direction = "right";
+        actionLockCounter = 0;
+
+        /*
+        switch(i) {
+            case i <= 25 ->  direction = "up";
+            case i > 25 && i <= 50 -> direction = "down";
+            case i > 50 && i <= 75 -> direction = "left";
+            case i -> direction = "right";
+        }
+         */
+
+    }
+    public void speak(){
+        gp.ui.currentDialogue = dialogues[dialogueIndex];
+        dialogueIndex++;
+    }
+}
