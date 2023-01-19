@@ -13,38 +13,23 @@ public class AssetSetter {
         this.gp = gp;
     }
 
+    public void createObject(String OBJ,int id,int x,int y) {
+        switch(OBJ){
+            case "Key" -> gp.obj[id] = new OBJ_Key(gp);
+            case "Door" -> gp.obj[id] = new OBJ_Door(gp);
+            case "Boots" -> gp.obj[id] = new OBJ_Boots(gp);
+            case "Chest" -> gp.obj[id] = new OBJ_Chest(gp);
+        }
+        gp.obj[id].worldX = gp.tileSize * x;
+        gp.obj[id].worldY = gp.tileSize * y;
+    }
     public void setObject() {
-
-        gp.obj[0] = new OBJ_Key();
-        gp.obj[0].worldX = gp.tileSize * 23;
-        gp.obj[0].worldY = gp.tileSize * 7;
-
-        gp.obj[1] = new OBJ_Key();
-        gp.obj[1].worldX = gp.tileSize * 23;
-        gp.obj[1].worldY = gp.tileSize * 40;
-
-        gp.obj[2] = new OBJ_Key();
-        gp.obj[2].worldX = gp.tileSize * 37;
-        gp.obj[2].worldY = gp.tileSize * 7;
-
-        gp.obj[3] = new OBJ_Door();
-        gp.obj[3].worldX = gp.tileSize * 10;
-        gp.obj[3].worldY = gp.tileSize * 11;
-
-        gp.obj[4] = new OBJ_Door();
-        gp.obj[4].worldX = gp.tileSize * 8;
-        gp.obj[4].worldY = gp.tileSize * 28;
-
-        gp.obj[5] = new OBJ_Door();
-        gp.obj[5].worldX = gp.tileSize * 12;
-        gp.obj[5].worldY = gp.tileSize * 22;
-
-        gp.obj[6] = new OBJ_Chest();
-        gp.obj[6].worldX = gp.tileSize * 10;
-        gp.obj[6].worldY = gp.tileSize * 7;
-
-        gp.obj[7] = new OBJ_Boots();
-        gp.obj[7].worldX = gp.tileSize * 37;
-        gp.obj[7].worldY = gp.tileSize * 42;
+        createObject("Key", 0, 23, 7);
+        createObject("Key", 1, 23, 40);
+        createObject("Key", 2, 38, 8);
+        createObject("Key", 3, 10, 11);
+        createObject("Key", 4, 8, 28);
+        createObject("Key", 5, 12, 22);
+        createObject("Key", 6, 10, 7);
     }
 }

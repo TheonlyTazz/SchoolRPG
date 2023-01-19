@@ -1,6 +1,7 @@
 package tile;
 
 import main.GamePanel;
+import main.UtilityTool;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -14,46 +15,83 @@ public class TileManager {
 
     GamePanel gp;
     public Tile[] tile;
-    public static final String fileName = ( "/maps/world01.txt");
+    public static final String fileName = ( "/maps/worldV2.txt");
     public int[][] mapTileNum;
 
     public TileManager(GamePanel gp) {
 
         this.gp = gp;
-        tile = new Tile[10];
+        tile = new Tile[50];
         mapTileNum = new int [gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
         loadMap(fileName);
     }
+    public void newTile(int id, String tileImage, boolean collision) {
+        UtilityTool uTool = new UtilityTool();
 
-    public void getTileImage() {
-        System.out.println("Image loading started");
         try {
-            tile[0] = new Tile();
-            tile[0].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/grass.png")));
-
-            tile[1] = new Tile();
-            tile[1].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/wall.png")));
-            tile[1].collision = true;
-
-            tile[2] = new Tile();
-            tile[2].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/water.png")));
-            tile[2].collision = true;
-
-            tile[3] = new Tile();
-            tile[3].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/earth.png")));
-
-            tile[4] = new Tile();
-            tile[4].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/tree.png")));
-            tile[4].collision = true;
-
-            tile[5] = new Tile();
-            tile[5].image = ImageIO.read(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("tiles/sand.png")));
+            tile[id] = new Tile();
+            tile[id].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/" + tileImage + ".png")));
+            tile[id].image = uTool.scaleImage(tile[id].image, gp.tileSize, gp.tileSize);
+            tile[id].collision = collision;
 
         }catch(IOException e){
             e.printStackTrace();
         }
+    }
+
+    public void getTileImage() {
+        System.out.println("Image loading started");
+            //newTile(id, tileImage, collision)
+
+        //Placeholder
+        newTile(0, "grass00", false);
+        newTile(1, "grass00", false);
+        newTile(2, "grass00", false);
+        newTile(3, "grass00", false);
+        newTile(4, "grass00", false);
+        newTile(5, "grass00", false);
+        newTile(6, "grass00", false);
+        newTile(7, "grass00", false);
+        newTile(8, "grass00", false);
+        newTile(9, "grass00", false);
+        //Placeholder
+
+        newTile(10, "grass00", false);
+        newTile(11, "grass01", false);
+        newTile(12, "water00", true);
+        newTile(13, "water01", true);
+        newTile(14, "water02", true);
+        newTile(15, "water03", true);
+        newTile(16, "water04", true);
+        newTile(17, "water05", true);
+        newTile(18, "water06", true);
+        newTile(19, "water07", true);
+        newTile(20, "water08", true);
+        newTile(21, "water09", true);
+        newTile(22, "water10", true);
+        newTile(23, "water11", true);
+        newTile(24, "water12", true);
+        newTile(25, "water13", true);
+        newTile(26, "road00", false);
+        newTile(27, "road01", false);
+        newTile(28, "road02", false);
+        newTile(29, "road03", false);
+        newTile(30, "road04", false);
+        newTile(31, "road05", false);
+        newTile(32, "road06", false);
+        newTile(33, "road07", false);
+        newTile(34, "road08", false);
+        newTile(35, "road09", false);
+        newTile(36, "road10", false);
+        newTile(37, "road11", false);
+        newTile(38, "road12", false);
+        newTile(39, "earth", false);
+        newTile(40, "wall", true);
+        newTile(41, "tree", true);
+
+
         System.out.println("Image loading finished");
     }
     public void loadMap(String filePath) {
@@ -106,7 +144,7 @@ public class TileManager {
                     worldX - gp.tileSize < gp.player.worldX + gp.player.screenX &&
                     worldY + gp.tileSize > gp.player.worldY - gp.player.screenY &&
                     worldY - gp.tileSize < gp.player.worldY + gp.player.screenY) {
-                g2.drawImage(tile[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+                g2.drawImage(tile[tileNum].image, screenX, screenY, null);
             }
             worldCol++;
 
