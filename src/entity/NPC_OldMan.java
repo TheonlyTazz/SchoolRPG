@@ -1,7 +1,6 @@
 package entity;
 
 import main.GamePanel;
-
 import java.awt.*;
 import java.util.Random;
 
@@ -36,7 +35,7 @@ public class NPC_OldMan extends Entity{
         right2 = setup("/npc/oldman_right_2");
     }
     public void setDialogue() {
-        dialogues[0] = "Guten Tag!";
+        dialogues[0] = "Guten Tag!\nWie geht es dir?\n\nIch habe Spaß mit Dialogen.";
         dialogues[1] = "Ich bin der Zauberer von OZ";
         dialogues[2] = "Kann ich Sie behilflich sein?";
         dialogues[3] = "Hello there!";
@@ -54,18 +53,7 @@ public class NPC_OldMan extends Entity{
         if (i > 75) direction = "right";
         actionLockCounter = 0;
 
-        /*
-        switch(i) {
-            case i <= 25 ->  direction = "up";
-            case i > 25 && i <= 50 -> direction = "down";
-            case i > 50 && i <= 75 -> direction = "left";
-            case i -> direction = "right";
-        }
-         */
 
     }
-    public void speak(){
-        gp.ui.currentDialogue = dialogues[dialogueIndex];
-        dialogueIndex++;
-    }
+    public void speak(){super.speak();}
 }
