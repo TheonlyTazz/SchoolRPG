@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="NPC + Dialogs">
+    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="Eventhandler">
+      <change afterPath="$PROJECT_DIR$/src/main/EventHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/EventRect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/NPC_OldMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/NPC_OldMan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
@@ -46,11 +47,13 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -78,7 +81,9 @@
       <workItem from="1674020184453" duration="21918000" />
       <workItem from="1674048571164" duration="54000" />
       <workItem from="1674048653884" duration="1252000" />
-      <workItem from="1674116459660" duration="16196000" />
+      <workItem from="1674116459660" duration="16787000" />
+      <workItem from="1674139938748" duration="14834000" />
+      <workItem from="1674209482999" duration="733000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Screen">
       <created>1673960431627</created>
@@ -192,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674138436378</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Dialogs Multiline">
+      <created>1674139335474</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1674139335474</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +236,9 @@
     <MESSAGE value="Debug Drawtime" />
     <MESSAGE value="World v2&#10;new Textures" />
     <MESSAGE value="NPC + Dialogs" />
-    <option name="LAST_COMMIT_MESSAGE" value="NPC + Dialogs" />
+    <MESSAGE value="Dialogs Multiline" />
+    <MESSAGE value="Eventhandler" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eventhandler" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -233,6 +247,11 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/GamePanel.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

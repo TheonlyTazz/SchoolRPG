@@ -27,7 +27,6 @@ public class Entity {
     int dialogueIndex = 0;
 
 
-
     public Entity(GamePanel gp) {
         this.gp = gp;
     }

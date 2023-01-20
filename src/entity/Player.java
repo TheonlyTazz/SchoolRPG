@@ -11,6 +11,8 @@ public class Player extends Entity{
 
     public final int screenX;
     public final int screenY;
+    public String playerName = "Player";
+
 
 
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -78,6 +80,12 @@ public class Player extends Entity{
             int npcIndex = gp.cChecker.checkEntity(this, gp.npc);
             interactNPC(npcIndex);
 
+            // CHECK EVENT
+            gp.eHandler.checkEvent();
+
+            gp.keyH.dialoguePressed = false;
+
+
             // IF COLLISION IS FALSE, PLAYER CAN MOVE
             if(!collisionOn) {
                 switch (direction) {
@@ -99,6 +107,7 @@ public class Player extends Entity{
     }
     public void pickUpObject(int i) {
         if(i != 999) {
+            //TODO
         }
     }
     public void interactNPC(int i) {
@@ -109,7 +118,6 @@ public class Player extends Entity{
                 gp.npc[i].speak();
             }
         }
-        gp.keyH.dialoguePressed = false;
     }
     public void draw(Graphics2D g2) {
         BufferedImage image = null;
@@ -132,6 +140,7 @@ public class Player extends Entity{
                 if (spriteNum == 2) image = right2;
             }
         }
+
         g2.drawImage(image, screenX, screenY, null);
 
     }
