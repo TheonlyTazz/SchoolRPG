@@ -2,11 +2,12 @@ package main;
 
 import entity.Entity;
 import entity.Player;
-import object.SuperObject;
 import tile.TileManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+
 
 public class GamePanel extends JPanel implements Runnable{
 
@@ -14,14 +15,14 @@ public class GamePanel extends JPanel implements Runnable{
     final int originalTileSize = 16; // 16 x 16 Pixels
     final int scale = 3;
     public final int tileSize = originalTileSize * scale;
-    public final int maxScreenCol = 16;
-    public final int maxScreenRow = 12;
+    public final int maxScreenCol = 24;
+    public final int maxScreenRow = 18;
     public final int screenWidth = tileSize * maxScreenCol;
     public final int screenHeight = tileSize * maxScreenRow;
 
     // WORLD SETTINGS
-    public final int maxWorldCol = 50;
-    public final int maxWorldRow = 50;
+    public final int maxWorldCol = 64;
+    public final int maxWorldRow = 64;
 
 
     // FPS
@@ -40,8 +41,10 @@ public class GamePanel extends JPanel implements Runnable{
 
     // ENTITY AND OBJECT
     public Player player = new Player(this, keyH);
-    public SuperObject[] obj =  new SuperObject[10];
-    public Entity[] npc = new Entity[10];
+    public Entity[] obj =  new Entity[20];
+    public Entity[] npc = new Entity[20];
+    ArrayList<Entity> entityList = new ArrayList<>();
+
 
     //Game State
     public int gameState;
@@ -132,20 +135,38 @@ public class GamePanel extends JPanel implements Runnable{
 
         }
         else{
+
             // TILE
             tileM.draw(g2);
 
-            // OBJECT
-            for(int i = 0; i < obj.length; i++){
-                if(obj[i] != null) obj[i].draw(g2, this);
+            // ADD PLAYER
+            entityList.add(player);
+
+            // ADD NPC
+            for (Entity entity : npc) {
+                if (entity != null) {
+                    entityList.add(entity);
+                }
             }
-            // NPC
-            for(int i = 0; i < npc.length; i++){
-                if(npc[i] != null) npc[i].draw(g2);
+            // ADD OBJECTS
+            for (Entity entity : obj) {
+                if (entity != null) {
+                    entityList.add(entity);
+                }
             }
 
-            // player
-            player.draw(g2);
+            entityList.sort((e1, e2) -> {
+                return Integer.compare(e1.worldY, e2.worldY);
+            });
+
+            // DRAW ENTITIES
+            for (Entity entity : entityList) {
+                entity.draw(g2);
+            }
+            // EMPTY Entity List
+            for(int i = 0; i < entityList.size(); i++){
+                entityList.remove(i);
+            }
 
             // UI
             ui.draw(g2);

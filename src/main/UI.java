@@ -6,9 +6,9 @@ public class UI {
     GamePanel gp;
     Graphics2D g2;
     Font courier_40, courier_80B;
-    public boolean messageOn = true;
-    public String message = "";
-    public boolean gameFinished = false;
+    //public boolean messageOn = true;
+    //public String message = "";
+
     public String currentDialogue = "";
     public int commandNum = 0;
     public int titleScreenState = 0; // 0: first Titlescreen, 1: second Titlescreen
@@ -28,10 +28,10 @@ public class UI {
         menuString = new String[20];
         menuLength = 6;
         menuString[0] = "Leroy";
-        menuString[1] = "Florian";
-        menuString[2] = "Kevin";
-        menuString[3] = "Daniel";
-        menuString[4] = "Jemand";
+        menuString[1] = "Spieler 2";
+        menuString[2] = "Spieler 3";
+        menuString[3] = "Spieler 4";
+        menuString[4] = "Spieler 5";
         menuString[5] = "BACK TO MAIN MENU";
     }
 
@@ -42,12 +42,14 @@ public class UI {
         courier_80B = new Font("Courier", Font.BOLD, 80);
 
     }
-
+    /*
     public void showMessage(String text){
 
         message = text;
         messageOn = true;
     }
+
+     */
     public void draw(Graphics2D g2){
         this.g2 = g2;
 

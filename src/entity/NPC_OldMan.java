@@ -10,12 +10,12 @@ public class NPC_OldMan extends Entity{
         super(gp);
 
         solidArea = new Rectangle();
-        solidArea.x = 1;
-        solidArea.y = 1;
+        solidArea.x = 0;
+        solidArea.y = 16;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
         solidArea.width = 46;
-        solidArea.height = 46;
+        solidArea.height = 32;
         direction = "down";
         speed = 1;
         name = "OldMan";

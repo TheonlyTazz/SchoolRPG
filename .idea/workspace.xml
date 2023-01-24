@@ -4,15 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="Eventhandler">
-      <change afterPath="$PROJECT_DIR$/src/main/EventHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/EventRect.java" afterDir="false" />
+    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="new textures, better entity handler">
+      <change afterPath="$PROJECT_DIR$/res/maps/worldv3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/tiles/blockroad00.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/tiles/blockroad01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/tiles/blockroad02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/tiles/window.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/tiles/road00.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road00.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/tiles/road01.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/tiles/road02.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road02.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/tiles/road03.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road03.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/tiles/road04.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road04.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/tiles/road05.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road05.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/tiles/road06.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road06.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/tiles/road07.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road07.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/tiles/road08.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road08.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/NPC_OldMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/NPC_OldMan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetSetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/EventHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Boots.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/OBJ_Boots.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/OBJ_Chest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/OBJ_Door.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/OBJ_Key.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/SuperObject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +69,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/leroy/OneDrive/Dokumente/Schule/python/SchoolRPG/res/maps&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -60,6 +81,9 @@
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="tile" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\leroy\OneDrive\Dokumente\Schule\python\SchoolRPG\res\maps" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\npc" />
@@ -84,6 +108,15 @@
       <workItem from="1674116459660" duration="16787000" />
       <workItem from="1674139938748" duration="14834000" />
       <workItem from="1674209482999" duration="733000" />
+      <workItem from="1674381862116" duration="1466000" />
+      <workItem from="1674456951753" duration="583000" />
+      <workItem from="1674463690506" duration="640000" />
+      <workItem from="1674469191682" duration="962000" />
+      <workItem from="1674475569983" duration="2807000" />
+      <workItem from="1674544105646" duration="6674000" />
+      <workItem from="1674556383978" duration="208000" />
+      <workItem from="1674561618813" duration="3863000" />
+      <workItem from="1674568135677" duration="760000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Screen">
       <created>1673960431627</created>
@@ -238,7 +271,8 @@
     <MESSAGE value="NPC + Dialogs" />
     <MESSAGE value="Dialogs Multiline" />
     <MESSAGE value="Eventhandler" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eventhandler" />
+    <MESSAGE value="new textures, better entity handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="new textures, better entity handler" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -248,11 +282,16 @@
           <option name="timeStamp" value="3" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/GamePanel.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="15" />
+          <url>file://$PROJECT_DIR$/src/tile/TileManager.java</url>
+          <line>124</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.lang.ArrayIndexOutOfBoundsException" memberName="cause" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

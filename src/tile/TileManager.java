@@ -15,7 +15,7 @@ public class TileManager {
 
     GamePanel gp;
     public Tile[] tile;
-    public static final String fileName = ( "/maps/worldV2.txt");
+    public static final String fileName = ( "/maps/worldv3.txt");
     public int[][] mapTileNum;
 
     public TileManager(GamePanel gp) {
@@ -42,8 +42,7 @@ public class TileManager {
     }
 
     public void getTileImage() {
-        System.out.println("Image loading started");
-            //newTile(id, tileImage, collision)
+        //newTile(id, tileImage, collision)
 
         //Placeholder
         newTile(0, "grass00", false);
@@ -90,9 +89,11 @@ public class TileManager {
         newTile(39, "earth", false);
         newTile(40, "wall", true);
         newTile(41, "tree", true);
+        newTile(42, "window", true);
+        newTile(43, "blockroad00", true);
+        newTile(44, "blockroad01", true);
+        newTile(45, "blockroad02", true);
 
-
-        System.out.println("Image loading finished");
     }
     public void loadMap(String filePath) {
         try {

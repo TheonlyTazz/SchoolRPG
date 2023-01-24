@@ -43,8 +43,10 @@ public class EventHandler {
         if(distance > gp.tileSize) canTouchEvent = true;
 
         if (canTouchEvent){
-            if(hit(23, 16, "any")) damagePit(23, 16, gp.dialogueState);
+
+            //if(hit(23, 16, "any")) damagePit(23, 16, gp.dialogueState);
             if(hit(23, 12, "up")) healingPool(23, 16, gp.dialogueState);
+            //if(hit(23, 20, "any")) teleport(23, 15, gp.dialogueState);
             //if(hit(23, 16, "any")) teleport(23, 12, gp.dialogueState);
         }
 
@@ -79,14 +81,15 @@ public class EventHandler {
         return hit;
     }
 
+    /*
     public void damagePit(int col, int row, int gameState) {
 
         gp.gameState = gameState;
         gp.ui.currentDialogue = "You fell into a Pit!";
         //eventRect[col][row].eventDone = true;
-
-
     }
+
+     */
 
     public void healingPool(int col, int row, int gameState) {
         if(gp.keyH.dialoguePressed){
@@ -94,6 +97,8 @@ public class EventHandler {
             gp.ui.currentDialogue = "You drink from the water!";
         }
     }
+
+
     public void teleport(int col, int row, int gameState) {
         gp.gameState = gameState;
         gp.ui.currentDialogue = "You got Teleported";

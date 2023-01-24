@@ -1,10 +1,8 @@
 package main;
 
-import entity.NPC_OldMan;
-import object.OBJ_Boots;
-import object.OBJ_Chest;
-import object.OBJ_Door;
-import object.OBJ_Key;
+import entity.*;
+import object.*;
+
 
 public class AssetSetter {
 
@@ -13,6 +11,7 @@ public class AssetSetter {
     public AssetSetter(GamePanel gp) {
         this.gp = gp;
     }
+
 
     public void createObject(int id,String OBJ,int x,int y) {
         switch(OBJ){
@@ -35,10 +34,18 @@ public class AssetSetter {
 
     public void setNPC() {
         createNPC(0, "OldMan", 21, 21);
-
+        createNPC(1, "OldMan", 22, 21);
+        createNPC(2, "OldMan", 23, 21);
+        createNPC(3, "OldMan", 24, 21);
+        createNPC(4, "OldMan", 25, 21);
 
     }
     public void setObject() {
-
+        /*
+        createObject(0, "Door", 24, 19);
+        createObject(1, "Door", 17, 32);
+        createObject(2, "Door", 30, 32);
+        createObject(3, "Key", 24, 25);
+         */
     }
 }
