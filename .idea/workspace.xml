@@ -4,29 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="new textures, better entity handler">
-      <change afterPath="$PROJECT_DIR$/res/gui/Icons/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/gui/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/maps/worldv3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/objects/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/blockroad00.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/blockroad01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/blockroad02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/tiles/window.png" afterDir="false" />
+    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="MON Handler">
+      <change afterPath="$PROJECT_DIR$/res/player/boy_attack_down_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_attack_down_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_attack_left_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_attack_left_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_attack_right_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_attack_right_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_attack_up_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_attack_up_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_axe_down_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_axe_down_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_axe_left_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_axe_left_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_axe_right_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_axe_right_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_axe_up_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_axe_up_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_pick_down_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_pick_down_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_pick_left_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_pick_left_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_pick_right_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_pick_right_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_pick_up_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player/boy_pick_up_2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tiles/road00.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road00.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tiles/road01.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road01.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tiles/road02.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road02.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tiles/road03.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road03.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tiles/road04.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road04.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tiles/road05.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road05.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tiles/road06.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road06.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tiles/road07.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road07.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tiles/road08.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road08.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Monster/MON_GreenSlime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monster/MON_GreenSlime.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetSetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/CollisionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CollisionChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile/TileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Sound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +80,9 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -80,11 +94,11 @@
       <recent name="C:\Users\leroy\OneDrive\Dokumente\Schule\python\SchoolRPG\res\maps" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="M:\_User\L_Koppelman\Schule\SchoolRPG\res\player" />
       <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\npc" />
       <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\maps" />
       <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\tiles" />
       <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\sound" />
-      <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\objects" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -111,6 +125,7 @@
       <workItem from="1674556383978" duration="208000" />
       <workItem from="1674561618813" duration="3863000" />
       <workItem from="1674568135677" duration="760000" />
+      <workItem from="1675235955860" duration="8091000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Screen">
       <created>1673960431627</created>
@@ -231,7 +246,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674139335474</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="MON Handler">
+      <created>1675232349681</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1675232349681</updated>
+    </task>
+    <task id="LOCAL-00019" summary="MON Handler">
+      <created>1675232484204</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1675232484204</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +295,8 @@
     <MESSAGE value="Dialogs Multiline" />
     <MESSAGE value="Eventhandler" />
     <MESSAGE value="new textures, better entity handler" />
-    <option name="LAST_COMMIT_MESSAGE" value="new textures, better entity handler" />
+    <MESSAGE value="MON Handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="MON Handler" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

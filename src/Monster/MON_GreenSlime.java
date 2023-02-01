@@ -8,12 +8,16 @@ import java.util.Random;
 
 public class MON_GreenSlime extends Entity {
 
+    GamePanel gp;
+
     public MON_GreenSlime(GamePanel gp) {
         super(gp);
+        this.gp = gp;
 
+        type = 2;
         name = "Green Slime";
         speed = 1;
-        maxLife = 4;
+        maxLife = 10;
         life = maxLife;
 
         solidArea = new Rectangle();
@@ -49,6 +53,11 @@ public class MON_GreenSlime extends Entity {
         if (i > 75) direction = "right";
         actionLockCounter = 0;
 
+    }
+    public void damageReaction(){
+
+        actionLockCounter = 0;
+        direction = gp.player.direction;
     }
 
 }

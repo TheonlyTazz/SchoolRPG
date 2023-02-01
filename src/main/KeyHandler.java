@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener {
     GamePanel gp;
 
-    public boolean upPressed, downPressed, leftPressed, rightPressed, dialoguePressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, dialoguePressed, attackPressed;
 
     //DEBUG
     boolean debug;
@@ -18,7 +18,6 @@ public class KeyHandler implements KeyListener {
 
     public void keyTyped(KeyEvent e) {
     }
-
 
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
@@ -75,6 +74,7 @@ public class KeyHandler implements KeyListener {
                 case KeyEvent.VK_P -> gp.gameState = gp.pauseState;
                 case KeyEvent.VK_E -> dialoguePressed = true;
                 case KeyEvent.VK_ESCAPE -> gp.gameState = gp.titleState;
+                case KeyEvent.VK_CONTROL -> attackPressed = true;
             }
         }
         // PAUSE STATE

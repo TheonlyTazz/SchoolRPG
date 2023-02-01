@@ -28,10 +28,10 @@ public class UI {
         menuString = new String[20];
         menuLength = 6;
         menuString[0] = "Leroy";
-        menuString[1] = "Spieler 2";
-        menuString[2] = "Spieler 3";
-        menuString[3] = "Spieler 4";
-        menuString[4] = "Spieler 5";
+        menuString[1] = "Florian";
+        menuString[2] = "Daniel";
+        menuString[3] = "Kevin";
+        menuString[4] = "Malte";
         menuString[5] = "BACK TO MAIN MENU";
     }
 
@@ -186,6 +186,8 @@ public class UI {
         g2.drawString(gp.player.playerName, x, y);
         g2.drawString("X: "+ gp.player.worldX/gp.tileSize, x+ gp.tileSize*2, y);
         g2.drawString("Y: "+ gp.player.worldY/gp.tileSize, x+ gp.tileSize*3, y);
+
+        g2.drawString(gp.player.life +" /"+ gp.player.maxLife, x+gp.tileSize*5, y);
 
     }
 

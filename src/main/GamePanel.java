@@ -117,8 +117,13 @@ public class GamePanel extends JPanel implements Runnable{
             for (Entity entity : npc) {
                 if (entity != null) entity.update();
             }
-            for (Entity entity : mon) {
-                if (entity != null) entity.update();
+            for(int i = 0; i < mon.length; i++){
+                if (mon[i] != null){
+                    if(mon[i].alive && !mon[i].dying) {
+                        mon[i].update();
+                    }
+                    if(!mon[i].alive) mon[i] = null;
+                }
             }
         }
         if(gameState == pauseState){
@@ -175,9 +180,8 @@ public class GamePanel extends JPanel implements Runnable{
                 entity.draw(g2);
             }
             // EMPTY Entity List
-            for(int i = 0; i < entityList.size(); i++){
-                entityList.remove(i);
-            }
+            entityList.clear();
+
 
             // UI
             ui.draw(g2);

@@ -105,7 +105,7 @@ public class CollisionChecker {
 
         int index = 999;
         for (int i = 0; i < target.length; i++) {
-
+            if (target[i] == entity) return index;
             if(target[i] != null){
 
                 // Get Entity Solid Pos
@@ -136,7 +136,8 @@ public class CollisionChecker {
         return index;
     }
 
-    public void checkPlayer(Entity entity) {
+    public boolean checkPlayer(Entity entity) {
+        boolean contactPlayer = false;
 
         // Get Entity Solid Pos
         entity.solidArea.x = entity.worldX + entity.solidArea.x;
@@ -155,10 +156,13 @@ public class CollisionChecker {
         }
         if (entity.solidArea.intersects(gp.player.solidArea)) {
             entity.collisionOn = true;
+            contactPlayer = true;
         }
         entity.solidArea.x = entity.solidAreaDefaultX;
         entity.solidArea.y = entity.solidAreaDefaultY;
         gp.player.solidArea.x = gp.player.solidAreaDefaultX;
         gp.player.solidArea.y = gp.player.solidAreaDefaultY;
+
+        return contactPlayer;
     }
 }
