@@ -1,11 +1,13 @@
 package entity;
 import main.GamePanel;
 import main.KeyHandler;
+import object.OBJ_Key;
 import object.OBJ_Shield_Wood;
 import object.OBJ_Sword_Normal;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 
 public class Player extends Entity{
@@ -16,6 +18,10 @@ public class Player extends Entity{
     public final int screenY;
     public String playerName = "Player";
     public boolean attackCanceled = false;
+    public ArrayList<Entity> inventory = new ArrayList<>();
+    public final int maxInventorySize = 20;
+
+
 
 
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -42,6 +48,7 @@ public class Player extends Entity{
         setDefaultValues();
         getPlayerImage();
         getPlayerAttackImage();
+        setItems();
 
 
     }
@@ -66,6 +73,14 @@ public class Player extends Entity{
         currentShield = new OBJ_Shield_Wood(gp);
         attack = getAttack();
         defense = getDefense();
+    }
+    public void setItems(){
+
+        inventory.add(currentWeapon);
+        inventory.add(currentShield);
+        inventory.add(new OBJ_Key(gp));
+        inventory.add(new OBJ_Key(gp));
+
     }
     public int getNextLevelExp(){return nextLevelExp = (int) (nextLevelExp + (nextLevelExp*1.1));}
     public int getAttack(){
@@ -228,7 +243,9 @@ public class Player extends Entity{
 
             if(!invincible){
                 gp.playSE(6);
-                life -= 1;
+                int damage = gp.mon[i].attack - defense;
+                if(damage < 0) damage = 0;
+                life -= damage;
                 invincible = true;
 
             }
@@ -241,16 +258,34 @@ public class Player extends Entity{
 
             if(!gp.mon[i].invincible){
                 gp.playSE(5);
-                gp.mon[i].life -= 1;
+                int damage = attack - gp.mon[i].defense;
+                if(damage < 0) damage = 0;
+                gp.mon[i].life -= damage;
+                gp.ui.addMessage(damage + " Damage!");
                 gp.mon[i].invincible = true;
                 gp.mon[i].damageReaction();
 
                 if(gp.mon[i].life <= 0){
                     gp.mon[i].dying = true;
+                    gp.ui.addMessage("Killed the " + gp.mon[i].name+"!");
+                    exp += gp.mon[i].exp;
+                    checkLevelUp();
                 }
             }
 
 
+        }
+    }
+    public void checkLevelUp(){
+        if (exp >= nextLevelExp){
+            level++;
+            exp -= nextLevelExp;
+            nextLevelExp = getNextLevelExp();
+            maxLife += 2;
+            strength++;
+            dexterity++;
+            attack = getAttack();
+            defense = getDefense();
         }
     }
     public void draw(Graphics2D g2) {

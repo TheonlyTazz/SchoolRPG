@@ -114,7 +114,24 @@ public class KeyHandler implements KeyListener {
     }
     public void characterState(int code){
         if(gp.gameState == gp.characterState){
-
+            switch(code){
+                case KeyEvent.VK_W -> {
+                    if(gp.ui.slotRow == 0) gp.ui.slotRow = 3;
+                    else gp.ui.slotRow--;
+                }
+                case KeyEvent.VK_S -> {
+                    if(gp.ui.slotRow == 3) gp.ui.slotRow = 0;
+                    else gp.ui.slotRow++;
+                }
+                case KeyEvent.VK_A -> {
+                    if(gp.ui.slotCol == 0) gp.ui.slotCol = 4;
+                    else gp.ui.slotCol--;
+                }
+                case KeyEvent.VK_D -> {
+                    if(gp.ui.slotCol == 4) gp.ui.slotCol = 0;
+                    else gp.ui.slotCol++;
+                }
+            }
 
             if(code == KeyEvent.VK_C && !charPressed) {
                     gp.gameState = gp.playState;

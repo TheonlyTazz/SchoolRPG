@@ -23,6 +23,7 @@ public class OBJ_Key extends Entity {
         solidArea.height = 0;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
+        description = "["+name+"]\nan old Key";
 
     }
 }

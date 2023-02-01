@@ -51,13 +51,16 @@ public class AssetSetter {
     }
     public void setMON(){
         createMON(0, "Green Slime", 23, 42);
+        createMON(1, "Green Slime", 24, 42);
+        createMON(2, "Green Slime", 25, 42);
+        createMON(3, "Green Slime", 26, 42);
+        createMON(4, "Green Slime", 27, 42);
+
     }
     public void setObject() {
-        /*
-        createObject(0, "Door", 24, 19);
-        createObject(1, "Door", 17, 32);
-        createObject(2, "Door", 30, 32);
-        createObject(3, "Key", 24, 25);
-         */
+        createObject(0, "Key", 24, 25);
+        createObject(1, "Key", 24, 26);
+        createObject(2, "Key", 24, 27);
+        createObject(3, "Key", 24, 28);
     }
 }
