@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="new textures, better entity handler">
+      <change afterPath="$PROJECT_DIR$/res/gui/Icons/Thumbs.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/gui/Thumbs.db" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/res/maps/worldv3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/objects/Thumbs.db" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/res/tiles/blockroad00.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/res/tiles/blockroad01.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/res/tiles/blockroad02.png" afterDir="false" />
@@ -21,17 +24,8 @@
       <change beforePath="$PROJECT_DIR$/res/tiles/road07.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road07.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/res/tiles/road08.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/road08.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/NPC_OldMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/NPC_OldMan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetSetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/EventHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Boots.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/OBJ_Boots.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Chest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/OBJ_Chest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/OBJ_Door.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/OBJ_Key.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/SuperObject.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

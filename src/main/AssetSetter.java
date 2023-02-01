@@ -1,5 +1,6 @@
 package main;
 
+import Monster.MON_GreenSlime;
 import entity.*;
 import object.*;
 
@@ -31,6 +32,14 @@ public class AssetSetter {
         gp.npc[id].worldX = gp.tileSize * x;
         gp.npc[id].worldY = gp.tileSize * y;
     }
+    public void createMON(int id, String MON,int x,int y) {
+        switch(MON){
+            case "Green Slime" -> gp.mon[id] = new MON_GreenSlime(gp);
+            case "Monster" -> gp.mon[id] = new NPC_OldMan(gp);
+        }
+        gp.mon[id].worldX = gp.tileSize * x;
+        gp.mon[id].worldY = gp.tileSize * y;
+    }
 
     public void setNPC() {
         createNPC(0, "OldMan", 21, 21);
@@ -39,6 +48,9 @@ public class AssetSetter {
         createNPC(3, "OldMan", 24, 21);
         createNPC(4, "OldMan", 25, 21);
 
+    }
+    public void setMON(){
+        createMON(0, "Green Slime", 23, 42);
     }
     public void setObject() {
         /*
