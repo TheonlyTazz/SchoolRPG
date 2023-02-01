@@ -1,4 +1,4 @@
-package Monster;
+package monster;
 
 import entity.Entity;
 import main.GamePanel;

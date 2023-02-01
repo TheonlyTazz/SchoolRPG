@@ -1,6 +1,9 @@
 package entity;
 import main.GamePanel;
 import main.KeyHandler;
+import object.OBJ_Shield_Wood;
+import object.OBJ_Sword_Normal;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -12,6 +15,7 @@ public class Player extends Entity{
     public final int screenX;
     public final int screenY;
     public String playerName = "Player";
+    public boolean attackCanceled = false;
 
 
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -47,11 +51,29 @@ public class Player extends Entity{
         worldY = gp.tileSize * 40;
         speed = 4;
         direction = "down";
+
+        // PLAYER STATS
+        level = 1;
         maxLife = 6;
         life = maxLife;
-
+        strength = 1;
+        dexterity = 1;
+        wisdom = 1;
+        exp = 0;
+        nextLevelExp = 5;
+        coin = 0;
+        currentWeapon = new OBJ_Sword_Normal(gp);
+        currentShield = new OBJ_Shield_Wood(gp);
+        attack = getAttack();
+        defense = getDefense();
     }
-
+    public int getNextLevelExp(){return nextLevelExp = (int) (nextLevelExp + (nextLevelExp*1.1));}
+    public int getAttack(){
+        return attack = strength * currentWeapon.attackValue;
+    }
+    public int getDefense(){
+        return defense = dexterity * currentShield.defenseValue;
+    }
     public void getPlayerImage() {
         up1 = setup("/player/boy_up_1");
         up2 = setup("/player/boy_up_2");
@@ -118,6 +140,11 @@ public class Player extends Entity{
                     case "right" -> worldX += speed;
                 }
             }
+            if(gp.keyH.dialoguePressed && !attackCanceled){
+                attacking = true;
+                spriteCounter = 0;
+            }
+            attackCanceled = false;
             gp.keyH.dialoguePressed = false;
 
             spriteCounter++;
@@ -188,13 +215,12 @@ public class Player extends Entity{
         if(gp.keyH.dialoguePressed){
 
             if (i != 999) {
+                attackCanceled = true;
                 gp.gameState = gp.dialogueState;
                 gp.npc[i].speak();
             }
-            else {
-                    attacking = true;
-                }
-            }
+
+        }
     }
     public void contactMonster(int i){
 

@@ -49,6 +49,23 @@ public class Entity {
     public int speed;
     public int maxLife = 6;
     public int life = maxLife;
+    public int level;
+    public int strength;
+    public int wisdom;
+    public int dexterity;
+    public int attack;
+    public int defense;
+    public int exp;
+    public int nextLevelExp;
+    public int coin;
+    public Entity currentWeapon;
+    public Entity currentShield;
+
+    // ITEM ATTRIBUTES
+    public int attackValue;
+    public int defenseValue;
+
+
 
 
     public Entity(GamePanel gp) {

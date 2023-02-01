@@ -4,39 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="MON Handler">
-      <change afterPath="$PROJECT_DIR$/res/player/boy_attack_down_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_attack_down_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_attack_left_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_attack_left_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_attack_right_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_attack_right_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_attack_up_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_attack_up_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_axe_down_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_axe_down_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_axe_left_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_axe_left_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_axe_right_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_axe_right_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_axe_up_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_axe_up_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_pick_down_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_pick_down_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_pick_left_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_pick_left_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_pick_right_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_pick_right_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_pick_up_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player/boy_pick_up_2.png" afterDir="false" />
+    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="Stats Screen">
+      <change afterPath="$PROJECT_DIR$/src/object/OBJ_Shield_Wood.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/object/OBJ_Sword_Normal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Monster/MON_GreenSlime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monster/MON_GreenSlime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Monster/MON_GreenSlime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monster/MON_GreenSlime.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/CollisionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CollisionChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetSetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/EventHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Sound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -125,7 +104,7 @@
       <workItem from="1674556383978" duration="208000" />
       <workItem from="1674561618813" duration="3863000" />
       <workItem from="1674568135677" duration="760000" />
-      <workItem from="1675235955860" duration="8091000" />
+      <workItem from="1675235955860" duration="13919000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Screen">
       <created>1673960431627</created>
@@ -260,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675232484204</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Monster Damage, Attack, Battle&#10;Monster Health Bar">
+      <created>1675247575082</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1675247575082</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +282,9 @@
     <MESSAGE value="Eventhandler" />
     <MESSAGE value="new textures, better entity handler" />
     <MESSAGE value="MON Handler" />
-    <option name="LAST_COMMIT_MESSAGE" value="MON Handler" />
+    <MESSAGE value="Monster Damage, Attack, Battle&#10;Monster Health Bar" />
+    <MESSAGE value="Stats Screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stats Screen" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

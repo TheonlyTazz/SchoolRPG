@@ -14,8 +14,38 @@ public class UI {
     public int titleScreenState = 0; // 0: first Titlescreen, 1: second Titlescreen
     public String [] menuString = new String[20];
 
-    public int menuLength = 0;
 
+    public int menuLength = 0;
+    public void setCharValue(){
+        menuString = new String[20];
+        menuLength = 11;
+        menuString[0] = String.valueOf(gp.player.level);
+        menuString[1] = String.valueOf(gp.player.exp);
+        menuString[2] = String.valueOf(gp.player.nextLevelExp);
+        menuString[3] = "";
+        menuString[4] = String.valueOf(gp.player.strength);
+        menuString[5] = String.valueOf(gp.player.dexterity);
+        menuString[6] = String.valueOf(gp.player.attack);
+        menuString[7] = String.valueOf(gp.player.defense);
+        menuString[8] = gp.player.currentWeapon.name;
+        menuString[9] = gp.player.currentShield.name;
+        menuString[10] = String.valueOf(gp.player.coin);
+    }
+    public void setCharString(){
+        menuString = new String[20];
+        menuLength = 11;
+        menuString[0] = "Level";
+        menuString[1] = "Exp";
+        menuString[2] = "Next Level";
+        menuString[3] = "";
+        menuString[4] = "Strength";
+        menuString[5] = "Dexterity";
+        menuString[6] = "Attack";
+        menuString[7] = "Defense";
+        menuString[8] = "Weapon";
+        menuString[9] = "Shield";
+        menuString[10] = "Coins";
+    }
     public void setTitleScreen(){
         menuString = new String[20];
         menuLength = 4;
@@ -76,6 +106,11 @@ public class UI {
             drawDialogueScreen();
             drawUiBar();
         }
+        // CHARACTER STATE
+        if(gp.gameState == gp.characterState){
+            drawUiBar();
+            drawCharacterScreen();
+        }
     }
 
     public void drawDialogueScreen(){
@@ -94,6 +129,55 @@ public class UI {
             g2.drawString(line, x, y);
             y += 40;
         }
+    }
+    public void drawCharacterScreen(){
+        // CREATE SUB WINDOW
+        final int frameX = gp.tileSize*2;
+        final int frameY = gp.tileSize;
+        final int frameWidth = gp.tileSize*8;
+        final int frameHeight = gp.tileSize*10;
+        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+
+        // TEXT
+        g2.setColor(Color.WHITE);
+        g2.setFont(g2.getFont().deriveFont(24F));
+
+        int textX = frameX + gp.tileSize/2;
+        int textY = frameY + gp.tileSize;
+        final int lineHeight = 32;
+
+
+        // NAMES
+        setCharString();
+        String Text;
+        for (String s : menuString) {
+            if (s != null) {
+                Text = s;
+                g2.drawString(Text, textX, textY);
+                textY += lineHeight;
+            }
+        }
+
+
+
+        // Value
+        int tailX = (frameX + frameWidth) - 30;
+        textY = frameY + gp.tileSize;
+
+        setCharValue();
+        for (String s : menuString) {
+            if (s != null) {
+                Text = s;
+                textX = getXforAlignToRightText(Text, tailX);
+                g2.drawString(Text, textX, textY);
+                textY += lineHeight;
+            }
+        }
+
+
+
+
+
     }
     public void drawSubWindow(int x, int y, int width, int height){
 
@@ -190,7 +274,6 @@ public class UI {
         g2.drawString(gp.player.life +" /"+ gp.player.maxLife, x+gp.tileSize*5, y);
 
     }
-
     private void menuList(int y) {
         String text;
         int x;
@@ -205,10 +288,13 @@ public class UI {
             }
         }
     }
-
     public int getXforCenteredText(String text) {
         int length = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
         return gp.screenWidth/2 - length/2;
+    }
+    public int getXforAlignToRightText(String text, int tailX) {
+        int length = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+        return tailX - length;
     }
 
 }

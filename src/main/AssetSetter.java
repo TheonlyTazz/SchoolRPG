@@ -1,6 +1,6 @@
 package main;
 
-import Monster.MON_GreenSlime;
+import monster.MON_GreenSlime;
 import entity.*;
 import object.*;
 
@@ -27,7 +27,7 @@ public class AssetSetter {
     public void createNPC(int id, String NPC,int x,int y) {
         switch(NPC){
             case "OldMan" -> gp.npc[id] = new NPC_OldMan(gp);
-            case "Monster" -> gp.npc[id] = new NPC_OldMan(gp);
+            case "monster" -> gp.npc[id] = new NPC_OldMan(gp);
         }
         gp.npc[id].worldX = gp.tileSize * x;
         gp.npc[id].worldY = gp.tileSize * y;
@@ -35,7 +35,7 @@ public class AssetSetter {
     public void createMON(int id, String MON,int x,int y) {
         switch(MON){
             case "Green Slime" -> gp.mon[id] = new MON_GreenSlime(gp);
-            case "Monster" -> gp.mon[id] = new NPC_OldMan(gp);
+            case "monster" -> gp.mon[id] = new NPC_OldMan(gp);
         }
         gp.mon[id].worldX = gp.tileSize * x;
         gp.mon[id].worldY = gp.tileSize * y;
