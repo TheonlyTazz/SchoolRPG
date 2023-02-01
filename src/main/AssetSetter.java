@@ -20,6 +20,8 @@ public class AssetSetter {
             case "Door" -> gp.obj[id] = new OBJ_Door(gp);
             case "Boots" -> gp.obj[id] = new OBJ_Boots(gp);
             case "Chest" -> gp.obj[id] = new OBJ_Chest(gp);
+            case "Axe" -> gp.obj[id] = new OBJ_Axe(gp);
+            case "Blue Shield" -> gp.obj[id] = new OBJ_Blue_Shield(gp);
         }
         gp.obj[id].worldX = gp.tileSize * x;
         gp.obj[id].worldY = gp.tileSize * y;
@@ -41,6 +43,14 @@ public class AssetSetter {
         gp.mon[id].worldY = gp.tileSize * y;
     }
 
+    public void setObject() {
+        createObject(0, "Key", 28, 25);
+        createObject(1, "Key", 28, 26);
+        createObject(2, "Key", 28, 27);
+        createObject(3, "Key", 28, 28);
+        createObject(4, "Blue Shield", 30, 38);
+        createObject(5, "Axe", 31, 38);
+    }
     public void setNPC() {
         createNPC(0, "OldMan", 21, 21);
         createNPC(1, "OldMan", 22, 21);
@@ -57,10 +67,5 @@ public class AssetSetter {
         createMON(4, "Green Slime", 27, 42);
 
     }
-    public void setObject() {
-        createObject(0, "Key", 24, 25);
-        createObject(1, "Key", 24, 26);
-        createObject(2, "Key", 24, 27);
-        createObject(3, "Key", 24, 28);
-    }
+
 }

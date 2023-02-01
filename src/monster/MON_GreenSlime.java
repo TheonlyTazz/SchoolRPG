@@ -14,14 +14,14 @@ public class MON_GreenSlime extends Entity {
         super(gp);
         this.gp = gp;
 
-        type = 2;
+        type = type_monster;
         name = "Green Slime";
         speed = 1;
-        maxLife = 10;
+        maxLife = 4;
         life = maxLife;
         attack = 5;
         defense = 0;
-        exp = 2;
+        exp = 5;
 
 
         solidArea = new Rectangle();

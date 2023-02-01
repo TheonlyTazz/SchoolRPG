@@ -131,6 +131,7 @@ public class KeyHandler implements KeyListener {
                     if(gp.ui.slotCol == 4) gp.ui.slotCol = 0;
                     else gp.ui.slotCol++;
                 }
+                case KeyEvent.VK_E -> gp.player.selectItem();
             }
 
             if(code == KeyEvent.VK_C && !charPressed) {

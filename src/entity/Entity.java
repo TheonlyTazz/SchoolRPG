@@ -17,6 +17,8 @@ public class Entity {
     public BufferedImage image1, image2, image3, image4, image5;
     public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
     public Rectangle attackArea = new Rectangle(0, 0, 0, 0);
+
+
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collision = false;
     String[] dialogues = new String[20];
@@ -44,7 +46,6 @@ public class Entity {
 
 
     // CHARACTER ATTRIBUTES
-    public int type; // 0 = player, 1 = npc, 2 = monster
     public String name;
     public int speed;
     public int maxLife = 6;
@@ -65,6 +66,17 @@ public class Entity {
     public int attackValue;
     public int defenseValue;
     public String description = "";
+
+    // TYPE
+    public int type; // 0 = player, 1 = npc, 2 = monster
+    public final int type_player = 0;
+    public final int type_npc = 1;
+    public final int type_monster = 2;
+    public final int type_sword = 3;
+    public final int type_axe = 4;
+    public final int type_shield = 5;
+    public final int type_consumable = 6;
+
 
 
 
@@ -97,7 +109,7 @@ public class Entity {
         gp.cChecker.checkEntity(this, gp.mon);
         boolean contactPlayer = gp.cChecker.checkPlayer(this);
 
-        if(this.type == 2 && contactPlayer){
+        if(this.type == type_monster && contactPlayer){
             if(!gp.player.invincible){
                 gp.playSE(6);
                 int damage = attack - gp.player.defense;

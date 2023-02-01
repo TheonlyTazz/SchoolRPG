@@ -7,12 +7,10 @@ public class UI {
     GamePanel gp;
     Graphics2D g2;
     Font courier_40, courier_80B;
-    public boolean messageOn = false;
 
     ArrayList<String> message = new ArrayList<>();
     ArrayList<Integer> messageCounter = new ArrayList<>();
 
-    public Boolean gameFinished = false;
     public String currentDialogue = "";
     public int commandNum = 0;
     public int titleScreenState = 0; // 0: first Titlescreen, 1: second Titlescreen
@@ -205,6 +203,13 @@ public class UI {
 
         // DRAW PLAYER INVENTORY
         for(int i = 0; i < gp.player.inventory.size(); i++){
+
+            // EQUIP CURSOR
+            if(gp.player.inventory.get(i) == gp.player.currentWeapon || gp.player.inventory.get(i) == gp.player.currentShield){
+                g2.setColor(new Color(240, 190, 90));
+                g2.fillRoundRect(slotX, slotY, gp.tileSize, gp.tileSize, 10, 10);
+            }
+
             g2.drawImage(gp.player.inventory.get(i).down1, slotX, slotY, null);
             slotX += slotSize;
             if ((i+1) % 5 == 0){
@@ -242,10 +247,6 @@ public class UI {
                 textY += 28;
             }
         }
-
-
-
-
     }
     public int getItemIndexOnSlot(){
         return slotCol + (slotRow*5);

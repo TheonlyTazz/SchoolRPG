@@ -40,8 +40,6 @@ public class Player extends Entity{
         solidArea.width = 32;
         solidArea.height = 32;
 
-        attackArea.width = 36;
-        attackArea.height = 36;
 
 
 
@@ -84,7 +82,9 @@ public class Player extends Entity{
     }
     public int getNextLevelExp(){return nextLevelExp = (int) (nextLevelExp + (nextLevelExp*1.1));}
     public int getAttack(){
-        return attack = strength * currentWeapon.attackValue;
+        attackArea = currentWeapon.attackArea;
+        attack = strength * currentWeapon.attackValue;
+        return attack;
     }
     public int getDefense(){
         return defense = dexterity * currentShield.defenseValue;
@@ -223,7 +223,18 @@ public class Player extends Entity{
     }
     public void pickUpObject(int i) {
         if(i != 999) {
-            //TODO
+            String text;
+
+            if(inventory.size() != maxInventorySize){
+                inventory.add(gp.obj[i]);
+                text = "Got a " + gp.obj[i].name + "!";
+                gp.obj[i] = null;
+            }
+            else {
+                text = "Inventory Full";
+            }
+            gp.ui.addMessage(text);
+
         }
     }
     public void interactNPC(int i) {
@@ -287,6 +298,26 @@ public class Player extends Entity{
             attack = getAttack();
             defense = getDefense();
         }
+    }
+    public void selectItem(){
+        int itemIndex = gp.ui.getItemIndexOnSlot();
+        if(itemIndex < inventory.size()){
+
+            Entity selectedItem = inventory.get(itemIndex);
+            if(selectedItem.type == type_sword || selectedItem.type == type_axe){
+                currentWeapon = selectedItem;
+                attack = getAttack();
+            }
+            if(selectedItem.type == type_shield){
+                currentShield = selectedItem;
+                defense = getDefense();
+            }
+            if(selectedItem.type == type_consumable) {
+                // TODO
+            }
+
+        }
+
     }
     public void draw(Graphics2D g2) {
         BufferedImage image = null;

@@ -4,7 +4,6 @@ import entity.Entity;
 import main.GamePanel;
 
 
-import java.awt.*;
 
 
 public class OBJ_Key extends Entity {
@@ -13,17 +12,11 @@ public class OBJ_Key extends Entity {
         super(gp);
 
         name = "Key";
+        description = "["+name+"]\nan old Key";
+        type = type_consumable;
+
         down1 = setup("/objects/key");
 
-        solidArea = new Rectangle();
-
-        solidArea.x = 0;
-        solidArea.y = 0;
-        solidArea.width = 0;
-        solidArea.height = 0;
-        solidAreaDefaultX = solidArea.x;
-        solidAreaDefaultY = solidArea.y;
-        description = "["+name+"]\nan old Key";
 
     }
 }
