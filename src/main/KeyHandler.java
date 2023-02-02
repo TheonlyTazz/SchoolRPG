@@ -64,7 +64,10 @@ public class KeyHandler implements KeyListener {
                     //MAIN MENU
                     case 0 -> {
                         switch (gp.ui.commandNum) {
-                            case 0 -> gp.ui.titleScreenState = 1;
+                            case 0 -> {
+                                gp.ui.titleScreenState = 1;
+                                gp.player.setDefaultValues();
+                            }
                             case 1 -> System.out.println(0);
                             case 2 -> System.out.println(1);
                             case 3 -> System.exit(0);
@@ -162,6 +165,21 @@ public class KeyHandler implements KeyListener {
                 else gp.ui.commandNum++;
                 if (Objects.equals(gp.ui.menuString[gp.ui.commandNum], "")) gp.ui.commandNum++;
 
+            }
+            case KeyEvent.VK_SPACE -> {
+                switch (gp.ui.menuString[gp.ui.commandNum]){
+                    case "Full Screen" -> gp.fullScreenOn = !gp.fullScreenOn;
+                    case "Control View" -> gp.ui.subState = 1;
+                    case "Quit Game" -> {
+                        gp.gameState = gp.titleState;
+                        gp.ui.commandNum = 0;
+                        gp.ui.titleScreenState = 0;
+                    }
+                    case "Back" -> {
+                        gp.ui.commandNum = 0;
+                        gp.gameState = gp.playState;
+                    }
+                }
             }
         }
 

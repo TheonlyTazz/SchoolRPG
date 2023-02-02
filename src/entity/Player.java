@@ -46,7 +46,7 @@ public class Player extends Entity{
         setDefaultValues();
         getPlayerImage();
         getPlayerAttackImage();
-        setItems();
+
 
 
     }
@@ -71,9 +71,10 @@ public class Player extends Entity{
         currentShield = new OBJ_Shield_Wood(gp);
         attack = getAttack();
         defense = getDefense();
+        setItems();
     }
     public void setItems(){
-
+        inventory = new ArrayList<>();
         inventory.add(currentWeapon);
         inventory.add(currentShield);
         inventory.add(new OBJ_Key(gp));

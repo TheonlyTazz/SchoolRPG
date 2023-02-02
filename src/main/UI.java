@@ -54,11 +54,13 @@ public class UI {
     }
     public void setTitleScreen(){
         menuString = new String[20];
-        menuLength = 4;
-        menuString[0] = "NEW GAME";
-        menuString[1] = "LOAD GAME";
-        menuString[2] = "OPTIONS";
-        menuString[3] = "QUIT";
+        int i = 0;
+        menuString[i] = "NEW GAME"; i++;
+        menuString[i] = "LOAD GAME"; i++;
+        menuString[i] = "OPTIONS"; i++;
+        menuString[i] = "QUIT";
+        menuLength = i;
+
     }
     public void setCharScreen(){
         menuString = new String[20];
@@ -79,6 +81,21 @@ public class UI {
         menuString[i] = "Sound Effects"; i++;
         menuString[i] = "Control View"; i++;
         menuString[i] = "Quit Game"; i++;
+        menuString[i] = ""; i++;
+        menuString[i] = "Back";
+        menuLength = i;
+
+    }
+    public void setControl_View(){
+        menuString = new String[20];
+        int i = 0;
+        menuString[i] = "Up             -       W"; i++;
+        menuString[i] = "Down           -       S"; i++;
+        menuString[i] = "Left           -       A"; i++;
+        menuString[i] = "Right          -       R"; i++;
+        menuString[i] = "Interact/Use   -       E"; i++;
+        menuString[i] = "Options        -     ESC"; i++;
+        menuString[i] = ""; i++;
         menuString[i] = ""; i++;
         menuString[i] = "Back";
         menuLength = i;
@@ -379,7 +396,7 @@ public class UI {
 
         switch(subState){
             case 0 -> options_top(frameX, frameY);
-            case 1 -> options_top(frameX, frameY);
+            case 1 -> control_view(frameX, frameY);
         }
 
 
@@ -389,6 +406,7 @@ public class UI {
         setOptions_top();
         int textX;
         int textY;
+
         // TITLE
         String text = "- Optionen -";
         textX = getXforCenteredText(text)+gp.tileSize*6;
@@ -397,15 +415,39 @@ public class UI {
 
         textX = frameX + gp.tileSize;
 
-        for(int i = 0; i <= menuString.length; i++){
-            if(menuString[i] == null) return;
-            textY += gp.tileSize;
-            g2.drawString(menuString[i], textX, textY);
-            if(commandNum == i) {
-                g2.drawString(">", textX - gp.tileSize/2, textY);
-            }
-        }
+        optionList(textX, textY, true);
 
+        // FULL SCREEN CHECK BOX
+        textX = frameX + (int)(gp.tileSize*4.5);
+        textY = frameY + gp.tileSize + 26;
+        g2.setStroke(new BasicStroke(3));
+        g2.drawRect(textX, textY, 24, 24);
+        if(gp.fullScreenOn) g2.fillRect(textX, textY, 24, 24);
+
+        //MUSIC
+        textY += gp.tileSize;
+        g2.drawRect(textX, textY, 120, 24);
+
+        //SOUND EFFECT VOLUME
+        textY += gp.tileSize;
+        g2.drawRect(textX, textY, 120, 24);
+
+
+
+    }
+    public void control_view(int frameX, int frameY){
+        setControl_View();
+        int textX;
+        int textY;
+
+        // TITLE
+        String text = "- Optionen -";
+        textX = getXforCenteredText(text)+gp.tileSize*6;
+        textY = frameY + gp.tileSize;
+        g2.drawString(text, textX, textY);
+
+        textX = frameX + gp.tileSize;
+        optionList(textX, textY, false);
 
     }
     public void drawUiBar(){
@@ -427,6 +469,20 @@ public class UI {
         g2.drawString("Y: "+ (gp.player.worldY/gp.tileSize)+1, x+ gp.tileSize*3, y);
 
         g2.drawString(gp.player.life +" /"+ gp.player.maxLife, x+gp.tileSize*5, y);
+
+    }
+    private void optionList(int x, int y, boolean selectable){
+        String text;
+        for(int i = 0; i <= menuString.length; i++){
+            if(menuString[i] == null) return;
+            text = menuString[i];
+            y += gp.tileSize;
+            g2.drawString(text, x, y);
+            if(selectable && commandNum == i) {
+                    g2.drawString(">", x - gp.tileSize / 2, y);
+            }
+
+        }
 
     }
     private void menuList(int y) {
