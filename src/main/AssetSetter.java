@@ -3,6 +3,7 @@ package main;
 import monster.MON_GreenSlime;
 import entity.*;
 import object.*;
+import tile_interactive.IT_IronDoor;
 
 
 public class AssetSetter {
@@ -26,6 +27,14 @@ public class AssetSetter {
         gp.obj[id].worldX = gp.tileSize * x;
         gp.obj[id].worldY = gp.tileSize * y;
     }
+    public void createiTile(int id,String iTile,int x,int y) {
+        switch (iTile) {
+            case "Iron Door" -> gp.iTile[id] = new IT_IronDoor(gp,x, y);
+            case "Iron Door2" -> gp.iTile[id] = new IT_IronDoor(gp,x ,y);
+        }
+        gp.iTile[id].worldX = gp.tileSize * x;
+        gp.iTile[id].worldY = gp.tileSize * y;
+    }
     public void createNPC(int id, String NPC,int x,int y) {
         switch(NPC){
             case "OldMan" -> gp.npc[id] = new NPC_OldMan(gp);
@@ -44,12 +53,20 @@ public class AssetSetter {
     }
 
     public void setObject() {
-        createObject(0, "Key", 28, 25);
-        createObject(1, "Key", 28, 26);
-        createObject(2, "Key", 28, 27);
-        createObject(3, "Key", 28, 28);
-        createObject(4, "Blue Shield", 30, 38);
-        createObject(5, "Axe", 31, 38);
+        int i = 0;
+        createObject(i, "Key", 28, 25); i++;
+        createObject(i, "Key", 28, 26); i++;
+        createObject(i, "Key", 28, 27); i++;
+        createObject(i, "Key", 28, 28); i++;
+        createObject(i, "Blue Shield", 30, 38); i++;
+        createObject(i, "Axe", 31, 38);
+    }
+    public void setiTile(){
+        int i = 0;
+        createiTile(i, "Iron Door", 31, 22); i++;
+        createiTile(i, "Iron Door", 24, 35); i++;
+        createiTile(i, "Iron Door", 38, 35);
+
     }
     public void setNPC() {
         createNPC(0, "OldMan", 21, 21);
@@ -67,5 +84,6 @@ public class AssetSetter {
         createMON(4, "Green Slime", 27, 42);
 
     }
+
 
 }

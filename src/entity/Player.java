@@ -102,14 +102,19 @@ public class Player extends Entity{
     }
 
     public void getPlayerAttackImage() {
-        attackUp1 = setup("/player/boy_attack_up_1", gp.tileSize, gp.tileSize*2);
-        attackUp2 = setup("/player/boy_attack_up_2", gp.tileSize, gp.tileSize*2);
-        attackDown1 = setup("/player/boy_attack_down_1", gp.tileSize, gp.tileSize*2);
-        attackDown2 = setup("/player/boy_attack_down_2", gp.tileSize, gp.tileSize*2);
-        attackLeft1 = setup("/player/boy_attack_left_1", gp.tileSize*2, gp.tileSize);
-        attackLeft2 = setup("/player/boy_attack_left_2", gp.tileSize*2, gp.tileSize);
-        attackRight1 = setup("/player/boy_attack_right_1", gp.tileSize*2, gp.tileSize);
-        attackRight2 = setup("/player/boy_attack_right_2", gp.tileSize*2, gp.tileSize);
+        String type = "attack";
+        switch(currentWeapon.type){
+            case(type_sword) -> type = "attack";
+            case(type_axe) -> type = "axe";
+        }
+        attackUp1 = setup("/player/boy_"+type+"_up_1", gp.tileSize, gp.tileSize*2);
+        attackUp2 = setup("/player/boy_"+type+"_up_2", gp.tileSize, gp.tileSize*2);
+        attackDown1 = setup("/player/boy_"+type+"_down_1", gp.tileSize, gp.tileSize*2);
+        attackDown2 = setup("/player/boy_"+type+"_down_2", gp.tileSize, gp.tileSize*2);
+        attackLeft1 = setup("/player/boy_"+type+"_left_1", gp.tileSize*2, gp.tileSize);
+        attackLeft2 = setup("/player/boy_"+type+"_left_2", gp.tileSize*2, gp.tileSize);
+        attackRight1 = setup("/player/boy_"+type+"_right_1", gp.tileSize*2, gp.tileSize);
+        attackRight2 = setup("/player/boy_"+type+"_right_2", gp.tileSize*2, gp.tileSize);
 
     }
 
@@ -139,6 +144,10 @@ public class Player extends Entity{
             // CHECK MON COLLISION
             int monsterIndex = gp.cChecker.checkEntity(this, gp.mon);
             contactMonster(monsterIndex);
+
+            // CHECK iTILES COLLISION
+            int iTileIndex = gp.cChecker.checkEntity(this, gp.iTile);
+            changeInteractiveTile(iTileIndex);
 
 
             // CHECK EVENT
@@ -208,6 +217,7 @@ public class Player extends Entity{
             int monsterIndex = gp.cChecker.checkEntity(this, gp.mon);
             damageMonster(monsterIndex);
 
+
             // Restore original Data
             worldX = currentWorldX;
             worldY = currentWorldY;
@@ -252,13 +262,12 @@ public class Player extends Entity{
 
         if (i != 999){
 
-            if(!invincible){
+            if(!invincible && !gp.mon[i].dying){
                 gp.playSE(6);
                 int damage = gp.mon[i].attack - defense;
                 if(damage < 0) damage = 0;
                 life -= damage;
                 invincible = true;
-
             }
 
         }
@@ -287,6 +296,13 @@ public class Player extends Entity{
 
         }
     }
+    public void changeInteractiveTile(int i){
+
+        if(i != 999 && gp.keyH.dialoguePressed && gp.iTile[i].destructible && gp.iTile[i].isCorrectItem(this)){
+            if (gp.iTile[i].attackCanceled)  attackCanceled = true;
+            gp.iTile[i] = gp.iTile[i].getDestroyedForm();
+        }
+    }
     public void checkLevelUp(){
         if (exp >= nextLevelExp){
             level++;
@@ -307,6 +323,7 @@ public class Player extends Entity{
             if(selectedItem.type == type_sword || selectedItem.type == type_axe){
                 currentWeapon = selectedItem;
                 attack = getAttack();
+                getPlayerAttackImage();
             }
             if(selectedItem.type == type_shield){
                 currentShield = selectedItem;

@@ -3,6 +3,7 @@ package main;
 import entity.Entity;
 import entity.Player;
 import tile.TileManager;
+import tile_interactive.InteractiveTile;
 
 import javax.swing.*;
 import java.awt.*;
@@ -44,6 +45,7 @@ public class GamePanel extends JPanel implements Runnable{
     public Entity[] obj =  new Entity[20];
     public Entity[] npc = new Entity[20];
     public Entity[] mon = new Entity[20];
+    public InteractiveTile[] iTile = new InteractiveTile[20];
     ArrayList<Entity> entityList = new ArrayList<>();
 
 
@@ -71,6 +73,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void setupGame(){
 
         aSetter.setObject();
+        aSetter.setiTile();
         aSetter.setNPC();
         aSetter.setMON();
         gameState = titleState;
@@ -127,6 +130,11 @@ public class GamePanel extends JPanel implements Runnable{
                     if(!mon[i].alive) mon[i] = null;
                 }
             }
+            for (InteractiveTile interactiveTile : iTile) {
+                if (interactiveTile != null) {
+                    interactiveTile.update();
+                }
+            }
         }
         if(gameState == pauseState){
             //TODO
@@ -150,6 +158,12 @@ public class GamePanel extends JPanel implements Runnable{
 
             // TILE
             tileM.draw(g2);
+
+            for (InteractiveTile interactiveTile : iTile) {
+                if (interactiveTile != null) {
+                    interactiveTile.draw(g2);
+                }
+            }
 
             // ADD PLAYER
             entityList.add(player);
@@ -181,6 +195,8 @@ public class GamePanel extends JPanel implements Runnable{
             for (Entity entity : entityList) {
                 entity.draw(g2);
             }
+
+
             // EMPTY Entity List
             entityList.clear();
 

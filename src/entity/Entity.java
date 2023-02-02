@@ -77,6 +77,10 @@ public class Entity {
     public final int type_shield = 5;
     public final int type_consumable = 6;
 
+    public final int type_any = 10;
+    public final int type_door = 11;
+
+
 
 
 
@@ -211,7 +215,6 @@ public class Entity {
         if (dyingCounter%i*2 == i) changeAlpha(g2, 0f);
         if (dyingCounter%i*2 == 0) changeAlpha(g2, 1f);
         if (dyingCounter > i*8) {
-            dying = false;
             alive = false;
         }
     }

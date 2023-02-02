@@ -4,21 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="initial Inventory">
-      <change afterPath="$PROJECT_DIR$/src/object/OBJ_Axe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/object/OBJ_Blue_Shield.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="interactiveTiles">
+      <change afterPath="$PROJECT_DIR$/src/tile_interactive/IT_IronDoor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tile_interactive/IT_IronDoorOpen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tile_interactive/InteractiveTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/objects/door_iron.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tile_interactive/door_iron.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetSetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/monster/MON_GreenSlime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monster/MON_GreenSlime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/OBJ_Door.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/OBJ_Key.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Shield_Wood.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/OBJ_Shield_Wood.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Sword_Normal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/OBJ_Sword_Normal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,11 +70,11 @@
       <recent name="C:\Users\leroy\OneDrive\Dokumente\Schule\python\SchoolRPG\res\maps" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="M:\_User\L_Koppelman\Schule\SchoolRPG\res\tile_interactive" />
       <recent name="M:\_User\L_Koppelman\Schule\SchoolRPG\res\player" />
       <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\npc" />
       <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\maps" />
       <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\tiles" />
-      <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\sound" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -105,7 +101,7 @@
       <workItem from="1674556383978" duration="208000" />
       <workItem from="1674561618813" duration="3863000" />
       <workItem from="1674568135677" duration="760000" />
-      <workItem from="1675235955860" duration="22370000" />
+      <workItem from="1675235955860" duration="32146000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Screen">
       <created>1673960431627</created>
@@ -261,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675259145720</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Equip">
+      <created>1675263318785</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1675263318785</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +303,9 @@
     <MESSAGE value="Monster Damage, Attack, Battle&#10;Monster Health Bar" />
     <MESSAGE value="Stats Screen" />
     <MESSAGE value="initial Inventory" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial Inventory" />
+    <MESSAGE value="Equip" />
+    <MESSAGE value="interactiveTiles" />
+    <option name="LAST_COMMIT_MESSAGE" value="interactiveTiles" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
