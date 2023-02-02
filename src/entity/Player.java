@@ -299,7 +299,9 @@ public class Player extends Entity{
     public void changeInteractiveTile(int i){
 
         if(i != 999 && gp.keyH.dialoguePressed && gp.iTile[i].destructible && gp.iTile[i].isCorrectItem(this)){
+
             if (gp.iTile[i].attackCanceled)  attackCanceled = true;
+            generateParticle(gp.iTile[i], gp.iTile[i]);
             gp.iTile[i] = gp.iTile[i].getDestroyedForm();
         }
     }

@@ -3,6 +3,8 @@ package tile_interactive;
 import entity.Entity;
 import main.GamePanel;
 
+import java.awt.*;
+
 public class IT_IronDoor extends InteractiveTile{
 
     GamePanel gp;
@@ -29,5 +31,22 @@ public class IT_IronDoor extends InteractiveTile{
     public InteractiveTile getDestroyedForm(){
         InteractiveTile tile = new IT_IronDoorOpen(gp, worldX/gp.tileSize, worldY/gp.tileSize);
         return tile;
+    }
+
+    public Color getParticleColor(){
+        Color color = new Color(97, 97, 97);
+        return color;
+    }
+    public int getParticleSize(){
+        int size = 6;
+        return size;
+    }
+    public int getParticleSpeed(){
+        int speed = 1;
+        return speed;
+    }
+    public int getMaxLife(){
+        maxLife = 10;
+        return maxLife;
     }
 }

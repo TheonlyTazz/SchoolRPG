@@ -2,11 +2,12 @@ package main;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Objects;
 
 public class KeyHandler implements KeyListener {
     GamePanel gp;
 
-    public boolean upPressed, downPressed, leftPressed, rightPressed, dialoguePressed, attackPressed, charPressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, dialoguePressed, attackPressed, charPressed, enterPressed;
 
     //DEBUG
     boolean debug;
@@ -42,6 +43,10 @@ public class KeyHandler implements KeyListener {
         if(gp.gameState == gp.characterState){
             characterState(code);
         }
+        // OPTION STATE
+        if(gp.gameState == gp.optionState){
+            optionState(code);
+        }
     }
 
     public void titleState(int code){
@@ -75,6 +80,7 @@ public class KeyHandler implements KeyListener {
                         else {
                             System.out.println(gp.ui.commandNum+" - "+gp.ui.menuString[gp.ui.commandNum]);
                             gp.player.playerName = gp.ui.menuString[gp.ui.commandNum];
+                            gp.setupGame();
                             gp.gameState = gp.playState;
                         }
 
@@ -93,7 +99,10 @@ public class KeyHandler implements KeyListener {
             case KeyEvent.VK_O -> debug = !debug;
             case KeyEvent.VK_P -> gp.gameState = gp.pauseState;
             case KeyEvent.VK_E -> dialoguePressed = true;
-            case KeyEvent.VK_ESCAPE -> gp.gameState = gp.titleState;
+            case KeyEvent.VK_ESCAPE -> {
+                gp.gameState = gp.optionState;
+                charPressed = true;
+            }
             case KeyEvent.VK_CONTROL -> attackPressed = true;
             case KeyEvent.VK_C -> {
                 gp.gameState = gp.characterState;
@@ -139,6 +148,27 @@ public class KeyHandler implements KeyListener {
             }
             else if (code == KeyEvent.VK_C) charPressed = false;
         }
+    }
+    public void optionState(int code){
+        switch(code){
+            case KeyEvent.VK_ENTER -> enterPressed = true;
+            case KeyEvent.VK_W -> {
+                if (gp.ui.commandNum == 0) gp.ui.commandNum = gp.ui.menuLength;
+                else gp.ui.commandNum--;
+                if (Objects.equals(gp.ui.menuString[gp.ui.commandNum], "")) gp.ui.commandNum--;
+            }
+            case KeyEvent.VK_S -> {
+                if (gp.ui.commandNum == gp.ui.menuLength) gp.ui.commandNum = 0;
+                else gp.ui.commandNum++;
+                if (Objects.equals(gp.ui.menuString[gp.ui.commandNum], "")) gp.ui.commandNum++;
+
+            }
+        }
+
+        if(code == KeyEvent.VK_ESCAPE && !charPressed) {
+            gp.gameState = gp.playState;
+        }
+        else if (code == KeyEvent.VK_ESCAPE) charPressed = false;
     }
 
     public void keyReleased(KeyEvent e) {

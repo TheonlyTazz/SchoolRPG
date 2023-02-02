@@ -14,6 +14,7 @@ public class UI {
     public String currentDialogue = "";
     public int commandNum = 0;
     public int titleScreenState = 0; // 0: first Titlescreen, 1: second Titlescreen
+    int subState = 0;
     public int slotCol = 0;
     public int slotRow = 0;
 
@@ -61,13 +62,27 @@ public class UI {
     }
     public void setCharScreen(){
         menuString = new String[20];
-        menuLength = 6;
-        menuString[0] = "Leroy";
-        menuString[1] = "Player 2";
-        menuString[2] = "Player 3";
-        menuString[3] = "Player 4";
-        menuString[4] = "Player 5";
-        menuString[5] = "BACK TO MAIN MENU";
+        int i = 0;
+        menuString[i] = "Leroy"; i++;
+        menuString[i] = "Player 2"; i++;
+        menuString[i] = "Player 3"; i++;
+        menuString[i] = "Player 4"; i++;
+        menuString[i] = "Player 5"; i++;
+        menuString[i] = "BACK TO MAIN MENU";
+        menuLength = i;
+    }
+    public void setOptions_top(){
+        menuString = new String[20];
+        int i = 0;
+        menuString[i] = "Full Screen"; i++;
+        menuString[i] = "Music"; i++;
+        menuString[i] = "Sound Effects"; i++;
+        menuString[i] = "Control View"; i++;
+        menuString[i] = "Quit Game"; i++;
+        menuString[i] = ""; i++;
+        menuString[i] = "Back";
+        menuLength = i;
+
     }
 
 
@@ -118,8 +133,13 @@ public class UI {
             drawUiBar();
             drawCharacterScreen();
             drawInventory();
-
         }
+        // OPTION STATE
+        if(gp.gameState == gp.optionState){
+            drawUiBar();
+            drawOptionsScreen();
+        }
+
     }
 
     public void drawDialogueScreen(){
@@ -342,6 +362,48 @@ public class UI {
 
             y = gp.screenHeight - gp.tileSize*6;
             menuList(y);
+        }
+
+
+    }
+    public void drawOptionsScreen(){
+        g2.setColor(Color.white);
+        g2.setFont(g2.getFont().deriveFont(24F));
+
+        // CREATE SUB WINDOW
+        final int frameX = gp.screenWidth-gp.tileSize*10;
+        final int frameY = gp.tileSize;
+        final int frameWidth = gp.tileSize*8;
+        final int frameHeight = gp.tileSize*10;
+        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+
+        switch(subState){
+            case 0 -> options_top(frameX, frameY);
+            case 1 -> options_top(frameX, frameY);
+        }
+
+
+
+    }
+    public void options_top(int frameX, int frameY){
+        setOptions_top();
+        int textX;
+        int textY;
+        // TITLE
+        String text = "- Optionen -";
+        textX = getXforCenteredText(text)+gp.tileSize*6;
+        textY = frameY + gp.tileSize;
+        g2.drawString(text, textX, textY);
+
+        textX = frameX + gp.tileSize;
+
+        for(int i = 0; i <= menuString.length; i++){
+            if(menuString[i] == null) return;
+            textY += gp.tileSize;
+            g2.drawString(menuString[i], textX, textY);
+            if(commandNum == i) {
+                g2.drawString(">", textX - gp.tileSize/2, textY);
+            }
         }
 
 
