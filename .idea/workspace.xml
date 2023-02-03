@@ -4,12 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="Option Menu, Save config">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="Map System!">
+      <change afterPath="$PROJECT_DIR$/res/maps/class_down" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/maps/class_down.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/maps/class_up.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/maps/hallway_01.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/maps/hallway_01_upstairs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tile_interactive/IT_IronDoorSide.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tile_interactive/IT_IronDoorSideOpen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetSetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/CollisionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CollisionChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/EventHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile/TileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tile_interactive/IT_IronDoor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile_interactive/IT_IronDoor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +59,7 @@
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/leroy/OneDrive/Dokumente/Schule/python/SchoolRPG/res/maps",
+    "last_opened_file_path": "M:/_User/L_Koppelman/Schule/SchoolRPG/src/tile_interactive",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,6 +76,7 @@
       <recent name="tile" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="M:\_User\L_Koppelman\Schule\SchoolRPG\src\tile_interactive" />
       <recent name="C:\Users\leroy\OneDrive\Dokumente\Schule\python\SchoolRPG\res\maps" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -96,7 +111,7 @@
       <workItem from="1674556383978" duration="208000" />
       <workItem from="1674561618813" duration="3863000" />
       <workItem from="1674568135677" duration="760000" />
-      <workItem from="1675235955860" duration="50436000" />
+      <workItem from="1675235955860" duration="63122000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Screen">
       <created>1673960431627</created>
@@ -294,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675417809275</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Game Over Screen">
+      <created>1675419033464</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1675419033464</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +335,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Initial Screen" />
     <MESSAGE value="Player Movement" />
     <MESSAGE value="Sprite and Player Animations" />
     <MESSAGE value="Map work" />
@@ -337,19 +358,21 @@
     <MESSAGE value="interactiveTiles" />
     <MESSAGE value="Option Menu, Unfinished" />
     <MESSAGE value="Option Menu, Save config" />
-    <option name="LAST_COMMIT_MESSAGE" value="Option Menu, Save config" />
+    <MESSAGE value="Game Over Screen" />
+    <MESSAGE value="Map System!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Map System!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/tile/TileManager.java</url>
-          <line>124</line>
+          <line>133</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/UI.java</url>
-          <line>567</line>
+          <line>566</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>

@@ -38,7 +38,7 @@ public class Player extends Entity{
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
         solidArea.width = 32;
-        solidArea.height = 32;
+        solidArea.height = 30;
 
 
 
@@ -50,14 +50,26 @@ public class Player extends Entity{
 
 
     }
+    public void setDefaultPos(){
+        switch(gp.currentMap){
+            case 0 ->{
+                worldX = gp.tileSize * 23;
+                worldY = gp.tileSize * 40;
+            }
+            case 1 -> {
+                worldX = gp.tileSize * 20;
+                worldY = gp.tileSize * 28;
+            }
+        }
+    }
     public void setDefaultValues() {
 
-        worldX = gp.tileSize * 23;
-        worldY = gp.tileSize * 40;
+        setDefaultPos();
         speed = 4;
         direction = "down";
         invincible = false;
         invincibleCounter = 0;
+
         // PLAYER STATS
         level = 1;
         maxLife = 6;
@@ -72,6 +84,7 @@ public class Player extends Entity{
         currentShield = new OBJ_Shield_Wood(gp);
         attack = getAttack();
         defense = getDefense();
+
         setItems();
     }
     public void setItems(){
@@ -140,15 +153,15 @@ public class Player extends Entity{
             pickUpObject(objIndex);
 
             // CHECK NPC COLLISION
-            int npcIndex = gp.cChecker.checkEntity(this, gp.npc);
+            int npcIndex = gp.cChecker.checkEntity(this, gp.npc[gp.currentMap]);
             interactNPC(npcIndex);
 
             // CHECK MON COLLISION
-            int monsterIndex = gp.cChecker.checkEntity(this, gp.mon);
+            int monsterIndex = gp.cChecker.checkEntity(this, gp.mon[gp.currentMap]);
             contactMonster(monsterIndex);
 
             // CHECK iTILES COLLISION
-            int iTileIndex = gp.cChecker.checkEntity(this, gp.iTile);
+            int iTileIndex = gp.cChecker.checkEntity(this, gp.iTile[gp.currentMap]);
             changeInteractiveTile(iTileIndex);
 
 
@@ -217,7 +230,7 @@ public class Player extends Entity{
             solidArea.height = attackArea.height;
 
             // check monster collision with updated X, Y and solidArea
-            int monsterIndex = gp.cChecker.checkEntity(this, gp.mon);
+            int monsterIndex = gp.cChecker.checkEntity(this, gp.mon[gp.currentMap]);
             damageMonster(monsterIndex);
 
 
@@ -239,9 +252,9 @@ public class Player extends Entity{
             String text;
 
             if(inventory.size() != maxInventorySize){
-                inventory.add(gp.obj[i]);
-                text = "Got a " + gp.obj[i].name + "!";
-                gp.obj[i] = null;
+                inventory.add(gp.obj[gp.currentMap][i]);
+                text = "Got a " + gp.obj[gp.currentMap][i].name + "!";
+                gp.obj[gp.currentMap][i] = null;
             }
             else {
                 text = "Inventory Full";
@@ -256,7 +269,7 @@ public class Player extends Entity{
             if (i != 999) {
                 attackCanceled = true;
                 gp.gameState = gp.dialogueState;
-                gp.npc[i].speak();
+                gp.npc[gp.currentMap][i].speak();
             }
 
         }
@@ -265,9 +278,9 @@ public class Player extends Entity{
 
         if (i != 999){
 
-            if(!invincible && !gp.mon[i].dying){
+            if(!invincible && !gp.mon[gp.currentMap][i].dying){
                 gp.playSE(6);
-                int damage = gp.mon[i].attack - defense;
+                int damage = gp.mon[gp.currentMap][i].attack - defense;
                 if(damage < 0) damage = 0;
                 life -= damage;
                 invincible = true;
@@ -279,19 +292,19 @@ public class Player extends Entity{
 
         if (i != 999) {
 
-            if(!gp.mon[i].invincible){
+            if(!gp.mon[gp.currentMap][i].invincible){
                 gp.playSE(5);
-                int damage = attack - gp.mon[i].defense;
+                int damage = attack - gp.mon[gp.currentMap][i].defense;
                 if(damage < 0) damage = 0;
-                gp.mon[i].life -= damage;
+                gp.mon[gp.currentMap][i].life -= damage;
                 gp.ui.addMessage(damage + " Damage!");
-                gp.mon[i].invincible = true;
-                gp.mon[i].damageReaction();
+                gp.mon[gp.currentMap][i].invincible = true;
+                gp.mon[gp.currentMap][i].damageReaction();
 
-                if(gp.mon[i].life <= 0){
-                    gp.mon[i].dying = true;
-                    gp.ui.addMessage("Killed the " + gp.mon[i].name+"!");
-                    exp += gp.mon[i].exp;
+                if(gp.mon[gp.currentMap][i].life <= 0){
+                    gp.mon[gp.currentMap][i].dying = true;
+                    gp.ui.addMessage("Killed the " + gp.mon[gp.currentMap][i].name+"!");
+                    exp += gp.mon[gp.currentMap][i].exp;
                     checkLevelUp();
                 }
             }
@@ -301,11 +314,11 @@ public class Player extends Entity{
     }
     public void changeInteractiveTile(int i){
 
-        if(i != 999 && gp.keyH.dialoguePressed && gp.iTile[i].destructible && gp.iTile[i].isCorrectItem(this)){
+        if(i != 999 && gp.keyH.dialoguePressed && gp.iTile[gp.currentMap][i].destructible && gp.iTile[gp.currentMap][i].isCorrectItem(this)){
 
-            if (gp.iTile[i].attackCanceled)  attackCanceled = true;
-            generateParticle(gp.iTile[i], gp.iTile[i]);
-            gp.iTile[i] = gp.iTile[i].getDestroyedForm();
+            if (gp.iTile[gp.currentMap][i].attackCanceled)  attackCanceled = true;
+            generateParticle(gp.iTile[gp.currentMap][i], gp.iTile[gp.currentMap][i]);
+            gp.iTile[gp.currentMap][i] = gp.iTile[gp.currentMap][i].getDestroyedForm();
         }
     }
     public void checkLevelUp(){

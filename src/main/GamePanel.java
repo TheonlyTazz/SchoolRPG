@@ -26,6 +26,9 @@ public class GamePanel extends JPanel implements Runnable{
     // WORLD SETTINGS
     public final int maxWorldCol = 64;
     public final int maxWorldRow = 64;
+    public final int maxMap = 10;
+    public int currentMap = 1;
+
 
 
     // FPS
@@ -46,10 +49,10 @@ public class GamePanel extends JPanel implements Runnable{
 
     // ENTITY AND OBJECT
     public Player player = new Player(this, keyH);
-    public Entity[] obj =  new Entity[20];
-    public Entity[] npc = new Entity[20];
-    public Entity[] mon = new Entity[20];
-    public InteractiveTile[] iTile = new InteractiveTile[20];
+    public Entity[][] obj =  new Entity[maxMap][20];
+    public Entity[][] npc = new Entity[maxMap][20];
+    public Entity[][] mon = new Entity[maxMap][20];
+    public InteractiveTile[][] iTile = new InteractiveTile[maxMap][20];
     public ArrayList<Entity> particleList = new ArrayList<>();
     ArrayList<Entity> entityList = new ArrayList<>();
 
@@ -129,23 +132,26 @@ public class GamePanel extends JPanel implements Runnable{
         if(gameState == playState){
             player.update();
 
-            for (Entity entity : npc) {
-                if (entity != null) entity.update();
+            // NPC
+            for(int i = 0; i < npc[1].length; i++){
+                if (npc[currentMap][i] != null) npc[currentMap][i].update();
             }
+
+            // MONSTER
             for(int i = 0; i < mon.length; i++){
-                if (mon[i] != null){
-                    if(mon[i].alive && !mon[i].dying) {
-                        mon[i].update();
+                if (mon[currentMap][i] != null){
+                    if(mon[currentMap][i].alive && !mon[currentMap][i].dying) {
+                        mon[currentMap][i].update();
                     }
-                    if(!mon[i].alive) mon[i] = null;
+                    if(!mon[currentMap][i].alive) mon[currentMap][i] = null;
                 }
             }
+
             // iTILE UPDATE
-            for (InteractiveTile interactiveTile : iTile) {
-                if (interactiveTile != null) {
-                    interactiveTile.update();
-                }
+            for (int i = 0; i < iTile[1].length; i++) {
+                if (iTile[currentMap][i] != null) iTile[currentMap][i].update();
             }
+
             // PARTICLE LIST UPDATE
             for(int i = 0; i < particleList.size(); i++){
                 if(particleList.get(i) != null){
@@ -181,9 +187,10 @@ public class GamePanel extends JPanel implements Runnable{
             // TILE
             tileM.draw(g2);
 
-            for (InteractiveTile interactiveTile : iTile) {
-                if (interactiveTile != null) {
-                    interactiveTile.draw(g2);
+            for (int i = 0; i < iTile[1].length; i++) {
+                if (iTile[currentMap][i] != null) {
+
+                    iTile[currentMap][i].draw(g2);
                 }
             }
 
@@ -191,21 +198,21 @@ public class GamePanel extends JPanel implements Runnable{
             entityList.add(player);
 
             // ADD NPC
-            for (Entity entity : npc) {
-                if (entity != null) {
-                    entityList.add(entity);
+            for(int i = 0; i < npc[1].length; i++){
+                if (npc[currentMap][i] != null) {
+                    entityList.add(npc[currentMap][i]);
                 }
             }
             // ADD OBJECTS
-            for (Entity entity : obj) {
-                if (entity != null) {
-                    entityList.add(entity);
+            for(int i = 0; i < obj[1].length; i++){
+                if (obj[currentMap][i] != null) {
+                    entityList.add(obj[currentMap][i]);
                 }
             }
             // ADD MONSTER
-            for (Entity entity: mon){
-                if (entity != null){
-                    entityList.add(entity);
+            for(int i = 0; i < mon[1].length; i++){
+                if (mon[currentMap][i] != null) {
+                    entityList.add(mon[currentMap][i]);
                 }
             }
             for (Entity value : particleList) {

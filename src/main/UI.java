@@ -58,7 +58,6 @@ public class UI {
         int i = 0;
         menuString[i] = "NEW GAME"; i++;
         menuString[i] = "LOAD GAME"; i++;
-        menuString[i] = "OPTIONS"; i++;
         menuString[i] = "QUIT";
         menuLength = i;
 
@@ -516,7 +515,7 @@ public class UI {
         }
         // YES
         String text = "Yes";
-        textX = frameX + gp.tileSize;;
+        textX = frameX + gp.tileSize;
         textY += gp.tileSize*3;
         g2.drawString(text, textX, textY);
         if(commandNum == 0) {
@@ -558,8 +557,8 @@ public class UI {
 
 
         g2.drawString(gp.player.playerName, x, y);
-        g2.drawString("X: "+ (gp.player.worldX/gp.tileSize)+1, x+ gp.tileSize*2, y);
-        g2.drawString("Y: "+ (gp.player.worldY/gp.tileSize)+1, x+ gp.tileSize*3, y);
+        g2.drawString("X: "+ (gp.player.worldX/gp.tileSize+1), x+ gp.tileSize*2, y);
+        g2.drawString("Y: "+ (gp.player.worldY/gp.tileSize+1), x+ gp.tileSize*3, y);
 
         g2.drawString(gp.player.life +" /"+ gp.player.maxLife, x+gp.tileSize*5, y);
 

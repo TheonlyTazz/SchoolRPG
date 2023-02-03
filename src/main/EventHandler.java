@@ -43,16 +43,45 @@ public class EventHandler {
         if(distance > gp.tileSize) canTouchEvent = true;
 
         if (canTouchEvent){
+            if(hit(31, 22, 0, "any")) switchMap(20, 27, 1);
+            if(hit(24, 35, 0, "any")) switchMap(20, 27, 1);
+            if(hit(38, 35, 0, "any")) switchMap(20, 27, 1);
 
-            //if(hit(23, 16, "any")) damagePit(23, 16, gp.dialogueState);
-            if(hit(23, 12, "up")) healingPool(23, 16, gp.dialogueState);
-            //if(hit(23, 20, "any")) teleport(23, 15, gp.dialogueState);
-            //if(hit(23, 16, "any")) teleport(23, 12, gp.dialogueState);
+            if(hit(19, 27, 1, "any")) switchMap(38, 36, 0);
+
+            //Hallway_01
+            if(hit(21, 31, 1, "left")) switchMap(16, 43, 2);
+            if(hit(21, 32, 1, "left")) switchMap(16, 44, 2);
+
+            if(hit(39, 31, 1, "left")) switchMap(48, 43, 2);
+            if(hit(39, 32, 1, "left")) switchMap(48, 44, 2);
+
+            //Hallway_01_Upstairs
+            if(hit(17, 43, 2, "right")) switchMap(22, 31, 1);
+            if(hit(17, 44, 2, "right")) switchMap(22, 32, 1);
+
+            if(hit(49, 43, 2, "right")) switchMap(38, 31, 1);
+            if(hit(49, 44, 2, "right")) switchMap(38, 32, 1);
+
+
+
+
+
+            if(hit(26, 24, 1, "up")) switchMap(33, 41, 8);
+            if(hit(35, 24, 1, "any")) switchMap(33, 41, 8);
+            if(hit(33, 30, 1, "down")) switchMap(33, 29, 9);
+            if(hit(33, 42, 8, "down")) switchMap(gp.player.previousX, gp.player.previousY, 1);
+            if(hit(33, 27, 9, "up")) switchMap(gp.player.previousX, gp.player.previousY, 1);
+
+
+
         }
 
     }
 
-    public boolean hit(int col, int row, String reqDirection){
+    public boolean hit(int col, int row, int currentMap, String reqDirection){
+
+        if(gp.currentMap != currentMap) return false;
 
         boolean hit = false;
         gp.player.solidArea.x = gp.player.worldX + gp.player.solidArea.x;
@@ -81,15 +110,6 @@ public class EventHandler {
         return hit;
     }
 
-    /*
-    public void damagePit(int col, int row, int gameState) {
-
-        gp.gameState = gameState;
-        gp.ui.currentDialogue = "You fell into a Pit!";
-        //eventRect[col][row].eventDone = true;
-    }
-
-     */
 
     public void healingPool(int col, int row, int gameState) {
         if(gp.keyH.dialoguePressed){
@@ -99,6 +119,35 @@ public class EventHandler {
         }
     }
 
+    public void switchMap(int col, int row, int map) {
+        setPreviousPos((int) Math.floor(gp.player.worldX/gp.tileSize), (int) Math.floor(gp.player.worldY/gp.tileSize));
+        gp.currentMap = map;
+        gp.player.worldX = gp.tileSize*col;
+        gp.player.worldY = gp.tileSize*row;
+
+    }
+
+    public void setPreviousPos(int col,int row){
+        switch(gp.player.direction){
+            case "up" -> {
+                gp.player.previousX = col;
+                gp.player.previousY = row+1;
+            }
+            case "down" -> {
+                gp.player.previousX = col;
+                gp.player.previousY = row-1;
+            }
+            case "left" -> {
+                gp.player.previousX = col+1;
+                gp.player.previousY = row;
+            }
+            case "right" -> {
+                gp.player.previousX = col-1;
+                gp.player.previousY = row;
+            }
+
+        }
+    }
 
     public void teleport(int col, int row, int gameState) {
         gp.gameState = gameState;

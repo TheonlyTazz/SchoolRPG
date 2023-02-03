@@ -26,6 +26,7 @@ public class Entity {
 
     // STATE
     public int worldX, worldY;
+    public int previousX, previousY;
     public String direction = "down";
     public int spriteNum = 1;
     int dialogueIndex = 0;
@@ -59,6 +60,7 @@ public class Entity {
     public int exp;
     public int nextLevelExp;
     public int coin;
+
     public Entity currentWeapon;
     public Entity currentShield;
 
@@ -144,8 +146,8 @@ public class Entity {
         collisionOn = false;
         gp.cChecker.checkTile(this);
         gp.cChecker.checkObject(this, false);
-        gp.cChecker.checkEntity(this, gp.npc);
-        gp.cChecker.checkEntity(this, gp.mon);
+        gp.cChecker.checkEntity(this, gp.npc[gp.currentMap]);
+        gp.cChecker.checkEntity(this, gp.mon[gp.currentMap]);
         boolean contactPlayer = gp.cChecker.checkPlayer(this);
 
         if(this.type == type_monster && contactPlayer){

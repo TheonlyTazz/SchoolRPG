@@ -5,11 +5,11 @@ import main.GamePanel;
 
 import java.awt.*;
 
-public class IT_IronDoor extends InteractiveTile{
+public class IT_IronDoorSide extends InteractiveTile{
 
     GamePanel gp;
 
-    public IT_IronDoor(GamePanel gp, int col, int row) {
+    public IT_IronDoorSide(GamePanel gp, int col, int row) {
         super(gp);
         this.gp = gp;
 
@@ -19,7 +19,7 @@ public class IT_IronDoor extends InteractiveTile{
         attackCanceled = true;
         type = type_door;
 
-        down1 = setup("/tile_interactive/door_iron", gp.tileSize, gp.tileSize);
+        down1 = setup("/tile_interactive/door_iron_side", gp.tileSize, gp.tileSize);
         destructible = true;
     }
     public boolean isCorrectItem(Entity entity){
@@ -29,7 +29,7 @@ public class IT_IronDoor extends InteractiveTile{
     public void playSE(){}
 
     public InteractiveTile getDestroyedForm(){
-        InteractiveTile tile = new IT_IronDoorOpen(gp, worldX/gp.tileSize, worldY/gp.tileSize);
+        InteractiveTile tile = new IT_IronDoorSideOpen(gp, worldX/gp.tileSize, worldY/gp.tileSize);
         return tile;
     }
 

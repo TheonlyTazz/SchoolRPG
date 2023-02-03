@@ -3,7 +3,7 @@ package main;
 import monster.MON_GreenSlime;
 import entity.*;
 import object.*;
-import tile_interactive.IT_IronDoor;
+import tile_interactive.*;
 
 
 public class AssetSetter {
@@ -15,74 +15,101 @@ public class AssetSetter {
     }
 
 
-    public void createObject(int id,String OBJ,int x,int y) {
+    public void createObject(int id, int mapNum, String OBJ,int x,int y) {
+
         switch(OBJ){
-            case "Key" -> gp.obj[id] = new OBJ_Key(gp);
-            case "Door" -> gp.obj[id] = new OBJ_Door(gp);
-            case "Boots" -> gp.obj[id] = new OBJ_Boots(gp);
-            case "Chest" -> gp.obj[id] = new OBJ_Chest(gp);
-            case "Axe" -> gp.obj[id] = new OBJ_Axe(gp);
-            case "Blue Shield" -> gp.obj[id] = new OBJ_Blue_Shield(gp);
+            case "Key" -> gp.obj[mapNum][id] = new OBJ_Key(gp);
+            case "Door" -> gp.obj[mapNum][id] = new OBJ_Door(gp);
+            case "Boots" -> gp.obj[mapNum][id] = new OBJ_Boots(gp);
+            case "Chest" -> gp.obj[mapNum][id] = new OBJ_Chest(gp);
+            case "Axe" -> gp.obj[mapNum][id] = new OBJ_Axe(gp);
+            case "Blue Shield" -> gp.obj[mapNum][id] = new OBJ_Blue_Shield(gp);
         }
-        gp.obj[id].worldX = gp.tileSize * x;
-        gp.obj[id].worldY = gp.tileSize * y;
+        gp.obj[mapNum][id].worldX = gp.tileSize * x;
+        gp.obj[mapNum][id].worldY = gp.tileSize * y;
     }
-    public void createiTile(int id,String iTile,int x,int y) {
+    public void createiTile(int id, int mapNum, String iTile,int x,int y) {
         switch (iTile) {
-            case "Iron Door" -> gp.iTile[id] = new IT_IronDoor(gp,x, y);
-            case "Iron Door2" -> gp.iTile[id] = new IT_IronDoor(gp,x ,y);
+            case "Iron Door" -> gp.iTile[mapNum][id] = new IT_IronDoor(gp,x, y);
+            case "Iron Door Side" -> gp.iTile[mapNum][id] = new IT_IronDoorSide(gp,x ,y);
         }
-        gp.iTile[id].worldX = gp.tileSize * x;
-        gp.iTile[id].worldY = gp.tileSize * y;
+        gp.iTile[mapNum][id].worldX = gp.tileSize * x;
+        gp.iTile[mapNum][id].worldY = gp.tileSize * y;
     }
-    public void createNPC(int id, String NPC,int x,int y) {
+    public void createNPC(int id, int mapNum, String NPC,int x,int y) {
         switch(NPC){
-            case "OldMan" -> gp.npc[id] = new NPC_OldMan(gp);
-            case "monster" -> gp.npc[id] = new NPC_OldMan(gp);
+            case "OldMan" -> gp.npc[mapNum][id] = new NPC_OldMan(gp);
+            case "monster" -> gp.npc[mapNum][id] = new NPC_OldMan(gp);
         }
-        gp.npc[id].worldX = gp.tileSize * x;
-        gp.npc[id].worldY = gp.tileSize * y;
+        gp.npc[mapNum][id].worldX = gp.tileSize * x;
+        gp.npc[mapNum][id].worldY = gp.tileSize * y;
     }
-    public void createMON(int id, String MON,int x,int y) {
+    public void createMON(int id, int mapNum, String MON,int x,int y) {
         switch(MON){
-            case "Green Slime" -> gp.mon[id] = new MON_GreenSlime(gp);
-            case "monster" -> gp.mon[id] = new NPC_OldMan(gp);
+            case "Green Slime" -> gp.mon[mapNum][id] = new MON_GreenSlime(gp);
+            case "monster" -> gp.mon[mapNum][id] = new NPC_OldMan(gp);
         }
-        gp.mon[id].worldX = gp.tileSize * x;
-        gp.mon[id].worldY = gp.tileSize * y;
+        gp.mon[mapNum][id].worldX = gp.tileSize * x;
+        gp.mon[mapNum][id].worldY = gp.tileSize * y;
     }
 
     public void setObject() {
         int i = 0;
-        createObject(i, "Key", 28, 25); i++;
-        createObject(i, "Key", 28, 26); i++;
-        createObject(i, "Key", 28, 27); i++;
-        createObject(i, "Key", 28, 28); i++;
-        createObject(i, "Blue Shield", 30, 38); i++;
-        createObject(i, "Axe", 31, 38);
+        int mapNum;
+        mapNum = 0;
+        createObject(i, mapNum, "Key", 28, 25); i++;
+        createObject(i, mapNum, "Key", 28, 26); i++;
+        createObject(i, mapNum, "Key", 28, 27); i++;
+        createObject(i, mapNum, "Key", 28, 28); i++;
+        createObject(i, mapNum, "Blue Shield", 30, 38); i++;
+        createObject(i, mapNum, "Axe", 31, 38); i++;
+
+        mapNum = 1;
+        createObject(i, mapNum, "Key", 28, 28); i++;
+
+
     }
     public void setiTile(){
         int i = 0;
-        createiTile(i, "Iron Door", 31, 22); i++;
-        createiTile(i, "Iron Door", 24, 35); i++;
-        createiTile(i, "Iron Door", 38, 35);
+        int mapNum;
+        mapNum = 0;
+        createiTile(i, mapNum, "Iron Door", 31, 22); i++;
+        createiTile(i, mapNum, "Iron Door", 24, 35); i++;
+        createiTile(i, mapNum, "Iron Door", 38, 35); i++;
+        mapNum = 1;
+        createiTile(i, mapNum, "Iron Door Side", 19, 27);i++;
+        createiTile(i, mapNum, "Iron Door", 26, 24);i++;
+        createiTile(i, mapNum, "Iron Door", 35, 24);i++;
+        createiTile(i, mapNum, "Iron Door", 33, 30);i++;
+
+
 
     }
     public void setNPC() {
-        createNPC(0, "OldMan", 21, 21);
-        createNPC(1, "OldMan", 22, 21);
-        createNPC(2, "OldMan", 23, 21);
-        createNPC(3, "OldMan", 24, 21);
-        createNPC(4, "OldMan", 25, 21);
+        int i = 0;
+        int mapNum;
+
+        mapNum = 0;
+        createNPC(i, mapNum, "OldMan", 21, 21);i++;
+        createNPC(i, mapNum, "OldMan", 22, 21);i++;
+        createNPC(i, mapNum, "OldMan", 23, 21);i++;
+        createNPC(i, mapNum, "OldMan", 24, 21);i++;
+        createNPC(i, mapNum, "OldMan", 25, 21);i++;
+
+        mapNum = 1;
+        createNPC(i, mapNum, "OldMan", 26, 29);
 
     }
     public void setMON(){
-        createMON(0, "Green Slime", 23, 42);
-        createMON(1, "Green Slime", 24, 42);
-        createMON(2, "Green Slime", 25, 42);
-        createMON(3, "Green Slime", 26, 42);
-        createMON(4, "Green Slime", 27, 42);
+        int i = 0;
+        int mapNum;
 
+        mapNum = 0;
+        createMON(i, mapNum, "Green Slime", 23, 42);i++;
+        createMON(i, mapNum, "Green Slime", 24, 42);i++;
+        createMON(i, mapNum, "Green Slime", 25, 42);i++;
+        createMON(i, mapNum, "Green Slime", 26, 42);i++;
+        createMON(i, mapNum, "Green Slime", 27, 42);
     }
 
 

@@ -10,7 +10,7 @@ public class KeyHandler implements KeyListener {
     public boolean upPressed, downPressed, leftPressed, rightPressed, dialoguePressed, attackPressed, charPressed, enterPressed;
 
     //DEBUG
-    boolean debug;
+    public boolean debug;
 
     public KeyHandler(GamePanel gp) {
         this.gp = gp;
@@ -72,7 +72,7 @@ public class KeyHandler implements KeyListener {
                                 gp.player.setDefaultValues();
                             }
                             case 1 -> System.out.println(0);
-                            case 2 -> System.out.println(1);
+                            case 2 -> gp.ui.titleScreenState = 2;
                             case 3 -> System.exit(0);
                             default -> System.out.println(3);
                         }
@@ -90,6 +90,9 @@ public class KeyHandler implements KeyListener {
                             gp.gameState = gp.playState;
                         }
 
+                    }
+                    case 2 ->{
+                        gp.ui.drawOptionsScreen();
                     }
                 }
 
