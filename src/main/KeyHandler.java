@@ -153,35 +153,92 @@ public class KeyHandler implements KeyListener {
         }
     }
     public void optionState(int code){
-        switch(code){
-            case KeyEvent.VK_ENTER -> enterPressed = true;
-            case KeyEvent.VK_W -> {
-                if (gp.ui.commandNum == 0) gp.ui.commandNum = gp.ui.menuLength;
-                else gp.ui.commandNum--;
-                if (Objects.equals(gp.ui.menuString[gp.ui.commandNum], "")) gp.ui.commandNum--;
-            }
-            case KeyEvent.VK_S -> {
-                if (gp.ui.commandNum == gp.ui.menuLength) gp.ui.commandNum = 0;
-                else gp.ui.commandNum++;
-                if (Objects.equals(gp.ui.menuString[gp.ui.commandNum], "")) gp.ui.commandNum++;
-
-            }
-            case KeyEvent.VK_SPACE -> {
-                switch (gp.ui.menuString[gp.ui.commandNum]){
-                    case "Full Screen" -> gp.fullScreenOn = !gp.fullScreenOn;
-                    case "Control View" -> gp.ui.subState = 1;
-                    case "Quit Game" -> {
-                        gp.gameState = gp.titleState;
-                        gp.ui.commandNum = 0;
-                        gp.ui.titleScreenState = 0;
+        switch(gp.ui.subState){
+            case 0 -> {
+                switch(code){
+                    case KeyEvent.VK_ENTER -> enterPressed = true;
+                    case KeyEvent.VK_W -> {
+                        if (gp.ui.commandNum == 0) gp.ui.commandNum = gp.ui.menuLength;
+                        else gp.ui.commandNum--;
+                        if (Objects.equals(gp.ui.menuString[gp.ui.commandNum], "")) gp.ui.commandNum--;
                     }
-                    case "Back" -> {
-                        gp.ui.commandNum = 0;
-                        gp.gameState = gp.playState;
+                    case KeyEvent.VK_S -> {
+                        if (gp.ui.commandNum == gp.ui.menuLength) gp.ui.commandNum = 0;
+                        else gp.ui.commandNum++;
+                        if (Objects.equals(gp.ui.menuString[gp.ui.commandNum], "")) gp.ui.commandNum++;
+
+                    }
+                    case KeyEvent.VK_SPACE -> {
+                        switch (gp.ui.menuString[gp.ui.commandNum]){
+                            case "Full Screen" -> gp.fullScreenOn = !gp.fullScreenOn;
+                            case "Control View" -> gp.ui.subState = 1;
+                            case "Quit Game" -> {
+                                gp.ui.subState = 2;
+                                /*
+                                gp.gameState = gp.titleState;
+                                gp.ui.commandNum = 0;
+                                gp.ui.titleScreenState = 0;
+
+                                 */
+                            }
+                            case "Back" -> {
+                                gp.ui.commandNum = 0;
+                                gp.gameState = gp.playState;
+                            }
+                        }
+                    }
+                    case KeyEvent.VK_D -> {
+                        switch (gp.ui.menuString[gp.ui.commandNum]){
+                            case "Sound Effects" -> {
+                                if(gp.se.volumeScale < 5) {
+                                    gp.se.volumeScale++;
+                                    System.out.println(gp.se.volumeScale);
+
+                                }
+                            }
+                            case "Music" ->{
+                                if(gp.music.volumeScale < 5) {
+                                    gp.music.volumeScale++;
+                                    System.out.println(gp.music.volumeScale);
+                                }
+                            }
+                        }
+                    }
+                    case KeyEvent.VK_A -> {
+                        switch (gp.ui.menuString[gp.ui.commandNum]){
+                            case "Sound Effects" -> {
+                                if(gp.se.volumeScale > 0) {
+                                    gp.se.volumeScale--;
+
+                                }
+                            }
+                            case "Music" ->{
+                                if(gp.music.volumeScale > 0) {
+                                    gp.music.volumeScale--;
+                                    System.out.println(gp.music.volumeScale);
+                                }
+                            }
+                        }
                     }
                 }
+
+            }
+            case 1 -> {
+                switch(code){
+                    case KeyEvent.VK_E, KeyEvent.VK_ESCAPE, KeyEvent.VK_SPACE, KeyEvent.VK_ENTER -> gp.ui.subState = 0;
+                }
+
+            }
+            case 2 -> {
+                System.out.println(gp.ui.commandNum +" "+ code);
+                switch(code){
+                    case KeyEvent.VK_ENTER, KeyEvent.VK_SPACE -> enterPressed = true;
+                    case KeyEvent.VK_ESCAPE -> gp.ui.subState = 0;
+                }
+
             }
         }
+
 
         if(code == KeyEvent.VK_ESCAPE && !charPressed) {
             gp.gameState = gp.playState;

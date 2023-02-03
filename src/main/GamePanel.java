@@ -40,6 +40,8 @@ public class GamePanel extends JPanel implements Runnable{
     public AssetSetter aSetter = new AssetSetter(this);
     public UI ui = new UI(this);
     public EventHandler eHandler = new EventHandler(this);
+    Config config = new Config(this);
+
     Thread gameThread;
 
     // ENTITY AND OBJECT
@@ -60,6 +62,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int dialogueState = 3;
     public final int characterState = 4;
     public final int optionState = 5;
+    public final int gameOverState = 6;
+
 
 
 
@@ -75,11 +79,13 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void setupGame(){
-
+        playMusic(0);
+        stopMusic();
         aSetter.setObject();
         aSetter.setiTile();
         aSetter.setNPC();
         aSetter.setMON();
+
         gameState = titleState;
 
     }

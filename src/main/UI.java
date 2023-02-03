@@ -1,5 +1,6 @@
 package main;
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class UI {
@@ -65,7 +66,7 @@ public class UI {
     public void setCharScreen(){
         menuString = new String[20];
         int i = 0;
-        menuString[i] = "Leroy"; i++;
+        menuString[i] = "Tazz"; i++;
         menuString[i] = "Player 2"; i++;
         menuString[i] = "Player 3"; i++;
         menuString[i] = "Player 4"; i++;
@@ -86,22 +87,30 @@ public class UI {
         menuLength = i;
 
     }
-    public void setControl_View(){
+    public void setControl_View1(){
         menuString = new String[20];
         int i = 0;
-        menuString[i] = "Up             -       W"; i++;
-        menuString[i] = "Down           -       S"; i++;
-        menuString[i] = "Left           -       A"; i++;
-        menuString[i] = "Right          -       R"; i++;
-        menuString[i] = "Interact/Use   -       E"; i++;
-        menuString[i] = "Options        -     ESC"; i++;
-        menuString[i] = ""; i++;
-        menuString[i] = ""; i++;
-        menuString[i] = "Back";
+        menuString[i] = "Up"; i++;
+        menuString[i] = "Down"; i++;
+        menuString[i] = "Left"; i++;
+        menuString[i] = "Right"; i++;
+        menuString[i] = "Interact/Use"; i++;
+        menuString[i] = "Options"; i++;
         menuLength = i;
 
     }
+    public void setControl_View2(){
+        menuString = new String[20];
+        int i = 0;
+        menuString[i] = "W"; i++;
+        menuString[i] = "S"; i++;
+        menuString[i] = "A"; i++;
+        menuString[i] = "D"; i++;
+        menuString[i] = "E"; i++;
+        menuString[i] = "ESC"; i++;
+        menuLength = i;
 
+    }
 
     public UI(GamePanel gp){
         this.gp = gp;
@@ -397,6 +406,7 @@ public class UI {
         switch(subState){
             case 0 -> options_top(frameX, frameY);
             case 1 -> control_view(frameX, frameY);
+            case 2 -> options_endGameConfirmation(frameX, frameY);
         }
 
 
@@ -427,27 +437,80 @@ public class UI {
         //MUSIC
         textY += gp.tileSize;
         g2.drawRect(textX, textY, 120, 24);
+        int volumeWidth = 24 * gp.music.volumeScale;
+        g2.fillRect(textX, textY, volumeWidth, 24);
 
         //SOUND EFFECT VOLUME
         textY += gp.tileSize;
         g2.drawRect(textX, textY, 120, 24);
+        volumeWidth = 24 * gp.se.volumeScale;
+        g2.fillRect(textX, textY, volumeWidth, 24);
 
+        try {
+            gp.config.saveConfig();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
     }
     public void control_view(int frameX, int frameY){
-        setControl_View();
+        setControl_View1();
         int textX;
         int textY;
 
         // TITLE
-        String text = "- Optionen -";
+        String text = "- Tastenbelegung -";
         textX = getXforCenteredText(text)+gp.tileSize*6;
         textY = frameY + gp.tileSize;
         g2.drawString(text, textX, textY);
 
         textX = frameX + gp.tileSize;
         optionList(textX, textY, false);
+        setControl_View2();
+
+        textX = frameX + gp.tileSize*5;
+        textY = frameY + gp.tileSize;
+        optionList(textX, textY, false);
+
+    }
+    public void options_endGameConfirmation(int frameX, int frameY){
+        commandNum = 0;
+        int textX = frameX + gp.tileSize;
+        int textY = frameY + gp.tileSize*3;
+        currentDialogue = "Quit Game and\nReturn to Title Screen?";
+
+        for(String line: currentDialogue.split("\n")){
+            g2.drawString(line, textX, textY);
+            textY += 40;
+        }
+        // YES
+        String text = "Yes";
+        textX = frameX + gp.tileSize;;
+        textY += gp.tileSize*3;
+        g2.drawString(text, textX, textY);
+        if(commandNum == 0) {
+            g2.drawString(">", textX - 25, textY);
+            if (gp.keyH.enterPressed) {
+                subState = 0;
+                gp.ui.titleScreenState = 0;
+                gp.gameState = gp.titleState;
+            }
+        }
+        // NO
+        text = "No";
+        textX = frameX + gp.tileSize;
+        textY += gp.tileSize;
+        g2.drawString(text, textX, textY);
+        if(commandNum == 1) {
+            g2.drawString(">", textX - 25, textY);
+            if (gp.keyH.enterPressed) {
+                subState = 0;
+                commandNum = 4;
+
+
+            }
+        }
 
     }
     public void drawUiBar(){
