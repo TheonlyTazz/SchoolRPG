@@ -56,7 +56,8 @@ public class Player extends Entity{
         worldY = gp.tileSize * 40;
         speed = 4;
         direction = "down";
-
+        invincible = false;
+        invincibleCounter = 0;
         // PLAYER STATS
         level = 1;
         maxLife = 6;
@@ -188,6 +189,7 @@ public class Player extends Entity{
                 invincibleCounter = 0;
             }
         }
+        if(life <= 0) gp.gameState = gp.gameOverState;
     }
     public void attacking(){
 

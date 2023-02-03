@@ -165,6 +165,10 @@ public class UI {
             drawUiBar();
             drawOptionsScreen();
         }
+        // DEATH STATE
+        if(gp.gameState == gp.gameOverState){
+            drawDeathScreen();
+        }
 
     }
 
@@ -294,9 +298,11 @@ public class UI {
             }
         }
     }
+
     public int getItemIndexOnSlot(){
         return slotCol + (slotRow*5);
     }
+
     public void drawSubWindow(int x, int y, int width, int height){
 
         Color c = new Color(0, 0, 0, 220);
@@ -410,6 +416,30 @@ public class UI {
         }
 
 
+
+    }
+    public void drawDeathScreen(){
+
+        g2.setColor(new Color(0, 0, 0, 150));
+        g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
+
+        // TEXT
+        String text = "Game Over!";
+        int x;
+        int y;
+
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 110F));
+
+        g2.setColor(Color.black);
+        x = getXforCenteredText(text);
+        y = gp.tileSize*4;
+        g2.drawString(text, x, y);
+        g2.setColor(Color.white);
+        g2.drawString(text, x-4, y-4);
+
+        // RETRY
+
+        // TITLE SCREEN
 
     }
     public void options_top(int frameX, int frameY){

@@ -47,6 +47,9 @@ public class KeyHandler implements KeyListener {
         if(gp.gameState == gp.optionState){
             optionState(code);
         }
+
+        // DEATH STATE
+        if(gp.gameState == gp.gameOverState) deathState(code);
     }
 
     public void titleState(int code){
@@ -244,6 +247,15 @@ public class KeyHandler implements KeyListener {
             gp.gameState = gp.playState;
         }
         else if (code == KeyEvent.VK_ESCAPE) charPressed = false;
+    }
+    public void deathState(int code){
+        switch(code){
+            case KeyEvent.VK_E,KeyEvent.VK_SPACE,KeyEvent.VK_ENTER,KeyEvent.VK_ESCAPE -> {
+                gp.gameState = gp.titleState;
+                gp.ui.titleScreenState = 0;
+                gp.player.setDefaultValues();
+            }
+        }
     }
 
     public void keyReleased(KeyEvent e) {
