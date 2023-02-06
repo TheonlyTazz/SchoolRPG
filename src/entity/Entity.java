@@ -7,6 +7,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Entity {
@@ -15,7 +16,7 @@ public class Entity {
     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
     public BufferedImage attackUp1, attackUp2, attackDown1, attackDown2, attackLeft1, attackLeft2, attackRight1, attackRight2;
     public BufferedImage image1, image2, image3, image4, image5;
-    public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
+    public Rectangle solidArea = new Rectangle(0, 0, 48, 40);
     public Rectangle attackArea = new Rectangle(0, 0, 0, 0);
 
 
@@ -61,6 +62,7 @@ public class Entity {
     public int nextLevelExp;
     public int coin;
 
+
     public Entity currentWeapon;
     public Entity currentShield;
 
@@ -68,6 +70,8 @@ public class Entity {
     public int attackValue;
     public int defenseValue;
     public String description = "";
+    public ArrayList<Entity> inventory = new ArrayList<>();
+    public final int maxInventorySize = 20;
 
     // TYPE
     public int type; // 0 = player, 1 = npc, 2 = monster
@@ -125,7 +129,6 @@ public class Entity {
         gp.particleList.add(p4);
 
     }
-
     public void speak(){
         if(dialogues[dialogueIndex] == null) dialogueIndex = 0;
         gp.ui.currentDialogue = dialogues[dialogueIndex];
@@ -140,6 +143,7 @@ public class Entity {
     }
     public void setAction(){}
     public void damageReaction(){}
+
     public void update() {
         setAction();
 
@@ -169,7 +173,7 @@ public class Entity {
             }
         }
         // IF COLLISION IS FALSE, Entity CAN MOVE
-        if(!collisionOn) {
+        if(!collisionOn && this.type != type_npc) {
             switch (direction) {
                 case "up" -> worldY -= speed;
                 case "down" -> worldY += speed;

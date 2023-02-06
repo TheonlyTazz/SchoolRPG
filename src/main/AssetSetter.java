@@ -39,7 +39,7 @@ public class AssetSetter {
     public void createNPC(int id, int mapNum, String NPC,int x,int y) {
         switch(NPC){
             case "OldMan" -> gp.npc[mapNum][id] = new NPC_OldMan(gp);
-            case "monster" -> gp.npc[mapNum][id] = new NPC_OldMan(gp);
+            case "Merchant" -> gp.npc[mapNum][id] = new NPC_Merchant(gp);
         }
         gp.npc[mapNum][id].worldX = gp.tileSize * x;
         gp.npc[mapNum][id].worldY = gp.tileSize * y;
@@ -65,7 +65,7 @@ public class AssetSetter {
         createObject(i, mapNum, "Axe", 31, 38); i++;
 
         mapNum = 1;
-        createObject(i, mapNum, "Key", 28, 28); i++;
+        createObject(i, mapNum, "Key", 28, 28);
 
 
     }
@@ -82,6 +82,12 @@ public class AssetSetter {
         createiTile(i, mapNum, "Iron Door", 35, 24);i++;
         createiTile(i, mapNum, "Iron Door", 33, 30);i++;
 
+        mapNum = 2;
+        createiTile(i, mapNum, "Iron Door", 19, 34);i++;
+        createiTile(i, mapNum, "Iron Door", 32, 34);i++;
+        createiTile(i, mapNum, "Iron Door", 39, 34);
+
+
 
 
     }
@@ -97,7 +103,8 @@ public class AssetSetter {
         createNPC(i, mapNum, "OldMan", 25, 21);i++;
 
         mapNum = 1;
-        createNPC(i, mapNum, "OldMan", 26, 29);
+        createNPC(i, mapNum, "OldMan", 26, 29); i++;
+        createNPC(i, mapNum, "Merchant", 35, 29);
 
     }
     public void setMON(){

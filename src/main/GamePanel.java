@@ -43,6 +43,7 @@ public class GamePanel extends JPanel implements Runnable{
     public AssetSetter aSetter = new AssetSetter(this);
     public UI ui = new UI(this);
     public EventHandler eHandler = new EventHandler(this);
+    public Time time = new Time(this);
     Config config = new Config(this);
 
     Thread gameThread;
@@ -66,6 +67,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int characterState = 4;
     public final int optionState = 5;
     public final int gameOverState = 6;
+    public final int transitionState = 7;
+    public final int tradeState = 8;
 
 
 

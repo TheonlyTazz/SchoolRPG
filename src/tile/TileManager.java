@@ -20,13 +20,14 @@ public class TileManager {
     public TileManager(GamePanel gp) {
 
         this.gp = gp;
-        tile = new Tile[50];
+        tile = new Tile[99];
         mapTileNum = new int [gp.maxMap][gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
         loadMap("/maps/worldv3.txt", 0);
         loadMap("/maps/hallway_01.txt", 1);
         loadMap("/maps/hallway_01_upstairs.txt", 2);
+        loadMap("/maps/klassenzimmer.txt", 3);
         loadMap("/maps/class_up.txt", 8);
         loadMap("/maps/class_down.txt", 9);
 
@@ -101,6 +102,7 @@ public class TileManager {
         newTile(47, "stair_down", false);
         newTile(48, "stair_left", false);
         newTile(49, "stair_right", false);
+        newTile(50, "table01", true);
 
 
     }

@@ -63,10 +63,9 @@ public class EventHandler {
             if(hit(49, 43, 2, "right")) switchMap(38, 31, 1);
             if(hit(49, 44, 2, "right")) switchMap(38, 32, 1);
 
+            if(hit(32, 34, 2, "up")) switchMap (33, 41, 3);
 
-
-
-
+            if(hit(33, 42, 3, "down")) switchMap(32, 33, 2);
             if(hit(26, 24, 1, "up")) switchMap(33, 41, 8);
             if(hit(35, 24, 1, "any")) switchMap(33, 41, 8);
             if(hit(33, 30, 1, "down")) switchMap(33, 29, 9);

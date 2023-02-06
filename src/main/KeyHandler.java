@@ -50,6 +50,8 @@ public class KeyHandler implements KeyListener {
 
         // DEATH STATE
         if(gp.gameState == gp.gameOverState) deathState(code);
+
+        if(gp.gameState == gp.tradeState) tradeState(code);
     }
 
     public void titleState(int code){
@@ -132,30 +134,13 @@ public class KeyHandler implements KeyListener {
     }
     public void characterState(int code){
         if(gp.gameState == gp.characterState){
-            switch(code){
-                case KeyEvent.VK_W -> {
-                    if(gp.ui.slotRow == 0) gp.ui.slotRow = 3;
-                    else gp.ui.slotRow--;
-                }
-                case KeyEvent.VK_S -> {
-                    if(gp.ui.slotRow == 3) gp.ui.slotRow = 0;
-                    else gp.ui.slotRow++;
-                }
-                case KeyEvent.VK_A -> {
-                    if(gp.ui.slotCol == 0) gp.ui.slotCol = 4;
-                    else gp.ui.slotCol--;
-                }
-                case KeyEvent.VK_D -> {
-                    if(gp.ui.slotCol == 4) gp.ui.slotCol = 0;
-                    else gp.ui.slotCol++;
-                }
-                case KeyEvent.VK_E -> gp.player.selectItem();
-            }
-
+            enterPressed = false;
+            if (code == KeyEvent.VK_E) gp.player.selectItem();
             if(code == KeyEvent.VK_C && !charPressed) {
                     gp.gameState = gp.playState;
             }
             else if (code == KeyEvent.VK_C) charPressed = false;
+            playerInventory(code);
         }
     }
     public void optionState(int code){
@@ -260,6 +245,89 @@ public class KeyHandler implements KeyListener {
             }
         }
     }
+    public void tradeState(int code) {
+        enterPressed = false;
+        switch (code) {
+            case KeyEvent.VK_ENTER, KeyEvent.VK_E -> enterPressed = true;
+            case KeyEvent.VK_W -> {
+                if (gp.ui.commandNum == 0) gp.ui.commandNum = gp.ui.menuLength;
+                else gp.ui.commandNum--;
+                if (Objects.equals(gp.ui.menuString[gp.ui.commandNum], "")) gp.ui.commandNum--;
+            }
+            case KeyEvent.VK_S -> {
+                if (gp.ui.commandNum == gp.ui.menuLength) gp.ui.commandNum = 0;
+                else gp.ui.commandNum++;
+                if (Objects.equals(gp.ui.menuString[gp.ui.commandNum], "")) gp.ui.commandNum++;
+
+            }
+            case KeyEvent.VK_ESCAPE -> {
+                switch(gp.ui.subState){
+                    case 1, 2 -> {
+                        gp.ui.subState = 0;
+                        gp.ui.commandNum = 0;
+                    }
+                }
+            }
+        }
+        if (enterPressed) {
+            switch (gp.ui.commandNum) {
+                case 0 -> gp.ui.subState = 1;
+                case 1 -> gp.ui.subState = 2;
+                case 2 -> {
+                    gp.gameState = gp.playState;
+                    gp.ui.commandNum = 0;
+                }
+            }
+        }
+        switch(gp.ui.subState){
+            case 1 -> npcInventory(code);
+            case 2 -> playerInventory(code);
+        }
+
+
+    }
+
+    public void playerInventory (int code){
+            switch (code) {
+                case KeyEvent.VK_W -> {
+                    if (gp.ui.playerSlotRow == 0) gp.ui.playerSlotRow = 3;
+                    else gp.ui.playerSlotRow--;
+                }
+                case KeyEvent.VK_S -> {
+                    if (gp.ui.playerSlotRow == 3) gp.ui.playerSlotRow = 0;
+                    else gp.ui.playerSlotRow++;
+                }
+                case KeyEvent.VK_A -> {
+                    if (gp.ui.playerSlotCol == 0) gp.ui.playerSlotCol = 4;
+                    else gp.ui.playerSlotCol--;
+                }
+                case KeyEvent.VK_D -> {
+                    if (gp.ui.playerSlotCol == 4) gp.ui.playerSlotCol = 0;
+                    else gp.ui.playerSlotCol++;
+                }
+            }
+        }
+    public void npcInventory (int code){
+            switch (code) {
+                case KeyEvent.VK_W -> {
+                    if (gp.ui.npcSlotRow == 0) gp.ui.npcSlotRow = 3;
+                    else gp.ui.npcSlotRow--;
+                }
+                case KeyEvent.VK_S -> {
+                    if (gp.ui.npcSlotRow == 3) gp.ui.npcSlotRow = 0;
+                    else gp.ui.npcSlotRow++;
+                }
+                case KeyEvent.VK_A -> {
+                    if (gp.ui.npcSlotCol == 0) gp.ui.npcSlotCol = 4;
+                    else gp.ui.npcSlotCol--;
+                }
+                case KeyEvent.VK_D -> {
+                    if (gp.ui.npcSlotCol == 4) gp.ui.npcSlotCol = 0;
+                    else gp.ui.npcSlotCol++;
+                }
+            }
+        }
+
 
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();
