@@ -25,6 +25,7 @@ public class UI {
 
     public Entity npc;
     public String [] menuString = new String[20];
+    public String[] menuValues = new String[20];
     public int menuLength = 0;
 
 
@@ -78,6 +79,25 @@ public class UI {
         menuString[i] = "BACK TO MAIN MENU";
         menuLength = i;
     }
+    public void setCharCustom(){
+        menuString = new String[20];
+        menuValues = new String[20];
+        int i = 0;
+        menuString[i] = "Bodies";
+        menuValues[i] = ""+gp.player.bodyIndex; i++;
+        menuString[i] = "Eyes";
+        menuValues[i] = ""+gp.player.eyeIndex; i++;
+        menuString[i] = "Hair";
+        menuValues[i] = ""+gp.player.hairIndex; i++;
+        menuString[i] = "Hair Variant";
+        menuValues[i] = ""+gp.player.hairColor; i++;
+        menuString[i] = "Outfit";
+        menuValues[i] = ""+gp.player.outfitIndex; i++;
+        menuString[i] = "Outfit Variant";
+        menuValues[i] = ""+gp.player.outfitColor;
+        menuLength = i;
+    }
+
     public void setOptions_top(){
         menuString = new String[20];
         int i = 0;
@@ -327,6 +347,18 @@ public class UI {
         }
     }
 
+    public void drawCharacter(){
+        // CHARACTER IMAGE
+        int x = gp.screenWidth/2 -gp.tileSize;
+        int y = gp.tileSize*5;
+        int scale = 6;
+        g2.drawImage(gp.player.bodies[4], x, y, 16*scale, 32*scale, null);
+        g2.drawImage(gp.player.eyes[4], x, y, 16*scale, 32*scale, null);
+        g2.drawImage(gp.player.outfits[4], x, y, 16*scale, 32*scale, null);
+        g2.drawImage(gp.player.hairstyles[4], x, y, 16*scale, 32*scale, null);
+
+    }
+
 
     public void drawSubWindow(int x, int y, int width, int height){
 
@@ -391,10 +423,13 @@ public class UI {
             g2.setColor(Color.white);
             g2.drawString(text, x, y);
 
+            /*
             // CHARACTER IMAGE
             x = gp.screenWidth/2 -gp.tileSize;
             y += gp.tileSize*2;
             g2.drawImage(gp.player.down1, x, y, gp.tileSize*2, gp.tileSize*2, null);
+
+             */
 
             // MENU
             g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 80F));
@@ -407,19 +442,47 @@ public class UI {
             menuList(y);
         }
         else if(titleScreenState == 1){
-            setCharScreen();
-
-            g2.setColor(Color.white);
-            g2.setFont(g2.getFont().deriveFont(40F));
-
-            String text = "Select your Character!";
-            int x = getXforCenteredText(text);
-            int y = gp.tileSize*3;
-            g2.drawString(text, x, y);
-
-            y = gp.screenHeight - gp.tileSize*6;
-            menuList(y);
+            selectCharName();
         }
+        else if(titleScreenState == 2){selectCharacterCustomization();}
+
+
+    }
+    public void selectCharName(){
+        setCharScreen();
+
+        g2.setColor(Color.white);
+        g2.setFont(g2.getFont().deriveFont(40F));
+
+        String text = "Select your Character!";
+        int x = getXforCenteredText(text);
+        int y = gp.tileSize*3;
+        g2.drawString(text, x, y);
+
+        y = gp.screenHeight - gp.tileSize*6;
+        menuList(y);
+
+    }
+    public void selectCharacterCustomization(){
+        setCharCustom();
+
+        g2.setColor(Color.white);
+        g2.setFont(g2.getFont().deriveFont(20F));
+
+        String text = "Customize Character!";
+        int x = gp.screenWidth-gp.tileSize*5;
+        int y = gp.tileSize*3;
+        g2.drawString(text, x, y);
+
+        y += gp.tileSize;
+        optionList(x, y, menuString, true);
+
+        // reset
+        x = gp.screenWidth-gp.tileSize*2;
+        y = gp.tileSize*4;
+        optionList(x, y, menuValues, false);
+        drawCharacter();
+
 
 
     }
@@ -477,7 +540,6 @@ public class UI {
     }
     public void trade_select(){
         drawDialogueScreen();
-
         // DRAW WINDOW
         int x = gp.tileSize * 15;
         int y = (int)(gp.tileSize * 4.5);
@@ -493,7 +555,7 @@ public class UI {
         menuString[i] = "Sell"; i++;
         menuString[i] = "Leave";
         menuLength = i;
-        optionList(x,y, true);
+        optionList(x,y, menuString,true);
 
 
     }
@@ -521,7 +583,7 @@ public class UI {
 
         textX = frameX + gp.tileSize;
 
-        optionList(textX, textY, true);
+        optionList(textX, textY, menuString, true);
 
         // FULL SCREEN CHECK BOX
         textX = frameX + (int)(gp.tileSize*4.5);
@@ -562,12 +624,12 @@ public class UI {
         g2.drawString(text, textX, textY);
 
         textX = frameX + gp.tileSize;
-        optionList(textX, textY, false);
+        optionList(textX, textY, menuString, false);
         setControl_View2();
 
         textX = frameX + gp.tileSize*5;
         textY = frameY + gp.tileSize;
-        optionList(textX, textY, false);
+        optionList(textX, textY, menuString,false);
 
     }
     public void options_endGameConfirmation(int frameX, int frameY){
@@ -635,7 +697,7 @@ public class UI {
         g2.drawString(gp.time.timeString, gp.screenWidth-gp.tileSize*3, y);
 
     }
-    private void optionList(int x, int y, boolean selectable){
+    private void optionList(int x, int y, String[] menuString, boolean selectable){
         String text;
         for(int i = 0; i <= menuString.length; i++){
             if(menuString[i] == null) return;

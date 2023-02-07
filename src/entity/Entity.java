@@ -13,17 +13,33 @@ import java.util.Objects;
 public class Entity {
 
     GamePanel gp;
-    public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
+    public BufferedImage up1, up2, up3, up4, up5, up6;
+    public BufferedImage down1, down2, down3, down4, down5, down6;
+    public BufferedImage left1, left2, left3, left4, left5, left6;
+    public BufferedImage right1, right2, right3, right4, right5, right6;
+    public BufferedImage read1, read2, read3, read4, read5, read6, read7, read8, read9, read10, read11, read12;
+
     public BufferedImage attackUp1, attackUp2, attackDown1, attackDown2, attackLeft1, attackLeft2, attackRight1, attackRight2;
     public BufferedImage image1, image2, image3, image4, image5;
-    public Rectangle solidArea = new Rectangle(0, 0, 48, 40);
+    public BufferedImage[] sprites = new BufferedImage[1300];
+    public BufferedImage[] bodies = new BufferedImage[1300];
+    public BufferedImage[] eyes = new BufferedImage[1300];
+    public BufferedImage[] hairstyles = new BufferedImage[1300];
+    public BufferedImage[] outfits = new BufferedImage[1300];
+    //public BufferedImage[] accessories = new BufferedImage[50];
+    public int bodyIndex, eyeIndex, hairIndex, hairColor, outfitIndex, outfitColor, accIndex;
+
+    public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
     public Rectangle attackArea = new Rectangle(0, 0, 0, 0);
 
 
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collision = false;
-    String[] dialogues = new String[20];
+    public String[] dialogues = new String[20];
 
+    // SPRITES
+    public int spriteWidth = 48;
+    public int spriteHeight = 48;
 
     // STATE
     public int worldX, worldY;
@@ -49,6 +65,7 @@ public class Entity {
 
     // CHARACTER ATTRIBUTES
     public String name;
+    public int playerNum;
     public int speed;
     public int maxLife = 6;
     public int life = maxLife;
@@ -89,11 +106,95 @@ public class Entity {
 
 
 
-
+    public void getLayeredSprites(){}
 
 
     public Entity(GamePanel gp) {
         this.gp = gp;
+    }
+    public void getSprites() {
+        int i = 114;
+        // 114 - 137 walking animation
+        right1 = sprites[i]; i++;
+        right2 = sprites[i]; i++;
+        right3 = sprites[i]; i++;
+        right4 = sprites[i]; i++;
+        right5 = sprites[i]; i++;
+        right6 = sprites[i]; i++;
+        up1 = sprites[i]; i++;
+        up2 = sprites[i]; i++;
+        up3 = sprites[i]; i++;
+        up4 = sprites[i]; i++;
+        up5 = sprites[i]; i++;
+        up6 = sprites[i]; i++;
+        left1 = sprites[i]; i++;
+        left2 = sprites[i]; i++;
+        left3 = sprites[i]; i++;
+        left4 = sprites[i]; i++;
+        left5 = sprites[i]; i++;
+        left6 = sprites[i]; i++;
+        down1 = sprites[i]; i++;
+        down2 = sprites[i]; i++;
+        down3 = sprites[i]; i++;
+        down4 = sprites[i]; i++;
+        down5 = sprites[i]; i++;
+        down6 = sprites[i]; i++;
+    }
+    public void doRead(){
+        for(int cycle = 0;cycle < 4; cycle++){
+            switch(cycle){
+                case 0 -> openbook();
+                case 1,2,3 -> reading();
+                case 4 -> closebook();
+            }
+        }
+    }
+    public void openbook(){
+        int i = 342;
+        read1 = sprites[i]; i++;
+        read2 = sprites[i]; i++;
+        read3 = sprites[i]; i++;
+        read4 = sprites[i]; i++;
+        read5 = sprites[i]; i++;
+        read6 = sprites[i]; i++;
+        read7 = sprites[i]; i++;
+        read8 = sprites[i]; i++;
+        read9 = sprites[i]; i++;
+        read10 = sprites[i]; i++;
+        read11 = sprites[i]; i++;
+        read12 = sprites[i];
+
+    }
+    public void closebook(){
+        int i = 353;
+        read1 = sprites[i]; i--;
+        read2 = sprites[i]; i--;
+        read3 = sprites[i]; i--;
+        read4 = sprites[i]; i--;
+        read5 = sprites[i]; i--;
+        read6 = sprites[i]; i--;
+        read7 = sprites[i]; i--;
+        read8 = sprites[i]; i--;
+        read9 = sprites[i]; i--;
+        read10 = sprites[i]; i--;
+        read11 = sprites[i]; i--;
+        read12 = sprites[i];
+
+    }
+    public void reading(){
+        int i = 399;
+        read1 = sprites[i]; i++;
+        read2 = sprites[i]; i++;
+        read3 = sprites[i]; i++;
+        read4 = sprites[i]; i++;
+        read5 = sprites[i]; i++;
+        read6 = sprites[i]; i++;
+        read7 = sprites[i]; i++;
+        read8 = sprites[i]; i++;
+        read9 = sprites[i]; i++;
+        read10 = sprites[i]; i++;
+        read11 = sprites[i]; i++;
+        read12 = sprites[i];
     }
 
     public Color getParticleColor(){
@@ -242,7 +343,16 @@ public class Entity {
             if(dying){
                 dyingAnimation(g2);
             }
-            g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+            g2.drawImage(image, screenX, screenY, null);
+            if(gp.keyH.debug) {
+
+                g2.setColor(Color.white);
+                g2.setFont(g2.getFont().deriveFont(24F));
+                String text = worldX+"/"+worldY;
+                g2.setStroke(new BasicStroke(3));
+                g2.drawRect(screenX + solidArea.x, screenY+solidArea.y, solidArea.width, solidArea.height);
+                g2.drawString(text,screenX+gp.tileSize/4, screenY+gp.tileSize/2);
+            }
 
             // RESET ALPHA
             changeAlpha(g2, 1f);
@@ -275,16 +385,88 @@ public class Entity {
         }
         return image;
     }
+
+    public void loadSprites(String sheetPath, BufferedImage[] sprites, int spriteWidth, int spriteHeight){
+        UtilityTool uTool = new UtilityTool();
+        BufferedImage image = null;
+        int sheetWidth;
+        int sheetHeight;
+        int spritecounter = 0;
+
+        try {
+            image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(sheetPath)));
+
+        }catch(IOException e) {
+            e.printStackTrace();
+        }
+        sheetWidth = image.getWidth(); sheetHeight = image.getHeight();
+        for(int y = 0; y+spriteHeight <= sheetHeight; y += spriteHeight){
+            for(int x = 0; x+spriteWidth <= sheetWidth; x += spriteWidth){
+                spritecounter++;
+
+                sprites[spritecounter] = image.getSubimage(x, y,spriteWidth,spriteHeight);
+                sprites[spritecounter] = uTool.scaleImage(sprites[spritecounter], spriteWidth*gp.scale, spriteHeight*gp.scale);
+
+            }
+        }
+    }
+
+    public void selectSprite(){
+        UtilityTool uTool = new UtilityTool();
+        sprites = new BufferedImage[1300];
+        int sheetWidth;
+        int sheetHeight;
+        int spritecounter = 0;
+        BufferedImage image = null;
+        BufferedImage imageBody = null;
+        BufferedImage imageHair = null;
+        BufferedImage imageEyes = null;
+        BufferedImage imageOutfit = null;
+        try {
+            imageBody = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Character_Generator/Bodies/16x16/Body_0"+bodyIndex+".png")));
+            imageHair = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Character_Generator/Eyes/16x16/Eyes_0"+eyeIndex+".png")));
+            imageEyes = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Character_Generator/Outfits/16x16/Outfit_0"+outfitIndex+"_0"+outfitColor+".png")));
+            imageOutfit = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/Character_Generator/Hairstyles/16x16/Hairstyle_0"+hairIndex+"_0"+hairColor+".png")));
+
+
+        }catch(IOException e) {
+            e.printStackTrace();
+        }
+
+        sheetWidth = imageBody.getWidth(); sheetHeight = imageBody.getHeight();
+        BufferedImage c = new BufferedImage(sheetWidth, sheetHeight, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics g = c.getGraphics();
+        g.drawImage(imageBody, 0, 0, null);
+        g.drawImage(imageHair, 0, 0, null);
+        g.drawImage(imageEyes, 0, 0, null);
+        g.drawImage(imageOutfit, 0, 0, null);
+
+        for(int y = 0; y+spriteHeight <= sheetHeight; y += spriteHeight){
+            for(int x = 0; x+spriteWidth <= sheetWidth; x += spriteWidth){
+
+                sprites[spritecounter] = c.getSubimage(x, y,16,32);
+                sprites[spritecounter] = uTool.scaleImage(sprites[spritecounter], 16*gp.scale, 32*gp.scale);
+                spritecounter++;
+
+            }
+        }
+
+    }
     public BufferedImage setup(String imagePath, int width, int height) {
         UtilityTool uTool = new UtilityTool();
         BufferedImage image = null;
         try {
             image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(imagePath + ".png")));
-            image = uTool.scaleImage(image, width, height);
+            image = uTool.scaleImage(image, spriteWidth, spriteHeight);
 
         }catch(IOException e) {
             e.printStackTrace();
         }
         return image;
+    }
+
+    public void debug(){
+
     }
 }

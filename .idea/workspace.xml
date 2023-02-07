@@ -4,23 +4,71 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="Map System!">
-      <change afterPath="$PROJECT_DIR$/res/maps/klassenzimmer.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/NPC_Merchant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Time.java" afterDir="false" />
+    <list default="true" id="08794ca0-a9fe-4bf3-9b17-58dd8ef9f94e" name="Changes" comment="Spritesheet System + Dynamic Player">
+      <change afterPath="$PROJECT_DIR$/res/npc/Adam_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Alex_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Amelia_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Ash_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Bob_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Bouncer_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Bruce_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Butcher_2_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Butcher_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Chef_Alex_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Chef_Lucy_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Chef_Molly_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Chef_Pier_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Chef_Rob_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Conference_man_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Conference_woman_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Dan_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Doctor_1_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Doctor_2_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Edward_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Fishmonger_1_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Fishmonger_2_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Halloween_Kid_1_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Halloween_Kid_2_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Kid_Karen_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Kid_Mitty_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Kid_Romeo_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Kid_Tim_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Lucy_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Molly_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Nurse_1_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Nurse_2_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Old_man_Josh_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Old_woman_Jenny_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Pier_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Prisoner_1_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Prisoner_2_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Prisoner_3_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Rob_run16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Roki_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Samuel_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/Santa_Claus_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/kid_Abby_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/kid_Oscar_run_16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/run_horizontal_16x16_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/run_horizontal_16x16_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/run_horizontal_16x16_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/run_horizontal_16x16_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/npc/run_horizontal_16x16_5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/maps/hallway_01_upstairs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/maps/hallway_01_upstairs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/tiles/table01.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/tiles/table01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/NPC_Merchant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/NPC_Merchant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/NPC_OldMan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/NPC_OldMan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetSetter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/EventHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile/TileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tile_interactive/IT_IronDoorOpen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile_interactive/IT_IronDoorOpen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tile_interactive/IT_IronDoorSideOpen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile_interactive/IT_IronDoorSideOpen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tile_interactive/InteractiveTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile_interactive/InteractiveTile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,26 +96,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "M:/_User/L_Koppelman/Schule/SchoolRPG/src/tile_interactive",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;M:/_User/L_Koppelman/Schule/SchoolRPG/src/tile_interactive&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="tile" />
@@ -77,11 +125,11 @@
       <recent name="C:\Users\leroy\OneDrive\Dokumente\Schule\python\SchoolRPG\res\maps" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\leroy\OneDrive\Dokumente\Schule\python\SchoolRPG\res\npc" />
+      <recent name="C:\Users\leroy\OneDrive\Dokumente\Schule\python\SchoolRPG\res\player" />
       <recent name="M:\_User\L_Koppelman\Schule\SchoolRPG\res\tile_interactive" />
       <recent name="M:\_User\L_Koppelman\Schule\SchoolRPG\res\player" />
       <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\npc" />
-      <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\maps" />
-      <recent name="M:\_User\L_Koppelman\Schule\Platformer2D\res\tiles" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -109,6 +157,8 @@
       <workItem from="1674561618813" duration="3863000" />
       <workItem from="1674568135677" duration="760000" />
       <workItem from="1675235955860" duration="75968000" />
+      <workItem from="1675760333605" duration="3661000" />
+      <workItem from="1675769139383" duration="9932000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Screen">
       <created>1673960431627</created>
@@ -346,7 +396,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Player Movement" />
     <MESSAGE value="Sprite and Player Animations" />
     <MESSAGE value="Map work" />
     <MESSAGE value="First World Map" />
@@ -371,7 +420,8 @@
     <MESSAGE value="Option Menu, Save config" />
     <MESSAGE value="Game Over Screen" />
     <MESSAGE value="Map System!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Map System!" />
+    <MESSAGE value="Spritesheet System + Dynamic Player" />
+    <option name="LAST_COMMIT_MESSAGE" value="Spritesheet System + Dynamic Player" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -388,5 +438,13 @@
         <PinnedItemInfo parentTag="java.lang.ArrayIndexOutOfBoundsException" memberName="cause" />
       </pinned-members>
     </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="sprites[9]" language="JAVA" />
+        <watch expression="sprites[13]" />
+        <watch expression="c" />
+        <watch expression="sprites[spritecounter]" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

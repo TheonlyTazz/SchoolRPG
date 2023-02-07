@@ -57,11 +57,11 @@ public class KeyHandler implements KeyListener {
     public void titleState(int code){
         switch (code) {
             case KeyEvent.VK_W -> {
-                if (gp.ui.commandNum == 0) gp.ui.commandNum = gp.ui.menuLength -1;
+                if (gp.ui.commandNum == 0) gp.ui.commandNum = gp.ui.menuLength;
                 else gp.ui.commandNum--;
             }
             case KeyEvent.VK_S -> {
-                if (gp.ui.commandNum == gp.ui.menuLength -1) gp.ui.commandNum = 0;
+                if (gp.ui.commandNum == gp.ui.menuLength) gp.ui.commandNum = 0;
                 else gp.ui.commandNum++;
             }
             case KeyEvent.VK_SPACE -> {
@@ -81,24 +81,117 @@ public class KeyHandler implements KeyListener {
                     }
                     // CHAR SELECTION
                     case 1 ->{
-                        if (gp.ui.commandNum == gp.ui.menuLength-1) {
+                        if (gp.ui.commandNum == gp.ui.menuLength) {
                             gp.ui.titleScreenState = 0;
                             gp.ui.commandNum = 0;
                         }
                         else {
                             System.out.println(gp.ui.commandNum+" - "+gp.ui.menuString[gp.ui.commandNum]);
                             gp.player.playerName = gp.ui.menuString[gp.ui.commandNum];
+                            gp.player.playerNum = gp.ui.commandNum+1;
+                            gp.player.setDefaultValues();
                             gp.setupGame();
-                            gp.gameState = gp.playState;
+                            gp.ui.titleScreenState = 2;
                         }
-
                     }
                     case 2 ->{
-                        gp.ui.drawOptionsScreen();
+                        gp.player.selectSprite();
+                        gp.player.getPlayerImage();
+                        gp.gameState = gp.playState;
+
                     }
                 }
 
             }
+            case KeyEvent.VK_A -> {
+                if (gp.ui.titleScreenState == 2) {
+                    switch (gp.ui.commandNum) {
+                        case 0 -> {
+                            if (gp.player.bodyIndex == 1) gp.player.bodyIndex = 9;
+                            else gp.player.bodyIndex--;
+                            gp.player.loadSprites("/player/Character_Generator/Bodies/16x16/Body_0"+gp.player.bodyIndex+".png", gp.player.bodies, 16, 32);
+
+                        }
+
+                        case 1 -> {
+                            if (gp.player.eyeIndex == 1) gp.player.eyeIndex = 9;
+                            else gp.player.eyeIndex--;
+                            gp.player.loadSprites("/player/Character_Generator/Eyes/16x16/Eyes_0"+gp.player.eyeIndex+".png", gp.player.eyes, 16, 32);
+
+                        }
+                        case 2 -> {
+                            if (gp.player.hairIndex == 1) gp.player.hairIndex = 9;
+                            else gp.player.hairIndex--;
+                            gp.player.loadSprites("/player/Character_Generator/Hairstyles/16x16/Hairstyle_0"+gp.player.hairIndex+"_0"+gp.player.hairColor+".png", gp.player.hairstyles, 16, 32);
+
+                        }
+                        case 3 -> {
+                            if (gp.player.hairColor == 1) gp.player.hairColor = 9;
+                            else gp.player.hairColor--;
+                            gp.player.loadSprites("/player/Character_Generator/Hairstyles/16x16/Hairstyle_0"+gp.player.hairIndex+"_0"+gp.player.hairColor+".png", gp.player.hairstyles, 16, 32);
+
+                        }
+                        case 4 -> {
+                            if (gp.player.outfitIndex == 1) gp.player.outfitIndex = 9;
+                            else gp.player.outfitIndex--;
+                            gp.player.loadSprites("/player/Character_Generator/Outfits/16x16/Outfit_0"+gp.player.outfitIndex+"_0"+gp.player.outfitColor+".png", gp.player.outfits, 16, 32);
+
+                        }
+                        case 5 -> {
+                            if (gp.player.outfitColor == 1) gp.player.outfitColor = 9;
+                            else gp.player.outfitColor--;
+                            gp.player.loadSprites("/player/Character_Generator/Outfits/16x16/Outfit_0"+gp.player.outfitIndex+"_0"+gp.player.outfitColor+".png", gp.player.outfits, 16, 32);
+
+                        }
+                        default -> System.out.println(3);
+                    }
+                }
+            }
+            case KeyEvent.VK_D -> {
+                if (gp.ui.titleScreenState == 2) {
+                    switch (gp.ui.commandNum) {
+                        case 0 -> {
+                            if (gp.player.bodyIndex == 9) gp.player.bodyIndex = 1;
+                            else gp.player.bodyIndex++;
+                            gp.player.loadSprites("/player/Character_Generator/Bodies/16x16/Body_0"+gp.player.bodyIndex+".png", gp.player.bodies, 16, 32);
+
+                        }
+
+                        case 1 -> {
+                            if (gp.player.eyeIndex == 9) gp.player.eyeIndex = 1;
+                            else gp.player.eyeIndex++;
+                            gp.player.loadSprites("/player/Character_Generator/Eyes/16x16/Eyes_0"+gp.player.eyeIndex+".png", gp.player.eyes, 16, 32);
+
+                        }
+                        case 2 -> {
+                            if (gp.player.hairIndex == 9) gp.player.hairIndex = 1;
+                            else gp.player.hairIndex++;
+                            gp.player.loadSprites("/player/Character_Generator/Hairstyles/16x16/Hairstyle_0"+gp.player.hairIndex+"_0"+gp.player.hairColor+".png", gp.player.hairstyles, 16, 32);
+
+                        }
+                        case 3 -> {
+                            if (gp.player.hairColor == 9) gp.player.hairColor = 1;
+                            else gp.player.hairColor++;
+                            gp.player.loadSprites("/player/Character_Generator/Hairstyles/16x16/Hairstyle_0"+gp.player.hairIndex+"_0"+gp.player.hairColor+".png", gp.player.hairstyles, 16, 32);
+
+                        }
+                        case 4 -> {
+                            if (gp.player.outfitIndex == 9) gp.player.outfitIndex = 1;
+                            else gp.player.outfitIndex++;
+                            gp.player.loadSprites("/player/Character_Generator/Outfits/16x16/Outfit_0"+gp.player.outfitIndex+"_0"+gp.player.outfitColor+".png", gp.player.outfits, 16, 32);
+
+                        }
+                        case 5 -> {
+                            if (gp.player.outfitColor == 9) gp.player.outfitColor = 1;
+                            else gp.player.outfitColor++;
+                            gp.player.loadSprites("/player/Character_Generator/Outfits/16x16/Outfit_0"+gp.player.outfitIndex+"_0"+gp.player.outfitColor+".png", gp.player.outfits, 16, 32);
+
+                        }
+                        default -> System.out.println(3);
+                    }
+                }
+            }
+
         }
     }
     public void playState(int code){

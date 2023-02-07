@@ -4,7 +4,6 @@ import entity.Entity;
 import main.GamePanel;
 
 public class InteractiveTile extends Entity {
-
     GamePanel gp;
     public boolean destructible = false;
     public boolean attackCanceled = false;

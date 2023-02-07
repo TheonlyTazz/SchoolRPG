@@ -67,7 +67,7 @@ public class EventHandler {
 
             if(hit(33, 42, 3, "down")) switchMap(32, 33, 2);
             if(hit(26, 24, 1, "up")) switchMap(33, 41, 8);
-            if(hit(35, 24, 1, "any")) switchMap(33, 41, 8);
+            if(hit(35, 24, 1, "up")) switchMap(33, 41, 8);
             if(hit(33, 30, 1, "down")) switchMap(33, 29, 9);
             if(hit(33, 42, 8, "down")) switchMap(gp.player.previousX, gp.player.previousY, 1);
             if(hit(33, 27, 9, "up")) switchMap(gp.player.previousX, gp.player.previousY, 1);
@@ -122,7 +122,7 @@ public class EventHandler {
         setPreviousPos((int) Math.floor(gp.player.worldX/gp.tileSize), (int) Math.floor(gp.player.worldY/gp.tileSize));
         gp.currentMap = map;
         gp.player.worldX = gp.tileSize*col;
-        gp.player.worldY = gp.tileSize*row;
+        gp.player.worldY = gp.tileSize*row-50;
 
     }
 
@@ -134,7 +134,7 @@ public class EventHandler {
             }
             case "down" -> {
                 gp.player.previousX = col;
-                gp.player.previousY = row-1;
+                gp.player.previousY = row;
             }
             case "left" -> {
                 gp.player.previousX = col+1;

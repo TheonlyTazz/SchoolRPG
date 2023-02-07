@@ -6,6 +6,8 @@ public class IT_IronDoorOpen extends InteractiveTile{
 
     GamePanel gp;
 
+
+
     public IT_IronDoorOpen(GamePanel gp, int col, int row) {
         super(gp);
         this.gp = gp;

@@ -8,19 +8,22 @@ public class NPC_OldMan extends Entity{
 
     public NPC_OldMan(GamePanel gp){
         super(gp);
-
+        // SPRITES
+        spriteWidth = 48;
+        spriteHeight = 96;
         solidArea = new Rectangle();
-        solidArea.x = 0;
+        solidArea.x = 8;
         solidArea.y = 16;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
-        solidArea.width = 46;
+        solidArea.width = 32;
         solidArea.height = 32;
         direction = "down";
         speed = 1;
         name = "OldMan";
         getImage();
         setDialogue();
+
     }
 
     public void getImage() {
