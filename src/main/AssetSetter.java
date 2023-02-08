@@ -1,6 +1,5 @@
 package main;
 
-import entity.Teachers.NPC_Teacher_1;
 import monster.MON_GreenSlime;
 import entity.*;
 import object.*;
@@ -41,7 +40,6 @@ public class AssetSetter {
         switch(NPC){
             case "OldMan" -> gp.npc[mapNum][id] = new NPC_OldMan(gp);
             case "Merchant" -> gp.npc[mapNum][id] = new NPC_Merchant(gp);
-            case "Teacher_1" -> gp.npc[mapNum][id] = new NPC_Teacher_1(gp);
         }
         gp.npc[mapNum][id].worldX = gp.tileSize * x;
         gp.npc[mapNum][id].worldY = gp.tileSize * y;
@@ -107,7 +105,6 @@ public class AssetSetter {
         mapNum = 1;
         createNPC(i, mapNum, "OldMan", 26, 29); i++;
         createNPC(i, mapNum, "Merchant", 35, 27); i++;
-        createNPC(i, mapNum, "Teacher_1", 36, 27);
 
     }
     public void setMON(){

@@ -5,23 +5,34 @@ import main.UtilityTool;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.util.Objects;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+
+
 
 public class TileManager {
 
     GamePanel gp;
     public Tile[] tile;
     public int[][][] mapTileNum;
+    BufferedImage[] sprites = new BufferedImage[5000];
+    public int spriteWidth = 16;
+    public int spriteHeight = 32;
+    public String json = "tiles/map_overworld.json";
+
+
 
     public TileManager(GamePanel gp) {
 
         this.gp = gp;
-        tile = new Tile[99];
+        tile = new Tile[100];
         mapTileNum = new int [gp.maxMap][gp.maxWorldCol][gp.maxWorldRow];
+        //loadSprites("/tiles/Room_Builder_subfiles/Room_Builder_3d_walls_16x16.png", sprites, spriteWidth, spriteHeight);
 
         getTileImage();
         loadMap("/maps/worldv3.txt", 0);
@@ -32,6 +43,9 @@ public class TileManager {
         loadMap("/maps/class_down.txt", 9);
 
     }
+    //0-7
+    //24-31
+    //48-55
     public void newTile(int id, String tileImage, int tileSize, boolean collision) {
         UtilityTool uTool = new UtilityTool();
 
@@ -46,7 +60,16 @@ public class TileManager {
             e.printStackTrace();
         }
     }
+    public void newTilefromSprite(int id, BufferedImage sprite, int tileSize, boolean collision) {
+        tile[id] = new Tile();
+        tile[id].image = sprite;
+        tile[id].collision = collision;
+        tile[id].tileSize = tileSize;
 
+    }
+    public void loadJson(String json){
+
+    }
     public void getTileImage() {
         //newTile(id, tileImage, collision)
 
@@ -93,6 +116,7 @@ public class TileManager {
         newTile(37, "road11", 16, false);
         newTile(38, "road12", 16, false);
         newTile(39, "earth",16, false);
+        //newTilefromSprite(40, sprites[28], 32, true);
         newTile(40, "wall",16, true);
         newTile(41, "tree",16, true);
         newTile(42, "window",16, true);
@@ -104,8 +128,38 @@ public class TileManager {
         newTile(48, "stair_left",16, false);
         newTile(49, "stair_right",16, false);
         newTile(50, "table01",16, true);
+        newTilefromSprite(51, sprites[5], 32, true);
+        newTilefromSprite(52, sprites[2], 32, true);
+        newTilefromSprite(53, sprites[26], 32, true);
+        newTilefromSprite(99, sprites[999], 16, true);
+    }
+    //0-7
+    //24-31
+    //48-55
+    public void loadSprites(String sheetPath, BufferedImage[] sprites, int spriteWidth, int spriteHeight){
+        UtilityTool uTool = new UtilityTool();
+        BufferedImage image = null;
+        int sheetWidth;
+        int sheetHeight;
+        int spritecounter = 0;
+
+        try {
+            image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(sheetPath)));
+
+        }catch(IOException e) {
+            e.printStackTrace();
+        }
+        sheetWidth = image.getWidth(); sheetHeight = image.getHeight();
+        for(int y = 0; y+spriteHeight <= sheetHeight; y += spriteHeight){
+            for(int x = 0; x+spriteWidth <= sheetWidth; x += spriteWidth){
+                sprites[spritecounter] = image.getSubimage(x, y,spriteWidth,spriteHeight);
+                sprites[spritecounter] = uTool.scaleImage(sprites[spritecounter], spriteWidth*gp.scale, spriteHeight*gp.scale);
+                spritecounter++;
+                if(spritecounter == 56) System.out.println(1);
 
 
+            }
+        }
     }
     public void loadMap(String filePath, int map) {
         try {
@@ -139,6 +193,7 @@ public class TileManager {
         }
 
     }
+
     public void draw(Graphics2D g2) {
 
         int worldCol = 0;
@@ -148,16 +203,16 @@ public class TileManager {
 
             int tileNum = mapTileNum[gp.currentMap][worldCol][worldRow];
 
-            int worldX = worldCol * gp.tileSize;
-            int worldY = worldRow * gp.tileSize;
+            int worldX = worldCol * tile[tileNum].tileWidth*gp.scale;
+            int worldY = worldRow * tile[tileNum].tileHeight*gp.scale;
 
             int screenX = worldX - gp.player.worldX + gp.player.screenX ;
             int screenY = worldY - gp.player.worldY + gp.player.screenY;
 
-            if(worldX + gp.tileSize > gp.player.worldX - gp.player.screenX &&
-                    worldX - gp.tileSize < gp.player.worldX + gp.player.screenX &&
-                    worldY + gp.tileSize > gp.player.worldY - gp.player.screenY &&
-                    worldY - gp.tileSize < gp.player.worldY + gp.player.screenY) {
+            if(worldX + tile[tileNum].tileWidth*gp.scale > gp.player.worldX - gp.player.screenX &&
+                    worldX - tile[tileNum].tileWidth*gp.scale < gp.player.worldX + gp.player.screenX &&
+                    worldY + tile[tileNum].tileHeight*gp.scale > gp.player.worldY - gp.player.screenY &&
+                    worldY - tile[tileNum].tileHeight*gp.scale < gp.player.worldY + gp.player.screenY) {
                 g2.drawImage(tile[tileNum].image, screenX, screenY, null);
                 if(gp.keyH.debug) {
                     String text = worldCol+"/"+worldRow;
