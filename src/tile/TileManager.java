@@ -32,14 +32,15 @@ public class TileManager {
         loadMap("/maps/class_down.txt", 9);
 
     }
-    public void newTile(int id, String tileImage, boolean collision) {
+    public void newTile(int id, String tileImage, int tileSize, boolean collision) {
         UtilityTool uTool = new UtilityTool();
 
         try {
             tile[id] = new Tile();
             tile[id].image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/tiles/" + tileImage + ".png")));
-            tile[id].image = uTool.scaleImage(tile[id].image, gp.tileSize, gp.tileSize);
+            tile[id].image = uTool.scaleImage(tile[id].image, tileSize*gp.scale, tileSize*gp.scale);
             tile[id].collision = collision;
+            tile[id].tileSize = tileSize;
 
         }catch(IOException e){
             e.printStackTrace();
@@ -50,59 +51,59 @@ public class TileManager {
         //newTile(id, tileImage, collision)
 
         //Placeholder
-        newTile(0, "grass00", false);
-        newTile(1, "grass00", false);
-        newTile(2, "grass00", false);
-        newTile(3, "grass00", false);
-        newTile(4, "grass00", false);
-        newTile(5, "grass00", false);
-        newTile(6, "grass00", false);
-        newTile(7, "grass00", false);
-        newTile(8, "grass00", false);
-        newTile(9, "grass00", false);
+        newTile(0, "grass00", 16, false);
+        newTile(1, "grass00", 16, false);
+        newTile(2, "grass00", 16, false);
+        newTile(3, "grass00", 16, false);
+        newTile(4, "grass00", 16, false);
+        newTile(5, "grass00", 16, false);
+        newTile(6, "grass00", 16, false);
+        newTile(7, "grass00", 16, false);
+        newTile(8, "grass00", 16, false);
+        newTile(9, "grass00", 16, false);
         //Placeholder
 
-        newTile(10, "grass00", false);
-        newTile(11, "grass01", false);
-        newTile(12, "water00", true);
-        newTile(13, "water01", true);
-        newTile(14, "water02", true);
-        newTile(15, "water03", true);
-        newTile(16, "water04", true);
-        newTile(17, "water05", true);
-        newTile(18, "water06", true);
-        newTile(19, "water07", true);
-        newTile(20, "water08", true);
-        newTile(21, "water09", true);
-        newTile(22, "water10", true);
-        newTile(23, "water11", true);
-        newTile(24, "water12", true);
-        newTile(25, "water13", true);
-        newTile(26, "road00", false);
-        newTile(27, "road01", false);
-        newTile(28, "road02", false);
-        newTile(29, "road03", false);
-        newTile(30, "road04", false);
-        newTile(31, "road05", false);
-        newTile(32, "road06", false);
-        newTile(33, "road07", false);
-        newTile(34, "road08", false);
-        newTile(35, "road09", false);
-        newTile(36, "road10", false);
-        newTile(37, "road11", false);
-        newTile(38, "road12", false);
-        newTile(39, "earth", false);
-        newTile(40, "wall", true);
-        newTile(41, "tree", true);
-        newTile(42, "window", true);
-        newTile(43, "blockroad00", true);
-        newTile(44, "blockroad01", true);
-        newTile(45, "blockroad02", true);
-        newTile(46, "stair_up", false);
-        newTile(47, "stair_down", false);
-        newTile(48, "stair_left", false);
-        newTile(49, "stair_right", false);
-        newTile(50, "table01", true);
+        newTile(10, "grass00",16, false);
+        newTile(11, "grass01",16, false);
+        newTile(12, "water00",16, true);
+        newTile(13, "water01",16, true);
+        newTile(14, "water02",16, true);
+        newTile(15, "water03",16, true);
+        newTile(16, "water04",16, true);
+        newTile(17, "water05",16, true);
+        newTile(18, "water06",16, true);
+        newTile(19, "water07",16, true);
+        newTile(20, "water08",16, true);
+        newTile(21, "water09",16, true);
+        newTile(22, "water10",16, true);
+        newTile(23, "water11",16, true);
+        newTile(24, "water12",16, true);
+        newTile(25, "water13",16, true);
+        newTile(26, "road00", 16, false);
+        newTile(27, "road01", 16, false);
+        newTile(28, "road02", 16, false);
+        newTile(29, "road03", 16, false);
+        newTile(30, "road04", 16, false);
+        newTile(31, "road05", 16, false);
+        newTile(32, "road06", 16, false);
+        newTile(33, "road07", 16, false);
+        newTile(34, "road08", 16, false);
+        newTile(35, "road09", 16, false);
+        newTile(36, "road10", 16, false);
+        newTile(37, "road11", 16, false);
+        newTile(38, "road12", 16, false);
+        newTile(39, "earth",16, false);
+        newTile(40, "wall",16, true);
+        newTile(41, "tree",16, true);
+        newTile(42, "window",16, true);
+        newTile(43, "blockroad00",16, true);
+        newTile(44, "blockroad01",16, true);
+        newTile(45, "blockroad02",16, true);
+        newTile(46, "stair_up",16, false);
+        newTile(47, "stair_down",16, false);
+        newTile(48, "stair_left",16, false);
+        newTile(49, "stair_right",16, false);
+        newTile(50, "table01",16, true);
 
 
     }
