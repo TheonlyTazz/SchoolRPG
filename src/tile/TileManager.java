@@ -28,7 +28,7 @@ public class TileManager {
     public String json = "tiles/map_overworld.json";
     Gson gson = new Gson();
     public int layers;
-
+    boolean[] collision = new boolean[50000];
 
 
     public TileManager(GamePanel gp) {
@@ -40,10 +40,11 @@ public class TileManager {
 
         getTileImage();
         loadSprites("/spritesheets/Modern_Exteriors_Complete_Tileset.png", sprites, 16, 16);
-        for(int i = 0; i < sprites.length; i++){
-            newTilefromSprite(i, sprites[i], 16, false);
-        }
         loadMapSheet("/maps/Overworld.json", 0);
+//        for(int i = 0; i < sprites.length; i++){
+//            newTilefromSprite(i, sprites[i], 16, false);
+//        }
+
 
 
     }
@@ -163,10 +164,11 @@ public class TileManager {
 
 
     public void loadMapSheet(String filePath, int map){
-        boolean collision = false;
+
         String tilesheetString;
         int col = 0;
         int row = 0;
+        int id;
 
         FileReader reader = null;
 
@@ -180,6 +182,7 @@ public class TileManager {
         System.out.println("NextlayerId: "+ mapData.getNextlayerid());
         System.out.println("RenderOrder: "+ mapData.getRenderorder());
         layers = mapData.getLayers().length;
+        gp.currentMapLayers = layers;
         for(int i = 0; i < layers; i++){
 
             MapData.Layer Layer = mapData.getLayers()[i];
@@ -187,17 +190,13 @@ public class TileManager {
             System.out.println(layerID);
             MapData.Property[] properties = Layer.getProperties();
             for (MapData.Property property : properties) {
-                collision = property.isValue();
+                collision[i] = property.isValue();
             }
             // TILE SHEET
             MapData.Tileset[] tilesets = mapData.getTilesets();
             String str = tilesets[0].getSource();
             int dotIndex = str.lastIndexOf(".");
             String sheetPath = str.substring(0, dotIndex)+".png";
-            System.out.println("Layer Name:" + Layer.getName());
-            System.out.println("Sheet Path: " +sheetPath);
-            System.out.println("Collision: "+ collision);
-            System.out.println();
 
 
             int width = mapData.getWidth();
@@ -206,8 +205,30 @@ public class TileManager {
             col = 0;
             row = 0;
             for (long value : data) {
-                if(value == 0) mapTileNum[map][i][col][row] = 0;
-                else mapTileNum[map][i][col][row] = (int) value -1;
+                id = (int) value;
+                if(id != 0) id--;
+                tile[id] = new Tile();
+
+                if(id == 0) {
+                    mapTileNum[map][i][col][row] = 0;
+                    tile[id] = new Tile();
+                    tile[id].image = sprites[0];
+                    tile[id].collision = false;
+                    tile[id].tileSize = 16;
+                }
+                else if(id != 0){
+
+                    mapTileNum[map][i][col][row] = id ;
+                    tile[id] = new Tile();
+                    tile[id].image = sprites[id];
+                    tile[id].collision = collision[i];
+                    tile[id].tileSize = 16;
+                }
+                if(tile[id].collision) {
+                    System.out.println("COLLISION on tile: " + id);
+                }
+
+
                 col++;
                 if (col == width){
                     col = 0;
@@ -221,9 +242,9 @@ public class TileManager {
 
     public void draw(Graphics2D g2) {
 
-
         int layer = 0;
         for(layer = 0; layer < layers; layer++){
+
             int worldCol = 0;
             int worldRow = 0;
             while(worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow) {
@@ -231,7 +252,6 @@ public class TileManager {
                 int tileNum = mapTileNum[gp.currentMap][layer][worldCol][worldRow];
                 int worldX = worldCol * tile[tileNum].tileWidth*gp.scale;
                 int worldY = worldRow * tile[tileNum].tileHeight*gp.scale;
-
                 int screenX = worldX - gp.player.worldX + gp.player.screenX ;
                 int screenY = worldY - gp.player.worldY + gp.player.screenY;
 

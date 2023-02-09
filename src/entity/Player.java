@@ -53,8 +53,8 @@ public class Player extends Entity{
     public void setDefaultPos(){
         switch(gp.currentMap){
             case 0 ->{
-                worldX = gp.tileSize * 23;
-                worldY = gp.tileSize * 40-48;
+                worldX = gp.tileSize * 51;
+                worldY = gp.tileSize * 70;
             }
             case 1 -> {
                 worldX = gp.tileSize * 20;

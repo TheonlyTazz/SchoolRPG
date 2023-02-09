@@ -57,12 +57,15 @@ public class AssetSetter {
         int i = 0;
         int mapNum;
         mapNum = 0;
+        /*
         createObject(i, mapNum, "Key", 28, 25); i++;
         createObject(i, mapNum, "Key", 28, 26); i++;
         createObject(i, mapNum, "Key", 28, 27); i++;
         createObject(i, mapNum, "Key", 28, 28); i++;
         createObject(i, mapNum, "Blue Shield", 30, 38); i++;
         createObject(i, mapNum, "Axe", 31, 38); i++;
+
+         */
 
         mapNum = 1;
         createObject(i, mapNum, "Key", 28, 28);
@@ -72,10 +75,11 @@ public class AssetSetter {
     public void setiTile(){
         int i = 0;
         int mapNum;
-        mapNum = 0;
+        mapNum = 0;/*
         createiTile(i, mapNum, "Iron Door", 31, 22); i++;
         createiTile(i, mapNum, "Iron Door", 24, 35); i++;
         createiTile(i, mapNum, "Iron Door", 38, 35); i++;
+        */
         mapNum = 1;
         createiTile(i, mapNum, "Iron Door Side", 19, 27);i++;
         createiTile(i, mapNum, "Iron Door", 26, 24);i++;
@@ -96,11 +100,14 @@ public class AssetSetter {
         int mapNum;
 
         mapNum = 0;
+        /*
         createNPC(i, mapNum, "OldMan", 21, 21);i++;
         createNPC(i, mapNum, "OldMan", 22, 21);i++;
         createNPC(i, mapNum, "OldMan", 23, 21);i++;
         createNPC(i, mapNum, "OldMan", 24, 21);i++;
         createNPC(i, mapNum, "OldMan", 25, 21);i++;
+
+         */
 
         mapNum = 1;
         createNPC(i, mapNum, "OldMan", 26, 29); i++;
@@ -111,12 +118,13 @@ public class AssetSetter {
         int i = 0;
         int mapNum;
 
-        mapNum = 0;
+        mapNum = 0;/*
         createMON(i, mapNum, "Green Slime", 23, 42);i++;
         createMON(i, mapNum, "Green Slime", 24, 42);i++;
         createMON(i, mapNum, "Green Slime", 25, 42);i++;
         createMON(i, mapNum, "Green Slime", 26, 42);i++;
         createMON(i, mapNum, "Green Slime", 27, 42);
+        */
     }
 
 
