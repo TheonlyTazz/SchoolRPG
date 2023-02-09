@@ -227,19 +227,17 @@ public class TileManager {
             int worldCol = 0;
             int worldRow = 0;
             while(worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow) {
-                System.out.println(layer);
 
                 int tileNum = mapTileNum[gp.currentMap][layer][worldCol][worldRow];
-                if(layer == 1) System.out.println(layer);
                 int worldX = worldCol * tile[tileNum].tileWidth*gp.scale;
                 int worldY = worldRow * tile[tileNum].tileHeight*gp.scale;
 
                 int screenX = worldX - gp.player.worldX + gp.player.screenX ;
                 int screenY = worldY - gp.player.worldY + gp.player.screenY;
 
-                if(worldX + tile[tileNum].tileWidth > gp.player.worldX - gp.player.screenX &&
-                        worldX - tile[tileNum].tileWidth < gp.player.worldX + gp.player.screenX &&
-                        worldY + tile[tileNum].tileHeight > gp.player.worldY - gp.player.screenY &&
+                if(worldX + tile[tileNum].tileWidth*gp.scale > gp.player.worldX - gp.player.screenX &&
+                        worldX - tile[tileNum].tileWidth*gp.scale < gp.player.worldX + gp.player.screenX &&
+                        worldY + tile[tileNum].tileHeight*gp.scale > gp.player.worldY - gp.player.screenY &&
                         worldY - tile[tileNum].tileHeight*gp.scale < gp.player.worldY + gp.player.screenY) {
                     if(tileNum != 0) g2.drawImage(tile[tileNum].image, screenX, screenY, null);
                     if(gp.keyH.debug) {
