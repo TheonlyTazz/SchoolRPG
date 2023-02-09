@@ -208,17 +208,6 @@ public class KeyHandler implements KeyListener {
                     }
                 }
             }
-            case KeyEvent.VK_K -> {
-                FileReader reader = null;
-                try {
-                    reader = new FileReader("res/spritesheets/Overworld.json");
-                } catch (FileNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
-                Data data = gp.gson.fromJson(reader, Data.class);
-                System.out.println("tileHeight: " + data.getLayers());
-
-            }
 
         }
     }

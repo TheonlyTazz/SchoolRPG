@@ -1,15 +1,17 @@
 package tile;
 
+import com.google.gson.Gson;
 import main.GamePanel;
+import main.MapData;
 import main.UtilityTool;
-
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.Objects;
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 
 
@@ -19,28 +21,30 @@ public class TileManager {
 
     GamePanel gp;
     public Tile[] tile;
-    public int[][][] mapTileNum;
-    BufferedImage[] sprites = new BufferedImage[5000];
+    public int[][][][] mapTileNum;
+    BufferedImage[] sprites = new BufferedImage[50000];
     public int spriteWidth = 16;
     public int spriteHeight = 32;
     public String json = "tiles/map_overworld.json";
+    Gson gson = new Gson();
+    public int layers;
 
 
 
     public TileManager(GamePanel gp) {
 
         this.gp = gp;
-        tile = new Tile[100];
-        mapTileNum = new int [gp.maxMap][gp.maxWorldCol][gp.maxWorldRow];
+        tile = new Tile[50000];
+        mapTileNum = new int [gp.maxMap][gp.maxLayer][gp.maxWorldCol][gp.maxWorldRow];
         //loadSprites("/tiles/Room_Builder_subfiles/Room_Builder_3d_walls_16x16.png", sprites, spriteWidth, spriteHeight);
 
         getTileImage();
-        loadMap("/maps/worldv3.txt", 0);
-        loadMap("/maps/hallway_01.txt", 1);
-        loadMap("/maps/hallway_01_upstairs.txt", 2);
-        loadMap("/maps/klassenzimmer.txt", 3);
-        loadMap("/maps/class_up.txt", 8);
-        loadMap("/maps/class_down.txt", 9);
+        loadSprites("/spritesheets/Modern_Exteriors_Complete_Tileset.png", sprites, 16, 16);
+        for(int i = 0; i < sprites.length; i++){
+            newTilefromSprite(i, sprites[i], 16, false);
+        }
+        loadMapSheet("/maps/Overworld.json", 0);
+
 
     }
     //0-7
@@ -65,9 +69,6 @@ public class TileManager {
         tile[id].image = sprite;
         tile[id].collision = collision;
         tile[id].tileSize = tileSize;
-
-    }
-    public void loadJson(String json){
 
     }
     public void getTileImage() {
@@ -155,80 +156,111 @@ public class TileManager {
                 sprites[spritecounter] = image.getSubimage(x, y,spriteWidth,spriteHeight);
                 sprites[spritecounter] = uTool.scaleImage(sprites[spritecounter], spriteWidth*gp.scale, spriteHeight*gp.scale);
                 spritecounter++;
-                if(spritecounter == 56) System.out.println(1);
-
 
             }
         }
     }
-    public void loadMap(String filePath, int map) {
-        try {
-            //InputStream is = new FileInputStream("../../maps/map01.txt");
-            InputStream is = Objects.requireNonNull(getClass().getResourceAsStream(filePath));
-            BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
-            int col = 0;
-            int row = 0;
 
-            while (col < gp.maxWorldCol && row < gp.maxWorldRow) {
+    public void loadMapSheet(String filePath, int map){
+        boolean collision = false;
+        String tilesheetString;
+        int col = 0;
+        int row = 0;
 
-                String line = br.readLine();
-                while (col < gp.maxWorldCol) {
+        FileReader reader = null;
 
-                    String[] numbers = line.split(" ");
-                    int num = Integer.parseInt(numbers[col]);
-                    mapTileNum[map][col][row] = num;
-                    col++;
-                }
-                if (col == gp.maxWorldCol) {
+        InputStream is = Objects.requireNonNull(getClass().getResourceAsStream(filePath));
+        BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+        MapData mapData = gson.fromJson(br, MapData.class);
+
+        System.out.println("Height: "+ mapData.getHeight());
+        System.out.println("Width: "+ mapData.getWidth());
+        System.out.println("NextlayerId: "+ mapData.getNextlayerid());
+        System.out.println("RenderOrder: "+ mapData.getRenderorder());
+        layers = mapData.getLayers().length;
+        for(int i = 0; i < layers; i++){
+
+            MapData.Layer Layer = mapData.getLayers()[i];
+            int layerID = Layer.getId();
+            System.out.println(layerID);
+            MapData.Property[] properties = Layer.getProperties();
+            for (MapData.Property property : properties) {
+                collision = property.isValue();
+            }
+            // TILE SHEET
+            MapData.Tileset[] tilesets = mapData.getTilesets();
+            String str = tilesets[0].getSource();
+            int dotIndex = str.lastIndexOf(".");
+            String sheetPath = str.substring(0, dotIndex)+".png";
+            System.out.println("Layer Name:" + Layer.getName());
+            System.out.println("Sheet Path: " +sheetPath);
+            System.out.println("Collision: "+ collision);
+            System.out.println();
+
+
+            int width = mapData.getWidth();
+            int height = mapData.getHeight();
+            long[] data = Layer.getData();
+            col = 0;
+            row = 0;
+            for (long value : data) {
+                if(value == 0) mapTileNum[map][i][col][row] = 0;
+                else mapTileNum[map][i][col][row] = (int) value -1;
+                col++;
+                if (col == width){
                     col = 0;
                     row++;
+                    if (row >= height)  row = 100;
                 }
 
             }
-            br.close();
-        }catch(Exception e) {
-            System.out.println("Cant load Map!");
-
         }
-
     }
 
     public void draw(Graphics2D g2) {
 
-        int worldCol = 0;
-        int worldRow = 0;
 
-        while(worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow) {
+        int layer = 0;
+        for(layer = 0; layer < layers; layer++){
+            int worldCol = 0;
+            int worldRow = 0;
+            while(worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow) {
+                System.out.println(layer);
 
-            int tileNum = mapTileNum[gp.currentMap][worldCol][worldRow];
+                int tileNum = mapTileNum[gp.currentMap][layer][worldCol][worldRow];
+                if(layer == 1) System.out.println(layer);
+                int worldX = worldCol * tile[tileNum].tileWidth*gp.scale;
+                int worldY = worldRow * tile[tileNum].tileHeight*gp.scale;
 
-            int worldX = worldCol * tile[tileNum].tileWidth*gp.scale;
-            int worldY = worldRow * tile[tileNum].tileHeight*gp.scale;
+                int screenX = worldX - gp.player.worldX + gp.player.screenX ;
+                int screenY = worldY - gp.player.worldY + gp.player.screenY;
 
-            int screenX = worldX - gp.player.worldX + gp.player.screenX ;
-            int screenY = worldY - gp.player.worldY + gp.player.screenY;
+                if(worldX + tile[tileNum].tileWidth > gp.player.worldX - gp.player.screenX &&
+                        worldX - tile[tileNum].tileWidth < gp.player.worldX + gp.player.screenX &&
+                        worldY + tile[tileNum].tileHeight > gp.player.worldY - gp.player.screenY &&
+                        worldY - tile[tileNum].tileHeight*gp.scale < gp.player.worldY + gp.player.screenY) {
+                    if(tileNum != 0) g2.drawImage(tile[tileNum].image, screenX, screenY, null);
+                    if(gp.keyH.debug) {
+                        String text = worldCol+"/"+worldRow;
+                        g2.setStroke(new BasicStroke(3));
+                        g2.drawRect(screenX, screenY, gp.tileSize, gp.tileSize);
+                        g2.drawString(text,screenX+gp.tileSize/4, screenY+gp.tileSize/2);
+                    }
+                }
+                worldCol++;
 
-            if(worldX + tile[tileNum].tileWidth*gp.scale > gp.player.worldX - gp.player.screenX &&
-                    worldX - tile[tileNum].tileWidth*gp.scale < gp.player.worldX + gp.player.screenX &&
-                    worldY + tile[tileNum].tileHeight*gp.scale > gp.player.worldY - gp.player.screenY &&
-                    worldY - tile[tileNum].tileHeight*gp.scale < gp.player.worldY + gp.player.screenY) {
-                g2.drawImage(tile[tileNum].image, screenX, screenY, null);
-                if(gp.keyH.debug) {
-                    String text = worldCol+"/"+worldRow;
-                    g2.setStroke(new BasicStroke(3));
-                    g2.drawRect(screenX, screenY, gp.tileSize, gp.tileSize);
-                    g2.drawString(text,screenX+gp.tileSize/4, screenY+gp.tileSize/2);
+                if(worldCol == gp.maxWorldCol) {
+                    worldCol = 0;
+                    worldRow++;
                 }
             }
-            worldCol++;
 
-            if(worldCol == gp.maxWorldCol) {
-                worldCol = 0;
-                worldRow++;
-            }
 
         }
+
+
 
     }
 }

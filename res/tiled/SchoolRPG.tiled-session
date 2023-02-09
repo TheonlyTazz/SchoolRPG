@@ -7,17 +7,35 @@
     "expandedProjectPaths": [
     ],
     "fileStates": {
+        "Hallway 1.tmx": {
+            "scale": 1,
+            "selectedLayer": 7,
+            "viewCenter": {
+                "x": 479.5,
+                "y": 239
+            }
+        },
+        "Overworld.json": {
+            "scale": 0.41790754257907536,
+            "selectedLayer": 10,
+            "viewCenter": {
+                "x": 865.0238705170007,
+                "y": 527.62866790871
+            }
+        },
         "Overworld.tmx": {
             "scale": 0.5,
             "selectedLayer": 2,
             "viewCenter": {
                 "x": 843,
-                "y": 912
+                "y": 910
             }
         }
     },
+    "last.exportedFilePath": "C:/Users/leroy/OneDrive/Dokumente/Schule/python/SchoolRPG/res/maps",
     "last.imagePath": "C:/Users/leroy/OneDrive/Dokumente/Schule/python/SchoolRPG/res/spritesheets",
     "map.height": 50,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
@@ -25,6 +43,7 @@
     "openFiles": [
     ],
     "project": "SchoolRPG.tiled-project",
+    "property.type": "bool",
     "recentFiles": [
     ],
     "tileset.lastUsedFormat": "tsx",

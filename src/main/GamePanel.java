@@ -27,12 +27,11 @@ public class GamePanel extends JPanel implements Runnable{
     public boolean fullScreenOn = false;
 
     // WORLD SETTINGS
-    public final int maxWorldCol = 64;
-    public final int maxWorldRow = 64;
+    public final int maxWorldCol = 101;
+    public final int maxWorldRow = 101;
     public final int maxMap = 10;
-    public int currentMap = 1;
-
-
+    public final int maxLayer = 20;
+    public int currentMap = 0;
 
     // FPS
     int FPS = 60;
@@ -48,7 +47,7 @@ public class GamePanel extends JPanel implements Runnable{
     public EventHandler eHandler = new EventHandler(this);
     public Time time = new Time(this);
     Config config = new Config(this);
-    Gson gson = new Gson();
+
 
     Thread gameThread;
 
