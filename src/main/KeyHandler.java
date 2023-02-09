@@ -2,6 +2,8 @@ package main;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.Objects;
 
 public class KeyHandler implements KeyListener {
@@ -55,6 +57,7 @@ public class KeyHandler implements KeyListener {
     }
 
     public void titleState(int code){
+        int maxNum = 9;
         switch (code) {
             case KeyEvent.VK_W -> {
                 if (gp.ui.commandNum == 0) gp.ui.commandNum = gp.ui.menuLength;
@@ -95,13 +98,16 @@ public class KeyHandler implements KeyListener {
                         }
                     }
                     case 2 ->{
-                        gp.player.selectSprite();
-                        gp.player.getPlayerImage();
-                        gp.gameState = gp.playState;
-
+                        switch(gp.ui.commandNum){
+                            case 6 -> {
+                                gp.player.selectSprite();
+                                gp.player.getPlayerImage();
+                                gp.gameState = gp.playState;}
+                            case 7 -> gp.ui.titleScreenState = 1;
+                        }
                     }
                 }
-
+                gp.ui.commandNum = 0;
             }
             case KeyEvent.VK_A -> {
                 if (gp.ui.titleScreenState == 2) {
@@ -114,7 +120,7 @@ public class KeyHandler implements KeyListener {
                         }
 
                         case 1 -> {
-                            if (gp.player.eyeIndex == 1) gp.player.eyeIndex = 9;
+                            if (gp.player.eyeIndex == 1) gp.player.eyeIndex = 7;
                             else gp.player.eyeIndex--;
                             gp.player.loadSprites("/player/Character_Generator/Eyes/16x16/Eyes_0"+gp.player.eyeIndex+".png", gp.player.eyes, 16, 32);
 
@@ -122,11 +128,12 @@ public class KeyHandler implements KeyListener {
                         case 2 -> {
                             if (gp.player.hairIndex == 1) gp.player.hairIndex = 9;
                             else gp.player.hairIndex--;
+                            gp.player.hairColor = 1;
                             gp.player.loadSprites("/player/Character_Generator/Hairstyles/16x16/Hairstyle_0"+gp.player.hairIndex+"_0"+gp.player.hairColor+".png", gp.player.hairstyles, 16, 32);
 
                         }
                         case 3 -> {
-                            if (gp.player.hairColor == 1) gp.player.hairColor = 9;
+                            if (gp.player.hairColor == 1) gp.player.hairColor = 7;
                             else gp.player.hairColor--;
                             gp.player.loadSprites("/player/Character_Generator/Hairstyles/16x16/Hairstyle_0"+gp.player.hairIndex+"_0"+gp.player.hairColor+".png", gp.player.hairstyles, 16, 32);
 
@@ -134,11 +141,18 @@ public class KeyHandler implements KeyListener {
                         case 4 -> {
                             if (gp.player.outfitIndex == 1) gp.player.outfitIndex = 9;
                             else gp.player.outfitIndex--;
+                            gp.player.outfitColor = 1;
                             gp.player.loadSprites("/player/Character_Generator/Outfits/16x16/Outfit_0"+gp.player.outfitIndex+"_0"+gp.player.outfitColor+".png", gp.player.outfits, 16, 32);
 
                         }
                         case 5 -> {
-                            if (gp.player.outfitColor == 1) gp.player.outfitColor = 9;
+                            switch(gp.player.outfitIndex){
+                                case 1 -> maxNum = 9;
+                                case 2, 3, 6, 7 -> maxNum = 4;
+                                case 4 -> maxNum = 3;
+                                case 5 -> maxNum = 5;
+                            }
+                            if (gp.player.outfitColor == 1) gp.player.outfitColor = maxNum;
                             else gp.player.outfitColor--;
                             gp.player.loadSprites("/player/Character_Generator/Outfits/16x16/Outfit_0"+gp.player.outfitIndex+"_0"+gp.player.outfitColor+".png", gp.player.outfits, 16, 32);
 
@@ -158,7 +172,7 @@ public class KeyHandler implements KeyListener {
                         }
 
                         case 1 -> {
-                            if (gp.player.eyeIndex == 9) gp.player.eyeIndex = 1;
+                            if (gp.player.eyeIndex == 7) gp.player.eyeIndex = 1;
                             else gp.player.eyeIndex++;
                             gp.player.loadSprites("/player/Character_Generator/Eyes/16x16/Eyes_0"+gp.player.eyeIndex+".png", gp.player.eyes, 16, 32);
 
@@ -166,11 +180,12 @@ public class KeyHandler implements KeyListener {
                         case 2 -> {
                             if (gp.player.hairIndex == 9) gp.player.hairIndex = 1;
                             else gp.player.hairIndex++;
+                            gp.player.hairColor = 1;
                             gp.player.loadSprites("/player/Character_Generator/Hairstyles/16x16/Hairstyle_0"+gp.player.hairIndex+"_0"+gp.player.hairColor+".png", gp.player.hairstyles, 16, 32);
 
                         }
                         case 3 -> {
-                            if (gp.player.hairColor == 9) gp.player.hairColor = 1;
+                            if (gp.player.hairColor == 7) gp.player.hairColor = 1;
                             else gp.player.hairColor++;
                             gp.player.loadSprites("/player/Character_Generator/Hairstyles/16x16/Hairstyle_0"+gp.player.hairIndex+"_0"+gp.player.hairColor+".png", gp.player.hairstyles, 16, 32);
 
@@ -178,18 +193,31 @@ public class KeyHandler implements KeyListener {
                         case 4 -> {
                             if (gp.player.outfitIndex == 9) gp.player.outfitIndex = 1;
                             else gp.player.outfitIndex++;
+                            gp.player.outfitColor = 1;
                             gp.player.loadSprites("/player/Character_Generator/Outfits/16x16/Outfit_0"+gp.player.outfitIndex+"_0"+gp.player.outfitColor+".png", gp.player.outfits, 16, 32);
 
                         }
                         case 5 -> {
                             if (gp.player.outfitColor == 9) gp.player.outfitColor = 1;
                             else gp.player.outfitColor++;
+
                             gp.player.loadSprites("/player/Character_Generator/Outfits/16x16/Outfit_0"+gp.player.outfitIndex+"_0"+gp.player.outfitColor+".png", gp.player.outfits, 16, 32);
 
                         }
-                        default -> System.out.println(3);
+
                     }
                 }
+            }
+            case KeyEvent.VK_K -> {
+                FileReader reader = null;
+                try {
+                    reader = new FileReader("res/spritesheets/Overworld.json");
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+                Data data = gp.gson.fromJson(reader, Data.class);
+                System.out.println("tileHeight: " + data.getLayers());
+
             }
 
         }

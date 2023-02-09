@@ -1,5 +1,6 @@
 package main;
 
+import com.google.gson.Gson;
 import entity.Entity;
 import entity.Player;
 import tile.TileManager;
@@ -7,6 +8,8 @@ import tile_interactive.InteractiveTile;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 
@@ -45,6 +48,7 @@ public class GamePanel extends JPanel implements Runnable{
     public EventHandler eHandler = new EventHandler(this);
     public Time time = new Time(this);
     Config config = new Config(this);
+    Gson gson = new Gson();
 
     Thread gameThread;
 
@@ -91,7 +95,6 @@ public class GamePanel extends JPanel implements Runnable{
         aSetter.setiTile();
         aSetter.setNPC();
         aSetter.setMON();
-
         gameState = titleState;
 
     }

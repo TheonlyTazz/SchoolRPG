@@ -94,7 +94,10 @@ public class UI {
         menuString[i] = "Outfit";
         menuValues[i] = ""+gp.player.outfitIndex; i++;
         menuString[i] = "Outfit Variant";
-        menuValues[i] = ""+gp.player.outfitColor;
+        menuValues[i] = ""+gp.player.outfitColor; i++;
+        menuString[i] = "Start Game"; i++;
+        menuString[i] = "Back";
+
         menuLength = i;
     }
 
