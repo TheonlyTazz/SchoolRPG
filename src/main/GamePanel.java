@@ -1,6 +1,6 @@
 package main;
 
-import com.google.gson.Gson;
+
 import entity.Entity;
 import entity.Player;
 import tile.TileManager;
@@ -8,8 +8,7 @@ import tile_interactive.InteractiveTile;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+
 import java.util.ArrayList;
 
 
@@ -55,11 +54,11 @@ public class GamePanel extends JPanel implements Runnable{
     // ENTITY AND OBJECT
     public Player player = new Player(this, keyH);
     public Entity[][] obj =  new Entity[maxMap][20];
-    public Entity[][] npc = new Entity[maxMap][20];
+    public Entity[][] npc = new Entity[maxMap][100];
     public Entity[][] mon = new Entity[maxMap][20];
     public InteractiveTile[][] iTile = new InteractiveTile[maxMap][20];
     public ArrayList<Entity> particleList = new ArrayList<>();
-    ArrayList<Entity> entityList = new ArrayList<>();
+    public ArrayList<Entity> entityList = new ArrayList<>();
 
 
     //Game State
@@ -191,7 +190,7 @@ public class GamePanel extends JPanel implements Runnable{
         else{
 
             // TILE
-            tileM.draw(g2);
+            tileM.draw(g2, false);
 
             for (int i = 0; i < iTile[1].length; i++) {
                 if (iTile[currentMap][i] != null) {
@@ -236,6 +235,7 @@ public class GamePanel extends JPanel implements Runnable{
                 entity.draw(g2);
             }
 
+            tileM.draw(g2, true);
 
             // EMPTY Entity List
             entityList.clear();

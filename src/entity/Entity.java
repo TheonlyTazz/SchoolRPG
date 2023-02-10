@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Random;
 
 public class Entity {
 
@@ -36,6 +37,10 @@ public class Entity {
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collision = false;
     public String[] dialogues = new String[20];
+    public String[] studentNames = new String[20];
+    public int studentLength;
+    int randomNameIndex;
+    Random rand = new Random();
 
     // SPRITES
     public int spriteWidth = 48;
@@ -92,7 +97,7 @@ public class Entity {
 
     // TYPE
     public int type; // 0 = player, 1 = npc, 2 = monster
-    public final int type_player = 0;
+    public final int type_tile = 0;
     public final int type_npc = 1;
     public final int type_monster = 2;
     public final int type_sword = 3;
@@ -111,6 +116,32 @@ public class Entity {
 
     public Entity(GamePanel gp) {
         this.gp = gp;
+    }
+    public void getNameList(){
+        studentNames = new String[20];
+        studentLength = 0;
+        int i = 0;
+        studentNames[i] = "Adam"; i++;
+        studentNames[i] = "Alex"; i++;
+        studentNames[i] = "Amelia"; i++;
+        studentNames[i] = "Ash"; i++;
+        studentNames[i] = "Bob"; i++;
+        studentNames[i] = "Bruce"; i++;
+        studentNames[i] = "Dan"; i++;
+        studentNames[i] = "Edward"; i++;
+        studentNames[i] = "Lucy"; i++;
+        studentNames[i] = "Molly"; i++;
+        studentNames[i] = "Old_man_Josh"; i++;
+        studentNames[i] = "Old_woman_Jenny"; i++;
+        studentNames[i] = "Rob"; i++;
+        studentNames[i] = "Roki"; i++;
+        studentNames[i] = "Samuel";
+        studentLength = i;
+    }
+    public String getRandomName(){
+        getNameList();
+        randomNameIndex = rand.nextInt(studentLength-2);
+        return studentNames[randomNameIndex];
     }
     public void getSprites() {
         int i = 114;
@@ -274,7 +305,7 @@ public class Entity {
             }
         }
         // IF COLLISION IS FALSE, Entity CAN MOVE
-        if(!collisionOn && this.type != type_npc) {
+        if(!collisionOn) {
             switch (direction) {
                 case "up" -> worldY -= speed;
                 case "down" -> worldY += speed;
@@ -300,25 +331,27 @@ public class Entity {
                 worldX - gp.tileSize < gp.player.worldX + gp.player.screenX &&
                 worldY + gp.tileSize > gp.player.worldY - gp.player.screenY &&
                 worldY - gp.tileSize < gp.player.worldY + gp.player.screenY) {
-
-            switch (direction) {
-                case "up" -> {
-                    if (spriteNum == 1) image = up1;
-                    if (spriteNum == 2) image = up2;
-                }
-                case "down" -> {
-                    if (spriteNum == 1) image = down1;
-                    if (spriteNum == 2) image = down2;
-                }
-                case "left" -> {
-                    if (spriteNum == 1) image = left1;
-                    if (spriteNum == 2) image = left2;
-                }
-                case "right" -> {
-                    if (spriteNum == 1) image = right1;
-                    if (spriteNum == 2) image = right2;
+            if(type != type_tile){
+                switch (direction) {
+                    case "up" -> {
+                        if (spriteNum == 1) image = up1;
+                        if (spriteNum == 2) image = up2;
+                    }
+                    case "down" -> {
+                        if (spriteNum == 1) image = down1;
+                        if (spriteNum == 2) image = down2;
+                    }
+                    case "left" -> {
+                        if (spriteNum == 1) image = left1;
+                        if (spriteNum == 2) image = left2;
+                    }
+                    case "right" -> {
+                        if (spriteNum == 1) image = right1;
+                        if (spriteNum == 2) image = right2;
+                    }
                 }
             }
+
 
             // Monster HP Bar
             if(type == 2 && hpBarOn){
@@ -466,7 +499,5 @@ public class Entity {
         return image;
     }
 
-    public void debug(){
 
-    }
 }

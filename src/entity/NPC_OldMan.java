@@ -55,8 +55,6 @@ public class NPC_OldMan extends Entity{
         if (i > 50 && i <= 75) direction = "left";
         if (i > 75) direction = "right";
         actionLockCounter = 0;
-
-
     }
     public void speak(){super.speak();gp.time.addMinutes(5);}
 }

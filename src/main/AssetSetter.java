@@ -1,5 +1,6 @@
 package main;
 
+import entity.Students.*;
 import monster.MON_GreenSlime;
 import entity.*;
 import object.*;
@@ -40,6 +41,7 @@ public class AssetSetter {
         switch(NPC){
             case "OldMan" -> gp.npc[mapNum][id] = new NPC_OldMan(gp);
             case "Merchant" -> gp.npc[mapNum][id] = new NPC_Merchant(gp);
+            case "Student random" -> gp.npc[mapNum][id] = new NPC_Student(gp);
         }
         gp.npc[mapNum][id].worldX = gp.tileSize * x;
         gp.npc[mapNum][id].worldY = gp.tileSize * y;
@@ -55,8 +57,7 @@ public class AssetSetter {
 
     public void setObject() {
         int i = 0;
-        int mapNum;
-        mapNum = 0;
+        int mapNum = 0;
         /*
         createObject(i, mapNum, "Key", 28, 25); i++;
         createObject(i, mapNum, "Key", 28, 26); i++;
@@ -106,12 +107,18 @@ public class AssetSetter {
         createNPC(i, mapNum, "OldMan", 23, 21);i++;
         createNPC(i, mapNum, "OldMan", 24, 21);i++;
         createNPC(i, mapNum, "OldMan", 25, 21);i++;
-
          */
+        for(int j = 1; j < 4; j++){
+            for(i = 0; i < 10; i++){
+                createNPC(i*j, mapNum, "Student random", 48+i, 48+j);
+
+            }
+        }
+
 
         mapNum = 1;
         createNPC(i, mapNum, "OldMan", 26, 29); i++;
-        createNPC(i, mapNum, "Merchant", 35, 27); i++;
+        createNPC(i, mapNum, "Merchant", 35, 27);
 
     }
     public void setMON(){

@@ -45,7 +45,6 @@ public class Player extends Entity{
 
 
         setDefaultValues();
-        getPlayerAttackImage();
 
 
 
@@ -87,7 +86,6 @@ public class Player extends Entity{
         attack = getAttack();
         defense = getDefense();
 
-        loadSprites("/player/run_vertical_16x16_"+playerNum+".png", sprites, 16, 32);
         getLayeredSprites();
         getPlayerImage();
         setItems();
@@ -151,22 +149,6 @@ public class Player extends Entity{
         down6 = sprites[i]; i++;
     }
 
-    public void getPlayerAttackImage() {
-        String type = "attack";
-        switch(currentWeapon.type){
-            case(type_sword) -> type = "attack";
-            case(type_axe) -> type = "axe";
-        }
-        attackUp1 = setup("/player/boy_"+type+"_up_1", gp.tileSize, gp.tileSize*2);
-        attackUp2 = setup("/player/boy_"+type+"_up_2", gp.tileSize, gp.tileSize*2);
-        attackDown1 = setup("/player/boy_"+type+"_down_1", gp.tileSize, gp.tileSize*2);
-        attackDown2 = setup("/player/boy_"+type+"_down_2", gp.tileSize, gp.tileSize*2);
-        attackLeft1 = setup("/player/boy_"+type+"_left_1", gp.tileSize*2, gp.tileSize);
-        attackLeft2 = setup("/player/boy_"+type+"_left_2", gp.tileSize*2, gp.tileSize);
-        attackRight1 = setup("/player/boy_"+type+"_right_1", gp.tileSize*2, gp.tileSize);
-        attackRight2 = setup("/player/boy_"+type+"_right_2", gp.tileSize*2, gp.tileSize);
-
-    }
 
     public void update() {
 
@@ -380,7 +362,6 @@ public class Player extends Entity{
             if(selectedItem.type == type_sword || selectedItem.type == type_axe){
                 currentWeapon = selectedItem;
                 attack = getAttack();
-                getPlayerAttackImage();
             }
             if(selectedItem.type == type_shield){
                 currentShield = selectedItem;

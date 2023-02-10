@@ -2,8 +2,7 @@ package main;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+
 import java.util.Objects;
 
 public class KeyHandler implements KeyListener {
@@ -148,8 +147,8 @@ public class KeyHandler implements KeyListener {
                         case 5 -> {
                             switch(gp.player.outfitIndex){
                                 case 1 -> maxNum = 9;
-                                case 2, 3, 6, 7 -> maxNum = 4;
-                                case 4 -> maxNum = 3;
+                                case 2, 3, 6, 7, 8 -> maxNum = 4;
+                                case 4, 9 -> maxNum = 3;
                                 case 5 -> maxNum = 5;
                             }
                             if (gp.player.outfitColor == 1) gp.player.outfitColor = maxNum;
@@ -198,7 +197,12 @@ public class KeyHandler implements KeyListener {
 
                         }
                         case 5 -> {
-                            if (gp.player.outfitColor == 9) gp.player.outfitColor = 1;
+                            switch(gp.player.outfitIndex){
+                                case 2, 3, 6, 7, 8 -> maxNum = 4;
+                                case 4, 9 -> maxNum = 3;
+                                case 5 -> maxNum = 5;
+                            }
+                            if (gp.player.outfitColor == maxNum) gp.player.outfitColor = 1;
                             else gp.player.outfitColor++;
 
                             gp.player.loadSprites("/player/Character_Generator/Outfits/16x16/Outfit_0"+gp.player.outfitIndex+"_0"+gp.player.outfitColor+".png", gp.player.outfits, 16, 32);
@@ -437,7 +441,6 @@ public class KeyHandler implements KeyListener {
                 }
             }
         }
-
 
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();

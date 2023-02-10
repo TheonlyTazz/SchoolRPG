@@ -40,9 +40,10 @@ public class MapData {
         }
     }
     public class Property {
-        private String name;
+        public String name;
         private String type;
         private boolean value;
+        private String valueString;
 
         public String getName() {
             return name;
@@ -54,6 +55,9 @@ public class MapData {
 
         public boolean isValue() {
             return value;
+        }
+        public String isValueString() {
+            return String.valueOf(value);
         }
     }
 

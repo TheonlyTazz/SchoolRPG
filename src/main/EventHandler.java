@@ -43,34 +43,11 @@ public class EventHandler {
         if(distance > gp.tileSize) canTouchEvent = true;
 
         if (canTouchEvent){
-            if(hit(31, 22, 0, "any")) switchMap(20, 27, 1);
-            if(hit(24, 35, 0, "any")) switchMap(20, 27, 1);
-            if(hit(38, 35, 0, "any")) switchMap(20, 27, 1);
+            if(hit(47, 41, 0, "any", false)) switchMap(20, 27, 1);
+            if(hit(48, 40, 0, "up", true)) switchMap(20, 27, 1);
+            if(hit(53, 40, 0, "up", true)) switchMap(20, 27, 1);
+            if(hit(54, 40, 0, "up", true)) switchMap(20, 27, 1);
 
-            if(hit(19, 27, 1, "any")) switchMap(38, 36, 0);
-
-            //Hallway_01
-            if(hit(21, 31, 1, "left")) switchMap(16, 43, 2);
-            if(hit(21, 32, 1, "left")) switchMap(16, 44, 2);
-
-            if(hit(39, 31, 1, "left")) switchMap(48, 43, 2);
-            if(hit(39, 32, 1, "left")) switchMap(48, 44, 2);
-
-            //Hallway_01_Upstairs
-            if(hit(17, 43, 2, "right")) switchMap(22, 31, 1);
-            if(hit(17, 44, 2, "right")) switchMap(22, 32, 1);
-
-            if(hit(49, 43, 2, "right")) switchMap(38, 31, 1);
-            if(hit(49, 44, 2, "right")) switchMap(38, 32, 1);
-
-            if(hit(32, 34, 2, "up")) switchMap (33, 41, 3);
-
-            if(hit(33, 42, 3, "down")) switchMap(32, 33, 2);
-            if(hit(26, 24, 1, "up")) switchMap(33, 41, 8);
-            if(hit(35, 24, 1, "up")) switchMap(33, 41, 8);
-            if(hit(33, 30, 1, "down")) switchMap(33, 29, 9);
-            if(hit(33, 42, 8, "down")) switchMap(gp.player.previousX, gp.player.previousY, 1);
-            if(hit(33, 27, 9, "up")) switchMap(gp.player.previousX, gp.player.previousY, 1);
 
 
 
@@ -78,34 +55,40 @@ public class EventHandler {
 
     }
 
-    public boolean hit(int col, int row, int currentMap, String reqDirection){
-
+    public boolean hit(int col, int row, int currentMap, String reqDirection, boolean keyPressed){
+        boolean needKey = false;
         if(gp.currentMap != currentMap) return false;
-
-        boolean hit = false;
-        gp.player.solidArea.x = gp.player.worldX + gp.player.solidArea.x;
-        gp.player.solidArea.y = gp.player.worldY + gp.player.solidArea.y;
-
-        eventRect[col][row].x = col*gp.tileSize + eventRect[col][row].x;
-        eventRect[col][row].y = row*gp.tileSize + eventRect[col][row].y;
-
-        if(gp.player.solidArea.intersects(eventRect[col][row]) && !eventRect[col][row].eventDone){
-            if(gp.player.direction.contentEquals(reqDirection) || reqDirection.contentEquals("any")) {
-                hit = true;
-                canTouchEvent = false;
-
-                previousEventX = gp.player.worldX;
-                previousEventY = gp.player.worldY;
-
-            }
+        if(keyPressed){
+            needKey = true;
+            if (gp.keyH.dialoguePressed) needKey = false;
         }
+        boolean hit = false;
+        if(!needKey){
+            gp.player.solidArea.x = gp.player.worldX + gp.player.solidArea.x;
+            gp.player.solidArea.y = gp.player.worldY + gp.player.solidArea.y;
 
-        gp.player.solidArea.x = gp.player.solidAreaDefaultX;
-        gp.player.solidArea.y = gp.player.solidAreaDefaultY;
-        eventRect[col][row].x = eventRect[col][row].eventRectDefaultX;
-        eventRect[col][row].y = eventRect[col][row].eventRectDefaultY;
+            eventRect[col][row].x = col*gp.tileSize + eventRect[col][row].x;
+            eventRect[col][row].y = row*gp.tileSize + eventRect[col][row].y;
+
+            if(gp.player.solidArea.intersects(eventRect[col][row]) && !eventRect[col][row].eventDone){
+                if(gp.player.direction.contentEquals(reqDirection) || reqDirection.contentEquals("any")) {
+                    hit = true;
+                    canTouchEvent = false;
+
+                    previousEventX = gp.player.worldX;
+                    previousEventY = gp.player.worldY;
+
+                }
+            }
+
+            gp.player.solidArea.x = gp.player.solidAreaDefaultX;
+            gp.player.solidArea.y = gp.player.solidAreaDefaultY;
+            eventRect[col][row].x = eventRect[col][row].eventRectDefaultX;
+            eventRect[col][row].y = eventRect[col][row].eventRectDefaultY;
 
 
+
+        }
         return hit;
     }
 
