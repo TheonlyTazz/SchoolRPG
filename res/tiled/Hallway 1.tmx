@@ -9,7 +9,6 @@
  <layer id="1" name="Floor" width="75" height="50">
   <properties>
    <property name="collision" type="bool" value="false"/>
-   <property name="file" value="/res/spritesheets/Room_Builder_16x16.png"/>
    <property name="layered" type="bool" value="false"/>
   </properties>
   <data encoding="csv">
@@ -68,7 +67,6 @@
  <layer id="2" name="Walls" width="75" height="50">
   <properties>
    <property name="collision" type="bool" value="false"/>
-   <property name="file" value="/res/spritesheets/Room_Builder_16x16.png"/>
    <property name="layered" type="bool" value="false"/>
   </properties>
   <data encoding="csv">
@@ -127,7 +125,6 @@
  <layer id="11" name="Wall1" width="75" height="50">
   <properties>
    <property name="collision" type="bool" value="false"/>
-   <property name="file" value="/res/spritesheets/Room_Builder_16x16.png"/>
    <property name="layered" type="bool" value="false"/>
   </properties>
   <data encoding="csv">
@@ -186,7 +183,6 @@
  <layer id="4" name="Entrances" width="75" height="50">
   <properties>
    <property name="collision" type="bool" value="false"/>
-   <property name="file" value="/res/spritesheets/Room_Builder_16x16.png"/>
    <property name="layered" type="bool" value="false"/>
   </properties>
   <data encoding="csv">
@@ -245,7 +241,6 @@
  <layer id="8" name="Stairs" width="75" height="50">
   <properties>
    <property name="collision" type="bool" value="false"/>
-   <property name="file" value="/res/spritesheets/Interiors_16x16.png"/>
    <property name="layered" type="bool" value="false"/>
   </properties>
   <data encoding="csv">
@@ -304,7 +299,6 @@
  <layer id="10" name="Objects0" width="75" height="50">
   <properties>
    <property name="collision" type="bool" value="false"/>
-   <property name="file" value="/res/spritesheets/Interiors_16x16.png"/>
    <property name="layered" type="bool" value="false"/>
   </properties>
   <data encoding="csv">
@@ -363,7 +357,6 @@
  <layer id="9" name="Objects" width="75" height="50">
   <properties>
    <property name="collision" type="bool" value="false"/>
-   <property name="file" value="/res/spritesheets/Interiors_16x16.png"/>
    <property name="layered" type="bool" value="false"/>
   </properties>
   <data encoding="csv">
@@ -422,7 +415,6 @@
  <layer id="12" name="ObjectTop" width="75" height="50">
   <properties>
    <property name="collision" type="bool" value="false"/>
-   <property name="file" value="/res/spritesheets/Interiors_16x16.png"/>
    <property name="layered" type="bool" value="false"/>
   </properties>
   <data encoding="csv">
@@ -481,7 +473,6 @@
  <layer id="5" name="Arches" width="75" height="50">
   <properties>
    <property name="collision" type="bool" value="false"/>
-   <property name="file" value="/res/spritesheets/Interiors_16x16.png"/>
    <property name="layered" type="bool" value="false"/>
   </properties>
   <data encoding="csv">
@@ -540,7 +531,6 @@
  <layer id="7" name="Stairs" width="75" height="50">
   <properties>
    <property name="collision" type="bool" value="false"/>
-   <property name="file" value="/res/spritesheets/Interiors_16x16.png"/>
    <property name="layered" type="bool" value="false"/>
   </properties>
   <data encoding="csv">
