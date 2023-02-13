@@ -102,18 +102,14 @@ public class AssetSetter {
 
         mapNum = 0;
         /*
-        createNPC(i, mapNum, "OldMan", 21, 21);i++;
-        createNPC(i, mapNum, "OldMan", 22, 21);i++;
-        createNPC(i, mapNum, "OldMan", 23, 21);i++;
-        createNPC(i, mapNum, "OldMan", 24, 21);i++;
-        createNPC(i, mapNum, "OldMan", 25, 21);i++;
-         */
+
         for(int j = 1; j < 4; j++){
             for(i = 0; i < 10; i++){
                 createNPC(i*j, mapNum, "Student random", 48+i, 48+j);
 
             }
         }
+         */
 
 
         mapNum = 1;

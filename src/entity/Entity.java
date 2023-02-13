@@ -280,7 +280,7 @@ public class Entity {
         setAction();
 
         collisionOn = false;
-        gp.cChecker.checkTile(this);
+        //gp.cChecker.checkTile(this);
         gp.cChecker.checkObject(this, false);
         gp.cChecker.checkEntity(this, gp.npc[gp.currentMap]);
         gp.cChecker.checkEntity(this, gp.mon[gp.currentMap]);

@@ -52,8 +52,8 @@ public class Player extends Entity{
     public void setDefaultPos(){
         switch(gp.currentMap){
             case 0 ->{
-                worldX = gp.tileSize * 51;
-                worldY = gp.tileSize * 70;
+                worldX = gp.tileSize * 31;
+                worldY = gp.tileSize * 44;
             }
             case 1 -> {
                 worldX = gp.tileSize * 20;
@@ -163,7 +163,7 @@ public class Player extends Entity{
 
             // CHECK TILE COLLISION
             collisionOn = false;
-            gp.cChecker.checkTile(this);
+            //gp.cChecker.checkTile(this);
 
             // CHECK OBJECT COLLISION
             int objIndex = gp.cChecker.checkObject(this, true);
