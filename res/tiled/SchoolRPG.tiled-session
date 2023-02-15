@@ -3,16 +3,33 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "C:/Users/leroy/OneDrive/Dokumente/Schule/python/SchoolRPG/res/LDtk/SchoolRPG/tiled/Level_0.tmx",
     "expandedProjectPaths": [
     ],
     "fileStates": {
+        "C:/Users/leroy/OneDrive/Dokumente/Schule/python/SchoolRPG/res/LDtk/SchoolRPG/tiled/Level_0.tmx": {
+            "scale": 0.33,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1777.2727272727275,
+                "y": 1360.6060606060607
+            }
+        },
+        "C:/Users/leroy/OneDrive/Dokumente/Schule/python/SchoolRPG/res/LDtk/SchoolRPG/tiled/Level_0.tmx#Interiors_16x16": {
+            "scaleInDock": 1
+        },
+        "C:/Users/leroy/OneDrive/Dokumente/Schule/python/SchoolRPG/res/LDtk/SchoolRPG/tiled/Level_0.tmx#Modern_Exteriors_Complete_Tileset": {
+            "scaleInDock": 1
+        },
+        "C:/Users/leroy/OneDrive/Dokumente/Schule/python/SchoolRPG/res/LDtk/SchoolRPG/tiled/Level_0.tmx#Room_Builder_16x16": {
+            "scaleInDock": 1
+        },
         "Hallway 1.tmx": {
             "scale": 1,
             "selectedLayer": 7,
             "viewCenter": {
-                "x": 479.5,
-                "y": 239
+                "x": 839.5,
+                "y": 398
             }
         },
         "Overworld.json": {
@@ -27,13 +44,17 @@
             "scale": 0.5,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 843,
-                "y": 910
+                "x": 842,
+                "y": 909
             }
         }
     },
     "last.exportedFilePath": "C:/Users/leroy/OneDrive/Dokumente/Schule/python/SchoolRPG/res/maps",
     "last.imagePath": "C:/Users/leroy/OneDrive/Dokumente/Schule/python/SchoolRPG/res/spritesheets",
+    "last.worldFilePath": "C:/Users/leroy/OneDrive/Dokumente/Schule/python/SchoolRPG/res/tiled",
+    "loadedWorlds": [
+        "C:/Users/leroy/OneDrive/Dokumente/Schule/python/SchoolRPG/res/tiled/world.world"
+    ],
     "map.height": 50,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
@@ -41,10 +62,12 @@
     "map.tileWidth": 16,
     "map.width": 75,
     "openFiles": [
+        "C:/Users/leroy/OneDrive/Dokumente/Schule/python/SchoolRPG/res/LDtk/SchoolRPG/tiled/Level_0.tmx"
     ],
     "project": "SchoolRPG.tiled-project",
     "property.type": "bool",
     "recentFiles": [
+        "C:/Users/leroy/OneDrive/Dokumente/Schule/python/SchoolRPG/res/LDtk/SchoolRPG/tiled/Level_0.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

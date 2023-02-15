@@ -43,10 +43,11 @@ public class EventHandler {
         if(distance > gp.tileSize) canTouchEvent = true;
 
         if (canTouchEvent){
+            /*
             if(hit(47, 41, 0, "any", false)) switchMap(20, 27, 1);
             if(hit(48, 40, 0, "up", true)) switchMap(20, 27, 1);
             if(hit(53, 40, 0, "up", true)) switchMap(20, 27, 1);
-            if(hit(54, 40, 0, "up", true)) switchMap(20, 27, 1);
+            if(hit(54, 40, 0, "up", true)) switchMap(20, 27, 1);*/
 
 
 

@@ -28,6 +28,7 @@ public class TileManager {
     boolean[] collision = new boolean[50000];
     boolean[] layered = new boolean[50000];
     String[] file = new String[50000];
+    UtilityTool uTool = new UtilityTool();
 
 
 
@@ -37,17 +38,10 @@ public class TileManager {
         tile = new Tile[50000];
         mapTileNum = new int [gp.maxMap][gp.maxLayer][gp.maxWorldCol][gp.maxWorldRow];
 
-        loadSprites("/spritesheets/Modern_Exteriors_Complete_Tileset.png", sprites[0], 16, 16);
-        //loadSprites("/spritesheets/Room_Builder_16x16.png", sprites[1], 16, 16);
-        //loadSprites("/spritesheets/Interiors_16x16.png", sprites[2], 16, 16);
-
-        loadMapSheet("/maps/Overworld.json", 0);
-        //loadMapSheet("/maps/Hallway 1.json", 1);
-
     }
 
     public void loadSprites(String sheetPath, BufferedImage[] sprites, int spriteWidth, int spriteHeight){
-        UtilityTool uTool = new UtilityTool();
+
         BufferedImage image = null;
         int sheetWidth;
         int sheetHeight;
@@ -89,7 +83,6 @@ public class TileManager {
         for(int i = 0; i < layers; i++){
             MapData.Layer Layer = mapData.getLayers()[i];
             int layerID = Layer.getId();
-            System.out.println(layerID);
             MapData.Property[] properties = Layer.getProperties();
             for (MapData.Property property : properties) {
                 if(Objects.equals(property.name, "collision")) {
@@ -135,9 +128,7 @@ public class TileManager {
                     tile[id].layered = layered[i];
                     tile[id].tileSize = 16;
                 }
-                if(tile[id].collision) {
-                    System.out.println("COLLISION on tile: " + id);
-                }
+
 
 
                 col++;

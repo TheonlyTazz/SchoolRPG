@@ -101,7 +101,10 @@ public class KeyHandler implements KeyListener {
                             case 6 -> {
                                 gp.player.selectSprite();
                                 gp.player.getPlayerImage();
-                                gp.gameState = gp.playState;}
+                                gp.gameState = gp.playState;
+                                gp.levelM.loadLDtx(gp.filePath);
+                                gp.levelM.loadLayers();
+                            }
                             case 7 -> gp.ui.titleScreenState = 1;
                         }
                     }

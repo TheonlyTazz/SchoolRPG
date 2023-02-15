@@ -1,5 +1,19 @@
 {
     "maps": [
+        {
+            "fileName": "Hallway 1.tmx",
+            "height": 800,
+            "width": 1200,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "fileName": "Overworld.tmx",
+            "height": 1600,
+            "width": 1600,
+            "x": 1200,
+            "y": 0
+        }
     ],
     "onlyShowAdjacentMaps": false,
     "type": "world"
